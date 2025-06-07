@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nico on Point Services</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f8f9fa;
+      color: #333;
+    }
+    header {
+      background-color: #1a1a1a;
+      color: #fff;
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+    header img.logo {
+      width: 150px;
+      margin-bottom: 1rem;
+    }
+    header img.profile {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 2px solid #e6b800;
+      margin-top: 1rem;
+    }
+    section {
+      padding: 2rem;
+      max-width: 900px;
+      margin: auto;
+    }
+    h2 {
+      color: #e6b800;
+    }
+    ul {
+      padding-left: 1.5rem;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background-color: #1a1a1a;
+      color: #fff;
+      margin-top: 2rem;
+    }
+    form input,
+    form textarea {
+      display: block;
+      width: 100%;
+      padding: 0.8rem;
+      margin-bottom: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    form button {
+      background-color: #e6b800;
+      color: #000;
+      padding: 0.8rem 1.2rem;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .image {
+      width: 100%;
+      max-height: 300px;
+      object-fit: cover;
+      margin: 1rem 0;
+      border-radius: 8px;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    .gallery img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="logo.png" alt="Nico on Point logo" class="logo" onerror="this.style.display='none'" />
+    <h1>Nico on Point Services</h1>
+    <p>Versatile help with facility work, renovations, installations & PCs</p>
+    <img src="images/1746466909687.jpg" alt="Profile photo of Nico" class="profile" onerror="this.style.display='none'" />
+  </header>
+
+  <section>
+    <h2>What I Do</h2>
+    <img src="klus1.jpg" alt="Renovations and PC troubleshooting, maintenance and building" class="image" />
+    <ul>
+      <li>Small and large-scale renovations</li>
+      <li>Maintenance and troubleshooting of home installations</li>
+      <li>Building, troubleshoot and repairing personal computer, and gaming rigs</li>
+      <li>Custom-built gaming PCs with, or without liquid cooling</li>
+      <li>I have a lot of experience in the field of security. Installing, troubleshooting and maintaining installations.</li>
+      <li>Alarm center operator</li>
+      <li>Customer Service/Contact</li>
+      <li>And much more is within my skill set</li>
+    </ul>
+    <div class="gallery">
+      <img src="images/20250607_120713.jpg" alt="Renovation Project 1" />
+      <img src="images/IMG-20250603-WA0009.jpeg" alt="Renovation Project 2" />
+    </div>
+  </section>
+
+  <section>
+    <h2>My Projects</h2>
+    <div class="gallery">
+      <img src="images/20250607_120555.jpg" alt="Liquid-cooled PC build" />
+      <img src="images/20250527_145131.jpg" alt="PC project 3" />
+      <img src="images/20250527_110448.jpg" alt="PC Project 4" />
+      <img src="images/20250603_112518.jpg" alt="PC Project 5" />
+    </div>
+  </section>
+
+  <section>
+    <h2>About Me</h2>
+    <img src="https://images.unsplash.com/photo-1597764699510-31154b6f0d58" alt="Skilled handyman" class="image" />
+    <p>I’m a skilled and experienced handyman with a long and varied career. Thanks to years of hands-on work, I know how to tackle all kinds of problems. Whether it’s a leaking tap or a high-end gaming PC, I’ve got you covered.</p>
+    <p>I am a jack of all trades and with my extensive experience in many areas I can be of assistance to you in supporting your company or with regard to problem solving and/or all kinds of jobs in and around the house.</p>
+    <p>If I can be of any help to you for a reasonable price, I look forward to your message and your request. You can fill out the contact form, call directly or email via the following channels.....see you soon!</p>
+  </section>
+
+  <section>
+    <h2>Contact</h2>
+    <form action="https://formspree.io/f/xdoqawpg" method="POST">
+      <input type="text" name="name" placeholder="Your name" required />
+      <input type="email" name="email" placeholder="Your email address" required />
+      <textarea name="message" rows="5" placeholder="Your message..." required></textarea>
+      <button type="submit">Send</button>
+    </form>
+    <p>Call or email me directly at: 070 710 61 82, or <a href="mailto:nico_on_point-services@outlook.com"><strong>nico_on_point-services@outlook.com</strong></a></p>
+  </section>
+
+  <footer>
+    &copy; 2025 Nico on Point Services — All rights reserved
+  </footer>
+</body>
+</html>
