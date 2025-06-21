@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nico on Point Services | Fixes, Installs & Custom PCs in Sweden</title>
+  <link rel="icon" href="logo.png" type="image/png" />
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #eeeeee;
+      color: #333;
+    }
+    header {
+      background-color: #1a1a1a;
+      color: #fff;
+      text-align: center;
+      padding: 1rem 1rem;
+    }
+    header img.logo {
+      width: 210px;
+      margin-top: 2rem;
+      margin-bottom: 0.1rem;
+      animation: pulse 3s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+    header img.profile {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 2px solid #e6b800;
+      margin-top: 1rem;
+    }
+    section {
+      padding: 2rem;
+      max-width: 900px;
+      margin: auto;
+    }
+    h2 {
+      color: #e6b800;
+    }
+    ul {
+      padding-left: 1.5rem;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background-color: #1a1a1a;
+      color: #fff;
+      margin-top: 2rem;
+    }
+    form input,
+    form textarea {
+      display: block;
+      width: 100%;
+      padding: 0.8rem;
+      margin-bottom: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    form button {
+      background-color: #e6b800;
+      color: #000;
+      padding: 0.8rem 1.2rem;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    form button:hover {
+      background-color: #ffc400;
+    }
+    .contact-icons {
+      margin-top: 1.5rem;
+    }
+    .image {
+      width: 100%;
+      max-height: 300px;
+      object-fit: cover;
+      margin: 1rem 0;
+      border-radius: 8px;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 1s ease-in-out;
+    }
+    .image.fade-in {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    .gallery img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      border-radius: 8px;
+      transition: transform 0.3s;
+    }
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+    a.phone {
+      color: #e6b800;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    .contact-icons a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-right: 1rem;
+      font-weight: bold;
+      color: #e6b800;
+      text-decoration: none;
+      font-size: 1rem;
+    }
+    .contact-icons a:hover {
+      text-decoration: underline;
+    }
+    .contact-icons svg {
+      width: 0.9em;
+      height: 0.9em;
+      vertical-align: middle;
+      fill: #e6b800;
+      flex-shrink: 0;
+    }
+  </style>
+  <script>
+    window.addEventListener('scroll', () => {
+      document.querySelectorAll('.image').forEach(img => {
+        const rect = img.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 100) {
+          img.classList.add('fade-in');
+        }
+      });
+    });
+  </script>
+</head>
+<body>
+  
+<div style="position:absolute; top:1rem; right:1rem;">
+  <a href="index-en.html"><img src="flags/en.png" alt="English" style="width:28px; margin-right:8px;"></a>
+  <a href="index-sv.html"><img src="flags/sv.png" alt="Svenska" style="width:28px;"></a>
+</div>
+
+  <header>
+    <img src="logo.png" alt="Nico on Point logo" class="logo" onerror="this.style.display='none'" />
+    <h1>Nico on Point Services</h1>
+    <p>Versatile help with facility work, renovations, installations & PCs</p>
+    <img src="images/IMG-20240915-WA0002.jpg" alt="Profile photo of Nico" class="profile" onerror="this.style.display='none'" />
+  </header>
+
+  <section>
+    <h2>Vad jag gör – och var</h2>
+    <p>Based in beautiful Värmland, but I travel all over Sweden to help people with whatever needs fixing, installing, or building. From small home upgrades and troubleshooting to fully customized liquid-cooled gaming PCs – I’ve got you covered. No-nonsense service, fair prices, and always on point. Let’s get your project rolling!</p>
+    <img src="images/20250527_145131.jpg" alt="Renovations and PC troubleshooting" class="image" />
+    <ul>
+      <li>Small and large-scale renovations.</li>
+      <li>Maintenance and troubleshooting of home installations.</li>
+      <li>Building, troubleshooting and repairing PCs, workstations and gaming rigs.</li>
+      <li>Custom-built gaming PCs with or without liquid cooling.</li>
+      <li>Custom-built workstations for home or business.</li>
+      <li>Experience with security systems: install, maintain, troubleshoot.</li>
+      <li>Alarm center operator.</li>
+      <li>Customer Service/Kontakt.</li>
+      <li>Online support.</li>
+      <li>Web design and hardware/software solutions.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Några av mina projekt</h2>
+    <div class="gallery">
+      <img src="images/portvat.jpg" alt="Project A" />
+      <img src="images/sörbygden1.jpg" alt="Project B" />
+      <img src="images/20250527_145131.jpg" alt="Project C" />
+      <img src="images/20250603_112518.jpg" alt="Project D" />
+      <img src="images/20250607_120555.jpg" alt="Project E" />
+      <img src="images/20250607_120713.jpg" alt="Project F" />
+      <img src="images/IMG-20250603-WA0009.jpeg" alt="Project G" />
+      <img src="images/20250610_153558.jpg" alt="Project H" />
+    </div>
+  </section>
+
+  <section>
+    <h2>Om mig</h2>
+    <img src="https://images.unsplash.com/photo-1597764699510-31154b6f0d58" alt="Skilled handyman" class="image" />
+    <p>Years of hands-on experience. From high-end PCs to home repairs – I tackle every job with care and skill. No fuss, just quality.</p>
+    <p>I’m a skilled and experienced handyman with a long and varied career. Whether it’s a leaking tap or a high-end gaming PC, I’ve got you covered.</p>
+    <p>I’m a jack of all trades and I can assist you with problem solving and hands-on work around the house or your business.</p>
+    <p>Reasonable rates starting at 450 SEK/hour.</p>
+    <p>If you want to know more about me, click on one of the links below to my socials? Or just fill out the contact form, and we'll talk to each other soon.<p>
+    <p>Ser fram emot ditt meddelande eller förfrågan!</p>
+  </section>
+
+ <section>
+  <h2>Kontakt</h2>
+  <form action="https://formspree.io/f/mzzgdqkb" method="POST">
+    <input type="text" name="name" placeholder="Ditt namn" required />
+    <input type="email" name="email" placeholder="Din e-post" required />
+    <textarea name="message" rows="5" placeholder="Ditt meddelande..." required></textarea>
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_template" value="table">
+    <input type="hidden" name="_next" value="https://nico-on-point-services.com">
+    <button type="submit">Skicka</button>
+  </form>
+  <div class="contact-icons">
+    <a href="tel:+46707106182">📞 +46 70 710 61 82</a>
+    <a href="mailto:nico_on_point-services@outlook.com">✉️ Email me</a>
+    <a href="https://www.linkedin.com/in/nico-buijs-24ab5494" target="_blank">🔗 LinkedIn</a>
+    <a href="https://www.facebook.com/profile.php?id=100095125455611" target="_blank">📘 Facebook</a>
+  </div>
+
+  <footer>
+    <p><strong>Nico Buijs</strong> (owner Nico on Point)</p>
+    <p>682 94 Lesjöfors, Sverige</p>
+    <p>&copy; 2025 Nico on Point Services. All rights reserved.</p>
+  </footer>
+</body>
+</html>

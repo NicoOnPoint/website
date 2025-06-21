@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="refresh" content="0;url=index-en.html" />
+    <script>
+      const lang = navigator.language || navigator.userLanguage;
+      if (lang.startsWith('sv')) {
+        window.location.href = 'index-sv.html';
+      } else {
+        window.location.href = 'index-en.html';
+      }
+    </script>
+    <title>Redirecting...</title>
+  </head>
+  <body>
+    <p>Redirecting based on your language preference...</p>
+  </body>
+</html>
