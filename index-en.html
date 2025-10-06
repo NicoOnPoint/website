@@ -32,11 +32,34 @@
   background-repeat: repeat;
 }
     header {
-      background-color: #1a1a1a;
-      color: #fff;
-      text-align: center;
-      padding: 1rem 1rem;
-    }
+  background-color: #1a1a1a;
+  color: #fff;
+  text-align: center;
+  padding: 1rem 1rem;
+
+  /* toegevoegd voor de gouden lijn */
+  position: relative;
+  border-bottom: 1px solid rgba(255, 216, 77, 0.15);
+}
+header::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;      /* overlapt de naad een tikje */
+  height: 10px;      /* dikte van de streep */
+  pointer-events: none;
+  z-index: 2;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 216, 77, 0) 0%,
+    rgba(255, 216, 77, 0.85) 12%,
+    #e6b800 50%,
+    rgba(255, 216, 77, 0.85) 88%,
+    rgba(255, 216, 77, 0) 100%
+  );
+  box-shadow: 0 6px 16px rgba(230, 184, 0, 0.35);
+}
     header img.logo {
       width: 210px;
       margin-top: 2rem;
