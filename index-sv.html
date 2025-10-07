@@ -198,14 +198,39 @@ header::after {
     .contact-icons a:hover {
       text-decoration: underline;
     }
-    .contact-icons svg {
+   .contact-icons svg {
       width: 0.9em;
       height: 0.9em;
       vertical-align: middle;
       fill: #e6b800;
       flex-shrink: 0;
     }
-  </style>
+
+    /* --- Halo achter het logo --- */
+    .logo-wrap{
+      position: relative;
+      display: inline-block;
+    }
+    .logo-wrap::before{
+      content: "";
+      position: absolute;
+      inset: -18%;
+      border-radius: 50%;
+      background: radial-gradient(circle,
+        rgba(255,216,77,.35) 0%,
+        rgba(255,216,77,.18) 40%,
+        rgba(255,216,77,0) 72%);
+      filter: blur(12px);
+      z-index: 0;
+      pointer-events: none;
+    }
+    /* Zorg dat het logo boven de halo staat */
+    header img.logo{
+      position: relative;
+      z-index: 1;
+    }
+  </style>  <!-- HIER sluit je het style-blok af -->
+
   <script>
     window.addEventListener('scroll', () => {
       document.querySelectorAll('.image').forEach(img => {
@@ -216,6 +241,7 @@ header::after {
       });
     });
   </script>
+
 </head>
 <body>
   
@@ -226,6 +252,14 @@ header::after {
   <a href="index-sv.html" aria-label="Svenska" title="Svenska">
     <img src="flags/sv.png" alt="Svenska">
   </a>
+</div>
+
+  <header>
+    <div class="logo-wrap">
+  <img src="logo.png"
+       alt="Nico on Point logo"
+       class="logo"
+       onerror="this.closest('.logo-wrap').style.display='none'">
 </div>
 
   <header>
