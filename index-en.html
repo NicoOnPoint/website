@@ -206,6 +206,7 @@ header::after {
       flex-shrink: 0;
     }
   </style>
+  
   <script>
     window.addEventListener('scroll', () => {
       document.querySelectorAll('.image').forEach(img => {
@@ -215,6 +216,30 @@ header::after {
         }
       });
     });
+      /* --- Halo achter het logo --- */
+.logo-wrap{
+  position: relative;
+  display: inline-block;
+}
+.logo-wrap::before{
+  content: "";
+  position: absolute;
+  inset: -18%;
+  border-radius: 50%;
+  background: radial-gradient(circle,
+    rgba(255,216,77,.35) 0%,
+    rgba(255,216,77,.18) 40%,
+    rgba(255,216,77,0) 72%);
+  filter: blur(12px);
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Zorg dat het logo boven de halo staat */
+header img.logo{
+  position: relative;
+  z-index: 1;
+}
   </script>
 </head>
 <body>
@@ -229,7 +254,12 @@ header::after {
 </div>
 
   <header>
-    <img src="logo.png" alt="Nico on Point logo" class="logo" onerror="this.style.display='none'" />
+    <div class="logo-wrap">
+  <img src="logo.png"
+       alt="Nico on Point logo"
+       class="logo"
+       onerror="this.closest('.logo-wrap').style.display='none'">
+</div>
     <h1>Nico on Point Services</h1>
     <p>Versatile help with facility work, renovations, installations & PCs</p>
     <img src="images/werkje.jpg" alt="Profile photo of Nico" class="profile" onerror="this.style.display='none'" />
