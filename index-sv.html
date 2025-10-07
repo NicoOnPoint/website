@@ -229,6 +229,38 @@ header::after {
       position: relative;
       z-index: 1;
     }
+    /* Mooie goudaccent knoppen + strakke SVG-iconen */
+.contact-icons{
+  display: flex;
+  flex-wrap: wrap;
+  gap: .6rem;
+  margin-top: 1.2rem;
+}
+.contact-icons a{
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .45rem .7rem;
+  border-radius: 999px;
+  color: #ffd84d; /* warm goud */
+  background-color: rgba(255,216,77,.08);
+  text-decoration: none;
+  font-weight: 600;
+  transition: transform .15s ease, background-color .15s ease;
+}
+.contact-icons a:hover{
+  background-color: rgba(255,216,77,.16);
+  transform: translateY(-1px);
+}
+/* SVG-lijniconen (geen fill) in goud */
+.contact-icons svg{
+  width: 1.1em;
+  height: 1.1em;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+  flex-shrink: 0;
+}
   </style>  <!-- HIER sluit je het style-blok af -->
 
   <script>
