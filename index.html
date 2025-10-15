@@ -1,47 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Redirecting…</title>
-
-  <!-- Fallback als JavaScript uit staat -->
-  <noscript>
-    <meta http-equiv="refresh" content="0;url=index-en.html">
-  </noscript>
-
-  <style>
-    html,body{height:100%} body{display:grid;place-items:center;font:16px system-ui}
-    .hint{opacity:.7}
-  </style>
-  <script>
-    (function () {
-      // 1) Handmatige override via querystring (?lang=sv of ?lang=en)
-      const url = new URL(window.location.href);
-      const qLang = (url.searchParams.get('lang') || '').toLowerCase();
-      if (qLang === 'sv' || qLang === 'en') {
-        localStorage.setItem('lang', qLang);
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="refresh" content="0;url=index-en.html" />
+    <script>
+      const lang = navigator.language || navigator.userLanguage;
+      if (lang.startsWith('sv')) {
+        window.location.href = 'index-sv.html';
+      } else {
+        window.location.href = 'index-en.html';
       }
-
-      // 2) Bestaande voorkeur uit localStorage (als gebruiker eerder wisselde)
-      const saved = (localStorage.getItem('lang') || '').toLowerCase();
-
-      // 3) Browsertaal (fallback)
-      const browser = (navigator.language || navigator.userLanguage || 'en').toLowerCase();
-
-      // 4) Kies doelpagina
-      const target =
-        saved === 'sv' ? 'index-sv.html' :
-        saved === 'en' ? 'index-en.html' :
-        browser.startsWith('sv') ? 'index-sv.html' : 'index-en.html';
-
-      // 5) Redirect zonder de landing in de history te bewaren
-      window.location.replace(target);
-    })();
-  </script>
-</head>
-<body>
-  <p>Redirecting based on your language preference…</p>
-  <p class="hint">No JS? You’ll be sent to the English page shortly.</p>
-</body>
+    </script>
+    <title>Redirecting...</title>
+  </head>
+  <body>
+    <p>Redirecting based on your language preference...</p>
+  </body>
 </html>
