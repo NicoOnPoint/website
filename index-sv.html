@@ -16,28 +16,45 @@
   z-index: 9999;            /* boven header en pseudo-element */
   display: flex;
   gap: 8px;
+/* container van je taalschakelaar */
+.lang-switch{
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;              /* ruimte tussen vlaggen */
 }
+
+/* grotere vlagknoppen */
+.lang-switch a{
+  display: inline-flex;   /* maakt de hele vlag klikbaar */
+  padding: 4px;           /* vergroot klikgebied en ruimte voor focusring */
+  border-radius: 6px;
+}
+
 .lang-switch img{
   display: block;
-  width: 28px;
+  width: 40px;            /* <— maak groter (bijv. 36–48px) */
   height: auto;
-  border-radius: 3px;
+  border-radius: 4px;
   box-shadow: 0 2px 6px rgba(0,0,0,.35);
   transition: transform .15s ease;
 }
+
 .lang-switch a:hover img,
-.lang-switch a:focus img{ transform: scale(1.06); }
-.lang-switch a:focus-visible{
-  outline: 2px solid #ffd84d;
-  outline-offset: 2px;
-  border-radius: 3px;
+.lang-switch a:focus img{
+  transform: scale(1.06); /* subtiele hover-zoom */
 }
 
-/* optioneel: iets kleiner op mobiel */
-@media (max-width: 480px){
-  .lang-switch{ top: 8px; right: 8px; }
-  .lang-switch img{ width: 24px; }
+.lang-switch a:focus-visible{
+  outline: 2px solid #ffd84d;
+  outline-offset: 2px;    /* ring buiten de knop */
+  border-radius: 6px;
 }
+
+/* optioneel: op mobiel iets kleiner */
+@media (max-width: 420px){
+  .lang-switch img{ width: 32px; }
+}
+
   body {
   font-family: Arial, sans-serif;
   margin: 0;
