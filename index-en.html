@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Nico on Point Services | Fixes, Installs & Custom PCs in Sweden</title>
+<link rel="icon" href="logo.png" type="image/png" />
+
+<!-- Preload Värmland hero image so it loads immediately -->
+<link rel="preload" as="image" href="images/Värmland.jpg" fetchpriority="high">
+
+<style>
+/* ===== Base ===== */
+:root{
+--brand:#e6b800; /* gold */
+--ink:#f4f4f4;
+--bg:#1b1b1b;
+--card:#111;
+--ring: #ffd84d;
+--shadow: 0 8px 22px rgba(0,0,0,.35);
+--radius: 14px;
+}
+html{scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:border-box}
+body{
+margin:0; color:var(--ink); font:16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", sans-serif;
+background: var(--bg);
+background-image:url("data:image/svg+xml;utf8,\
+<svg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'>\
+<g stroke='white' stroke-opacity='0.05' stroke-width='1' fill='none'>\
+<circle cx='30' cy='0' r='30'/>\
+<circle cx='0' cy='30' r='30'/>\
+<circle cx='60' cy='30' r='30'/>\
+<circle cx='30' cy='60' r='30'/>\
+</g>\
+</svg>");
+background-size:60px 60px; background-repeat:repeat;
+}
+h1,h2{line-height:1.2;margin:0 0 .5rem}
+h2{color:var(--brand)}
+section{padding:2rem;max-width:1200px;margin:auto}
+/* Content width helper to match text column */
+.content{max-width:900px;margin:0 auto}
+/* Subtle delayed reveal for eager-loaded hero */
+@keyframes reveal{from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:none}}
+.hero-card.reveal{opacity:0;transform:translateY(8px);animation:reveal .6s ease-out .12s forwards}
+ul{padding-left:1.25rem}
+
+/* ===== Language switcher ===== */
+.lang-switch{position:fixed;top:.75rem;right:.75rem;z-index:9999;display:inline-flex;gap:.5rem;align-items:center}
+.lang-switch a{display:inline-flex;padding:4px;border-radius:8px}
+.lang-switch a:focus-visible{outline:2px solid var(--ring);outline-offset:2px}
+.lang-switch img{display:block;width:48px;height:auto;border-radius:6px;box-shadow:0 2px 6px rgba(0,0,0,.35);transition:transform .15s ease}
+.lang-switch a:hover img,.lang-switch a:focus img{transform:scale(1.06)}
+@media (max-width:420px){.lang-switch img{width:32px}}
+
+/* ===== Header ===== */
+header{position:relative;padding:1rem 1rem 2.25rem;text-align:center;background:#1a1a1a;border-bottom:1px solid rgba(255,216,77,.15)}
+header::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:10px;background:linear-gradient(90deg, rgba(255,216,77,0) 0%, rgba(255,216,77,.85) 12%, var(--brand) 50%, rgba(255,216,77,.85) 88%, rgba(255,216,77,0) 100%);box-shadow:0 6px 16px rgba(230,184,0,.35)}
+
+.logo-wrap{position:relative;display:inline-block}
+.logo-wrap::before{content:"";position:absolute;inset:-18%;border-radius:50%;background:radial-gradient(circle, rgba(255,216,77,.35) 0%, rgba(255,216,77,.18) 40%, rgba(255,216,77,0) 72%);filter:blur(12px);pointer-events:none}
+.logo{width:clamp(140px,22vw,220px);margin:1.25rem auto .25rem;animation:pulse 3s ease-in-out infinite;position:relative}
+@keyframes pulse{0%{transform:scale(1)}50%{transform:scale(1.05)}100%{transform:scale(1)}}
+
+/* Make profile perfectly circular, responsive, and non-distorted */
+.profile{width:clamp(120px,24vw,220px);aspect-ratio:1/1;object-fit:cover;border-radius:50%;border:4px solid var(--brand);display:block;margin:1rem auto 0}
+
+/* ===== Global image scaling ===== */
+img{max-width:100%;height:auto;display:block}
+
+/* Utility: smooth fade-in for larger in-content images + card look */
+.image{display:block;max-width:100%;height:auto;border-radius:14px;object-fit:contain;background:#0d0d0d;padding:4px;box-sizing:border-box;transition:transform .25s ease, opacity .5s ease;opacity:0;transform:translateY(20px)}
+.image.fade-in{opacity:1;transform:translateY(0)}
+
+/* ===== Contact buttons ===== */
+.contact-icons{
+display:flex;
+flex-wrap:wrap;
+gap:.6rem;
+margin:1.2rem auto 0;
+justify-content:center;
+align-items:center;
+}
+.contact-icons a{display:inline-flex;align-items:center;gap:.5rem;padding:.45rem .7rem;border-radius:999px;color:#ffd84d;background:rgba(255,216,77,.08);text-decoration:none;font-weight:600;transition:transform .15s ease, background-color .15s ease}
+.contact-icons a:hover{background:rgba(255,216,77,.16);transform:translateY(-1px)}
+.contact-icons svg{width:1.1em;height:1.1em;stroke:currentColor;fill:none;stroke-width:2;flex-shrink:0}
+
+/* ===== Text banner ===== */
+.text-banner{background:transparent;padding:0 16px;height:56px;display:grid;place-items:center;margin-top:.6rem}
+.tb-shell{
+max-width:1200px; /* was 900px -> nu even breed als de secties */
+width:100%;
+height:100%;
+overflow:hidden;border-radius:10px;background:#1a1a1a;
+box-shadow:var(--shadow), inset 0 0 0 1px rgba(255,216,77,.12);
+position:relative
+}
+.tb-shell::after,.tb-shell::before{content:"";position:absolute;top:0;bottom:0;width:42px;background:linear-gradient(to right, #1a1a1a, transparent);z-index:2;pointer-events:none}
+.tb-shell::after{right:0;transform:scaleX(-1)}
+.tb-shell::before{left:0}
+.tb-track{position:absolute;inset:0;display:flex;width:max-content;height:100%;align-items:center;gap:64px;animation:tb-scroll 32s linear infinite;will-change:transform}
+.tb-item{display:inline-flex;align-items:center;gap:14px;font-size:.98rem;letter-spacing:.06em;color:#eaeaea;padding:0 6px}
+.tb-item img{height:30px;width:auto;display:block;filter:drop-shadow(0 1px 3px rgba(0,0,0,.5))}
+.tb-item .brand{color:#fff;font-weight:800}
+.tb-item .sep{color:var(--brand);font-weight:900;padding:0 .2rem}
+.tb-item .cta{color:var(--brand);font-weight:800}
+@keyframes tb-scroll{from{transform:translateX(0)} to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.tb-track{animation:none}}
+
+/* ===== Card image pattern ===== */
+.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.25rem}
+.img-card{position:relative;display:flex;align-items:center;justify-content:center;background:var(--card);border-radius:var(--radius);overflow:hidden;text-decoration:none;color:inherit;box-shadow:0 0 0 1px rgba(255,216,77,.08)}
+.img-card::after{content:"";position:absolute;inset:0;background:linear-gradient(to top, rgba(0,0,0,.5), transparent);opacity:0;transition:opacity .2s ease}
+.img-card:hover::after{opacity:1}
+.img-card .caption{opacity:0;transform:translateY(8px);transition:opacity .2s ease, transform .2s ease;color:#fff;pointer-events:none}
+.img-card .hint{position:absolute;top:10px;left:50%;transform:translateX(-50%) translateY(-6px);text-align:center;color:#fff;font-weight:600;opacity:0 !important;padding:4px 8px;z-index:2;pointer-events:none;text-shadow:0 2px 4px rgba(0,0,0,.6);transition:opacity .2s ease, transform .2s ease}
+.img-card:hover .caption,.img-card:focus-visible .caption{opacity:1;transform:translateY(0);pointer-events:auto}
+.img-card:hover .hint,.img-card:focus-visible .hint{opacity:1 !important;transform:translateX(-50%) translateY(0);pointer-events:auto}
+.img-card .caption{position:absolute;left:8px;bottom:8px;font-weight:800}
+.img-card .hint{position:absolute;right:10px;bottom:8px;opacity:.85;font-weight:600}
+.img-card:focus-visible{outline:2px solid var(--ring);outline-offset:2px}
+.img-card{height:clamp(200px, 30vw, 260px)}
+.img-card img{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;background:#0d0d0d;border-radius:10px;padding:4px;transition:transform .2s ease, opacity .2s ease}
+.img-card:hover img{transform:scale(1.02)}
+.img-card img.shift-down{ object-position:10% 90%; }
+
+/* Wide, no-crop */
+.img-card.media-wide{height:auto; max-width:1200px; margin:0 auto;}
+.img-card.media-wide img{ width:100%; height:auto; max-height:70vh; object-fit:contain; padding:6px; background:#0d0d0d; border-radius:14px; }
+
+/* ===== Image hover overlay ===== */
+figure.image-hover{position:relative;display:flex;justify-content:center;align-items:center;overflow:hidden;border-radius:14px;background:#0d0d0d}
+figure.image-hover img{display:block;max-width:100%;height:auto;object-fit:contain;transition:transform .3s ease}
+figure.image-hover:hover img{transform:scale(1.03)}
+figure.image-hover figcaption{position:absolute;inset:0;display:flex;align-items:flex-end;justify-content:center;color:#fff;font-weight:700;background:linear-gradient(to top, rgba(0,0,0,.6), rgba(0,0,0,0));opacity:0;padding:1rem;text-align:center;transition:opacity .25s ease}
+figure.image-hover:hover figcaption{opacity:1}
+
+/* ===== Lightbox ===== */
+.lb-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.7);display:none;z-index:9998}
+.lb-modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;z-index:9999}
+.lb-modal.open,.lb-backdrop.open{display:flex}
+.lb-frame{max-width:min(92vw,1200px);max-height:86vh;position:relative;background:#111;border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.6);overflow:hidden}
+.lb-img{display:block;max-width:100%;max-height:70vh;width:auto;height:auto;object-fit:contain;background:#000}
+.lb-caption{padding:.75rem 3.5rem .9rem;color:#fff;background:rgba(0,0,0,.55);font-weight:600}
+.lb-btn{position:absolute;top:0;bottom:0;width:56px;display:flex;align-items:center;justify-content:center;color:#fff;opacity:.85;cursor:pointer;user-select:none}
+.lb-prev{left:0}.lb-next{right:0}
+.lb-close{position:absolute;top:.4rem;right:.6rem;font-size:28px;color:#fff;opacity:.9;cursor:pointer}
+.lb-btn:hover,.lb-close:hover{opacity:1}
+@media (max-width:640px){.lb-btn{width:48px}}
+
+/* ===== Hero ===== */
+.hero-edge{padding:0}
+.hero-card{position:relative;display:block;overflow:hidden;border-radius:0}
+.hero-card picture, .hero-card img{display:block;width:100%;height:auto}
+.hero-visual{will-change:transform,filter;transition:transform .2s ease,filter .2s ease;filter:drop-shadow(0 10px 24px rgba(0,128,255,.22)) drop-shadow(0 2px 8px rgba(0,0,0,.35))}
+.hero-card.parallax{transform:translateY(var(--py,0))}
+.hero-card.contained{width:100%;max-width:1200px;margin:0 auto;border-radius:18px;overflow:hidden;background:#0d0d0d;padding:6px;box-shadow:var(--shadow), inset 0 0 0 1px rgba(255,216,77,.08)}
+.hero-card.contained .hero-visual{display:flex;align-items:center;justify-content:center}
+.hero-card.contained .hero-visual img{width:auto;max-width:100%;height:auto;max-height:62vh;object-fit:contain}
+
+/* Side-by-side hero layout */
+.side-hero{display:grid;grid-template-columns:minmax(280px,520px) 1fr;gap:24px;align-items:center;max-width:1200px;margin:0 auto}
+.side-hero .hero-card.contained{max-width:none}
+@media (max-width:860px){.side-hero{grid-template-columns:1fr}.side-hero .hero-card.contained{justify-self:center;width:100%}}
+
+/* ===== Footer ===== */
+footer{text-align:center;padding:2rem;background:#1a1a1a;color:#fff;margin-top:2rem}
+
+/* ===== Forms ===== */
+form input, form textarea{display:block;width:100%;padding:.8rem;margin-bottom:1rem;border:1px solid #3a3a3a;background:#0e0e0e;color:var(--ink);border-radius:8px}
+form button{background:var(--brand);color:#000;padding:.8rem 1.2rem;border:none;border-radius:8px;cursor:pointer;transition:background-color .2s ease}
+form button:hover{background:#ffc400}
+.img-card:hover .caption, .img-card:focus-visible .caption,
+.img-card:hover .hint, .img-card:focus-visible .hint { color: var(--brand); }
+figure.image-hover:hover figcaption, figure.image-hover:focus-within figcaption { color: var(--brand); }
+figure{margin:0}
+figure.image-hover{margin:1rem 0 1.25rem}
+
+/* ==== Brede profielfoto (oude variant – niet gebruikt nu, mag blijven) ==== */
+.profile-hero{ position:relative; display:grid; place-items:center; margin: 1.75rem auto 0; width:100%; max-width:min(900px, 92vw); }
+.profile-wide{
+width:clamp(220px, 42vw, 520px); aspect-ratio:1/1; object-fit:cover; border-radius:50%;
+border:5px solid var(--brand);
+box-shadow:0 0 0 3px rgba(255,216,77,.25), 0 10px 30px rgba(0,0,0,.35);
+will-change: transform, filter; animation: sway 7s ease-in-out infinite alternate;
+transform-style: preserve-3d; backface-visibility:hidden;
+}
+@keyframes sway{
+0%{transform:perspective(900px) rotateY(-6deg) rotateX(2deg) translateY(0)}
+50%{transform:perspective(900px) rotateY(0deg) rotateX(-1deg) translateY(-2px)}
+100%{transform:perspective(900px) rotateY(6deg) rotateX(2deg) translateY(0)}
+}
+.profile-hero:hover .profile-wide{ animation-play-state: paused; }
+.profile-caption{
+position:absolute; inset:auto 0 10%; text-align:center; font-weight:900; letter-spacing:.04em;
+font-size:clamp(1.1rem, 2.4vw, 1.6rem); color: var(--brand); text-shadow: 0 2px 6px rgba(0,0,0,.65);
+opacity:0; transform: translateY(6px); transition: opacity .25s ease, transform .25s ease; pointer-events:none;
+}
+.profile-hero:hover .profile-caption{ opacity:1; transform: translateY(0); }
+@media (prefers-reduced-motion: reduce){ .profile-wide{ animation:none; transform:none; } }
+
+/* ==== NIEUW: Kleine profielfoto links-boven in About ==== */
+.profile-left-figure{
+float:left;
+width:clamp(120px, 24vw, 200px);
+margin:.25rem 1rem .5rem 0;
+position:relative;
+}
+.profile-left{
+width:100%;
+aspect-ratio:1/1;
+object-fit:cover;
+border-radius:50%;
+border:4px solid var(--brand);
+box-shadow:0 6px 18px rgba(0,0,0,.28);
+}
+
+/* OVERLAY: gele caption BINNEN de afbeelding bij hover */
+.profile-left-figure{ position:relative; } /* staat al, maar laat hem staan */
+
+.profile-left-figure .profile-caption{
+position:absolute;
+left: 8%;
+right: 8%;
+bottom: 8%;
+text-align:center;
+font-weight:900;
+letter-spacing:.04em;
+font-size:clamp(.9rem, 1.8vw, 1.1rem);
+color: var(--brand);
+/* betere leesbaarheid op elk beeld */
+text-shadow:
+0 2px 6px rgba(0,0,0,.55),
+0 0 10px rgba(0,0,0,.35);
+opacity:0;
+transform: translateY(6px);
+transition: opacity .25s ease, transform .25s ease;
+pointer-events:none; /* geen klikblok */
+}
+
+/* toont/animatie bij hover op de foto of het hele figuur */
+.profile-left-figure:hover .profile-caption,
+.profile-left-figure:focus-within .profile-caption{
+opacity:1;
+transform: translateY(0);
+}
+
+/* Mobiel: geen float, centreren boven de tekst */
+@media (max-width:700px){
+.profile-left-figure{ float:none; margin:0 auto 1rem; }
+}
+/* Extra ruimte onder de About-sectie + clearfix voor de float */
+#about{
+margin-bottom: 2.5rem; /* meer lucht eronder */
+}
+/* Zorg dat de sectie de zwevende afbeelding insluit */
+#about::after{
+content:"";
+display:block;
+clear:both;
+}
+
+/* (optioneel) op mobiel iets extra ruimte */
+@media (max-width:700px){
+#about{ margin-bottom: 3rem; }
+}
+/* Extra ruimte rechts van de kop, boven de 1e alinea naast de foto */
+#about .profile-left-figure + p{
+margin-top: .85rem; /* pas evt. aan: .6–1.2rem */
+}
+
+/* Op mobiel staat de foto niet meer naast de tekst, dus resetten */
+@media (max-width:700px){
+#about .profile-left-figure + p{ margin-top: 0; }
+}
+/* Meer ruimte onder de About Me-kop */
+#about h2{
+margin-bottom: 1.75rem; /* was kleiner, nu ruimer */
+}
+
+/* Op mobiel iets minder ruimte zodat het compact blijft */
+@media (max-width:700px){
+#about h2{
+margin-bottom: 1.4rem;
+}
+}
+.no-bullet {
+list-style-type: none; /* geen bolletje */
+margin: 0; /* optioneel: geen extra ruimte boven/onder */
+padding: 0;
+}
+/* --- Nettere, uniforme galerij voor beide secties --- */
+#renovation-projects .gallery,
+#pc-builds .gallery{
+display:grid;
+grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+gap: 1.1rem; /* iets compacter en gelijkmatig */
+align-items: stretch; /* kaarten even hoog in de rij */
+}
+
+/* Kaarten: vaste beeldverhouding + geen binnenrand */
+#renovation-projects .img-card,
+#pc-builds .img-card{
+aspect-ratio: 4 / 3; /* kies 1/1, 3/2 of 16/9 naar smaak */
+border-radius: var(--radius);
+overflow: hidden; /* ronding snijdt de foto bij */
+background: #0000; /* geen donkere achtergrond zichtbaar */
+box-shadow: 0 0 0 1px rgba(255,216,77,.08); /* subtiele rand zoals nu */
+position: relative;
+}
+
+/* Afbeeldingen: volledig vullen, geen padding, geen zwarte rand */
+#renovation-projects .img-card img,
+#pc-builds .img-card img{
+width: 100%;
+height: 100%;
+object-fit: cover; /* vult de kaart, geen balken */
+object-position: center; /* middelpunt */
+background: transparent;
+padding: 0; /* verwijder binnen-padding */
+border-radius: 0; /* ronding zit op de kaart zelf */
+transition: transform .25s ease, opacity .2s ease;
+}
+
+/* Hover-overlay blijft werken maar zonder donkere sluier */
+#renovation-projects .img-card::after,
+#pc-builds .img-card::after{
+background: linear-gradient(to top, rgba(0,0,0,.35), transparent);
+opacity: 0;
+transition: opacity .2s ease;
+}
+#renovation-projects .img-card:hover::after,
+#pc-builds .img-card:hover::after{
+opacity: .9; /* evt. 0.6–0.9 naar smaak */
+}
+
+/* Captions en hint netjes binnen de kaart */
+#renovation-projects .img-card .caption,
+#pc-builds .img-card .caption{
+position: absolute;
+left: 10px; bottom: 10px;
+opacity: 0; transform: translateY(6px);
+transition: opacity .2s ease, transform .2s ease;
+}
+#renovation-projects .img-card:hover .caption,
+#pc-builds .img-card:hover .caption{
+opacity: 1; transform: translateY(0);
+}
+#renovation-projects .img-card .hint,
+#pc-builds .img-card .hint{
+top: 10px; bottom: auto; right: 10px; left: auto;
+}
+
+/* Mobiel: iets hogere tegels voor betere indruk */
+@media (max-width: 540px){
+#renovation-projects .img-card,
+#pc-builds .img-card{
+aspect-ratio: 3 / 4; /* wat verticaler is vaak mooier op mobiel */
+}
+}
+/* --- Portfolio netjes uitlijnen, geen zwarte balken --- */
+.portfolio .gallery{
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+gap: 1.25rem;
+align-items: stretch;
+}
+
+/* Kaarten: vaste verhouding (fijn voor websites) */
+.portfolio .img-card{
+aspect-ratio: 16 / 10; /* kies 16/9, 4/3 of 3/2 naar smaak */
+border-radius: var(--radius);
+overflow: hidden;
+background: transparent; /* geen donkere achtergrond zichtbaar */
+box-shadow: 0 0 0 1px rgba(255,216,77,.08);
+position: relative;
+}
+
+/* Afbeeldingen vullen de kaart volledig (geen randen) */
+.portfolio .img-card img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;      /* vult — kan iets croppen */
+  object-position: center;
+  padding: 0;             /* verwijder binnen-padding */
+  background: transparent;
+  border-radius: 0;
+  transition: transform .25s ease, opacity .2s ease;
+}
+
+/* override voor alleen de B-Smart kaart */
+.portfolio .img-card img.shift-down{
+  object-position: top center !important; /* focus op bovenkant */
+}
+
+.portfolio .img-card:hover img{
+  transform: scale(1.02);
+}
+
+/* Captions/hints blijven werken */
+.portfolio .img-card .caption{
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity .2s ease, transform .2s ease;
+}
+
+.portfolio .img-card:hover .caption{
+  opacity: 1;
+  transform: translateY(0);
+}
+  /* B-Smart: bovenkant zichtbaar */
+.portfolio .img-card img.top-crop { object-position: top center !important; }
+/* ---- Portfolio kaarten: geen zwarte balken ---- */
+
+/* Container: vaste verhouding zoals bij Kroon */
+.portfolio .img-card{
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: transparent !important;   /* geen donkere achtergrond */
+  border-radius: var(--radius);
+}
+
+/* Afbeeldingen binnen portfolio-kaarten: vullen volledig */
+.portfolio .img-card picture,
+.portfolio .img-card img{
+  display:block;
+  width:100%;
+  height:100%;
+}
+
+.portfolio .img-card img{
+  object-fit: cover;                    /* vult de kaart volledig */
+  object-position: center;              /* basis */
+  padding: 0 !important;                /* geen binnenrand */
+  background: transparent !important;   /* geen zwarte/grijze achtergrond */
+  border-radius: 0 !important;
+}
+
+/* B-Smart: focus op de bovenkant */
+.portfolio .img-card img.top-crop{
+  object-position: top center !important;
+}
+
+/* Verwijder oude 'shift-down' invloed als die nog bestaat */
+.img-card img.shift-down{ /* object-position:10% 90%;  GESCHAKELD UIT */ }
+
+/* Optioneel: overlay iets subtieler (kan lijken op 'balken' bij donkere foto's) */
+.portfolio .img-card::after{
+  background: linear-gradient(to top, rgba(0,0,0,.25), transparent);
+}
+  /* --- No-black-bars helper --- */
+.no-bars{
+  background: transparent !important;
+  padding: 0 !important;
+  overflow: hidden;
+}
+.no-bars picture,
+.no-bars img{
+  display:block;
+  width:100% !important;
+  height:100% !important;
+}
+.no-bars img{
+  object-fit: cover !important;
+  object-position: center;
+  background: transparent !important;
+  border-radius: 0 !important;
+}
+.no-bars img.top-crop{
+  object-position: top center !important;
+}
+/* Subtiel geel kader rondom contactformulier */
+.contact-frame{
+  border: 1px solid rgba(255,216,77,.25);   /* zacht geel lijntje */
+  border-radius: 14px;
+  padding: 1.2rem 1.4rem;
+  background: #111;                         /*zelfde stijl als site */
+  box-shadow: inset 0 0 0 1px rgba(255,216,77,.07);
+}
+
+/* mooie highlight als je in het formulier klikt/typt */
+.contact-frame:focus-within{
+  border-color: rgba(255,216,77,.45);
+  box-shadow:
+    inset 0 0 0 1px rgba(255,216,77,.15),
+    0 0 0 3px rgba(255,216,77,.08);
+}
+
+/* inputs ook een zachte gele focusrand */
+form input:focus, form textarea:focus{
+  border-color: rgba(255,216,77,.55);
+  box-shadow: 0 0 0 3px rgba(255,216,77,.15);
+  outline: none;
+}
+  /* Footer zonder grijze plaat */
+footer{
+  background: transparent !important;
+  box-shadow: none !important;
+  border: 0;
+  padding: 2rem 0;     /* laat de binnenruimte wel staan */
+}
+
+/* Optioneel: subtiel geel haartje boven de footer */
+  content:"";
+  display:block;
+  height:1px;
+  margin-bottom:1.25rem;
+  background: linear-gradient(90deg, rgba(255,216,77,0), rgba(255,216,77,.35), rgba(255,216,77,0));
+  opacity:.6;
+}
+
+</style>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1LT3BX7VW7"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);} 
+gtag('js', new Date());
+gtag('config', 'G-1LT3BX7VW7');
+</script>
+
+<!-- Fade-in on scroll for .image -->
+<script>
+addEventListener('scroll', () => {
+document.querySelectorAll('.image').forEach(img => {
+const r = img.getBoundingClientRect();
+if (r.top < innerHeight - 100) img.classList.add('fade-in');
+});
+}, {passive:true});
+</script>
+
+<!-- Tilt + tiny parallax for hero (now supports multiple .hero-card) -->
+<script>
+(() => {
+addEventListener('DOMContentLoaded', () => {
+const canHover = matchMedia('(hover:hover)').matches;
+const prefersReduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+// === Tilt on all hero cards ===
+if (canHover && !prefersReduced){
+document.querySelectorAll('.hero-card').forEach(hero => {
+hero.addEventListener('mousemove', e => {
+const r = hero.getBoundingClientRect();
+const x = (e.clientX - r.left) / r.width;
+const y = (e.clientY - r.top) / r.height;
+const ry = (x - 0.5) * 10; // left/right
+const rx = -(y - 0.5) * 6; // up/down
+hero.style.transform = `perspective(900px) rotateY(${ry.toFixed(2)}deg) rotateX(${rx.toFixed(2)}deg)`;
+});
+hero.addEventListener('mouseleave', () => { hero.style.transform = 'none'; });
+});
+}
+
+// === Parallax for all hero cards with .parallax ===
+if (!prefersReduced){
+const pars = Array.from(document.querySelectorAll('.hero-card.parallax'));
+if (pars.length){
+const onScroll = () => {
+const vh = innerHeight;
+pars.forEach(par => {
+const rect = par.getBoundingClientRect();
+const inView = rect.top < vh && rect.bottom > 0;
+if (!inView) return;
+const y = Math.max(-20, Math.min(20, (rect.top - vh*0.4) * 0.06));
+par.style.setProperty('--py', y.toFixed(1) + 'px');
+});
+};
+addEventListener('scroll', onScroll, {passive:true});
+onScroll();
+}
+}
+});
+})();
+</script>
+</head>
+
+<body>
+<div class="lang-switch" aria-label="Language selector">
+<a href="index-en.html" aria-label="English" title="English"><img src="flags/en.png" alt="English flag"></a>
+<a href="index-sv.html" aria-label="Svenska" title="Svenska"><img src="flags/sv.png" alt="Swedish flag"></a>
+</div>
+
+<header>
+<div class="logo-wrap">
+<img src="logo.png" alt="Nico on Point logo" class="logo" onerror="this.closest('.logo-wrap').style.display='none'">
+</div>
+<h1>Nico on Point Services</h1>
+<p>Versatile help with facility work, renovations, installations & PCs</p>
+<!-- Profielfoto stond hier; is nu verplaatst naar de About-sectie -->
+</header>
+
+<!-- TEXT + LOGO SCROLLING BANNER -->
+<section class="text-banner" aria-label="Brand highlights">
+<div class="tb-shell">
+<div class="tb-track" aria-hidden="true">
+<div class="tb-item">
+<img src="images/logo.webp" alt="">
+<span class="brand">Nico on Point Services</span><span class="sep">•</span><span>PC Builds</span><span class="sep">•</span><span>Repairs</span><span class="sep">•</span><span>Installations</span><span class="sep">•</span><span class="cta">For free advice, call 📞 +46 70 710 61 82</span>
+</div>
+<div class="tb-item">
+<img src="images/logo.webp" alt="">
+<span class="brand">Nico on Point Services</span><span class="sep">•</span><span>PC Builds</span><span class="sep">•</span><span>Repairs</span><span class="sep">•</span><span>Installations</span><span class="sep">•</span><span class="cta">For free advice, call 📞 +46 70 710 61 82</span>
+</div>
+</div>
+</div>
+</section>
+
+<section id="about">
+
+<h2>About Me. What I can do for you.....</h2>
+
+<!-- KLEIN & LINKS-BOVEN: profielfoto in de tekst -->
+<figure class="profile-left-figure">
+<img src="images/Nico.png"
+alt="Profile photo of Nico"
+class="profile-left"
+onerror="this.style.display='none'">
+<figcaption class="profile-caption" aria-hidden="true">Nico Buijs</figcaption>
+</figure>
+
+<p>Originally from Amsterdam, the Netherlands, I’ve spent many years working in construction, technical services, and IT. Over the years, I’ve earned a wide range of diplomas and certifications, and worked on numerous projects – including for several (semi) government organizations. This mix of experience has given me a solid understanding of both practical craftsmanship and modern technology.</p>
+<p>Now based in beautiful Värmland, Sweden, I combine all those skills to help people with whatever needs fixing, installing, or improving. Whether it’s a small home repair, a tricky technical issue, or a larger renovation project – I handle every task with care, precision, and a no-nonsense attitude.</p>
+<p>On the tech side, I’m also passionate about building and repairing custom PCs – from quiet and efficient workstations to high-performance gaming rigs with advanced liquid cooling. I make sure every build runs smoothly and looks great.</p>
+<p>I’m a hands-on problem solver who enjoys finding smart and practical solutions, both in homes and for businesses. You can count on professional results, honest communication, and fair rates starting at <strong>450 SEK/hour</strong>.</p>
+<p>Based in beautiful Värmland, but always on the move across Sweden to help people get things done. Whether it’s hanging a lamp, fixing a leaky tap, assembling furniture, or handling small repairs around the house – I’m your go-to guy for all those everyday jobs that make your home feel complete.</p>
+<p>I also take on larger home projects such as renovations, installations, and troubleshooting – always with care, precision, and a no-nonsense attitude.</p>
+<p>And again for the tech enthusiasts out there: I design, build, and repair custom PCs, including high-performance gaming rigs with liquid cooling. Every build is tailored to your needs for top-notch performance and a clean, professional look.</p>
+<p>You’ll get honest advice, fair prices, and reliable service that’s always on point. So whether you’ve got a quick fix or a big idea in mind – let’s make it happen!</p>
+</section>
+
+<section class="hero-edge">
+<section id="about">
+<h2>Living and working in Värmland</h2>
+<div class="side-hero">
+<a class="img-card hero-card contained image parallax fade-in no-bars" href="images/Värmland.jpg" data-lightbox="renov" data-caption="Värmland sunset" aria-label="Open large: Värmland sunset">
+<picture class="hero-visual">
+<img src="images/Värmland.jpg" alt="Värmland sunset" loading="eager" decoding="sync" fetchpriority="high">
+</picture>
+<span class="caption" style="position:absolute;left:12px;bottom:12px;font-weight:800">Living and working in Värmland</span>
+<span class="hint hint-top-left">Click to open</span>
+</a>
+<div class="hero-aside-text">
+<p>Living and working in Värmland makes me genuinely happy. The calm forests, clear lakes, and friendly neighbors create the perfect backdrop for the work I love — from practical fixes and renovations to designing and building custom PCs. The seasons here keep me grounded and focused: bright summer evenings for big ideas, and quiet winter days for careful, detailed work. Every project gets the time and precision it deserves, with honest communication and reliable results. I’m grateful to call this place home, and proud to help households and small businesses across the region get things done right.</p>
+</div>
+</div>
+</section>
+
+<section>
+<section id="about">
+<h2>Some of the work I can do for you — and more. So don’t stop scrolling down!</h2>
+<ul>
+<li>House painting, interior and exterior.</li>
+<li>Maintenance and troubleshooting of home installations.</li>
+<li class="no-bullet">&nbsp;</li> <!-- lege regel zonder bolletje -->
+<li>Web design and development of custom websites.</li>
+<li>Building, troubleshooting, and repairing PCs, workstations, and gaming rigs.</li>
+<li>Custom-built gaming PCs with or without liquid cooling.</li>
+<li>Custom-built workstations for home or business.</li>
+<li>Hardware and software solutions.</li>
+<li class="no-bullet">&nbsp;</li> <!-- lege regel zonder bolletje -->
+<li>Experience with security systems: installation, maintenance, and troubleshooting.</li>
+<li>Alarm center operator.</li>
+<li class="no-bullet">&nbsp;</li> <!-- lege regel zonder bolletje -->
+<li>Customer service and client contact.</li>
+<li>Online support.</li>
+</ul>
+</section>
+
+<!-- Renovation projects (clean gallery) -->
+<section id="renovation-projects">
+<h2>Some of my renovation projects</h2>
+<div class="gallery">
+<a class="img-card" href="images/douche.jpg" target="_blank" rel="noopener" data-lightbox="renov" data-caption="Bathroom renovation — shower area">
+<img src="images/douche.jpg" alt="Bathroom renovation — shower area" loading="lazy" decoding="async">
+<span class="caption">Bathroom renovation — shower area</span>
+<span class="hint">Click to open</span>
+</a>
+
+<a class="img-card" href="images/wal-and-toilet%E2%81%84shower.jpg" target="_blank" rel="noopener" data-lightbox="renov" data-caption="Bathroom wall and toilet — close-up">
+<img src="images/wal-and-toilet%E2%81%84shower.jpg" alt="Bathroom wall and toilet — close-up" loading="lazy" decoding="async">
+<span class="caption">Bathroom wall and toilet — close-up</span>
+<span class="hint">Click to open</span>
+</a>
+
+<a class="img-card" href="images/sorbygden1.jpg" target="_blank" rel="noopener" data-lightbox="renov" data-caption="Sörbygden — exterior work">
+<img src="images/sorbygden1.jpg" alt="Sörbygden — exterior work" loading="lazy" decoding="async">
+<span class="caption">Sörbygden — exterior work</span>
+<span class="hint">Click to open</span>
+</a>
+
+<a class="img-card" href="images/20250527_145131.jpg" target="_blank" rel="noopener" data-lightbox="renov" data-caption="Renovation progress — 2025-05-27">
+<img src="images/20250527_145131.jpg" alt="Renovation progress — 2025-05-27" loading="lazy" decoding="async">
+<span class="caption">Renovation progress — 2025-05-27</span>
+<span class="hint">Click to open</span>
+</a>
+
+<a class="img-card" href="images/painting-job.jpg" target="_blank" rel="noopener" data-lightbox="renov" data-caption="Renovation progress — 2025-05-27">
+<img src="images/painting-job.jpg" alt="Renovation progress — 2025-05-27" loading="lazy" decoding="async">
+<span class="caption">images/painting job in progress — 2025-05-27</span>
+<span class="hint">Click to open</span>
+</a>
+
+<a class="img-card" href="images/me.jpg" target="_blank" rel="noopener" data-lightbox="renov" data-caption="Renovation progress — 2025-05-27">
+<img src="images/me.jpg" alt="Renovation progress — 2025-05-27" loading="lazy" decoding="async">
+<span class="caption">images/me in fine progress — 2025-05-27</span>
+<span class="hint">Click to open</span>
+</a>
+</div>
+</section>
+
+<!-- PC builds (clean gallery) -->
+<section id="pc-builds">
+<h2>Some of my PC builds</h2>
+<div class="gallery">
+<a class="img-card" href="images/20250607_120555.jpg" target="_blank" rel="noopener" data-lightbox="pcbuilds" data-caption="Custom PC — interior view">
+<img src="images/20250607_120555.jpg" alt="Custom PC — interior view" loading="lazy" decoding="async">
+<span class="caption">Custom PC — interior view</span>
+<span class="hint">Click to open</span>
+</a>
+
+<a class="img-card" href="images/20250607_120713.jpg" target="_blank" rel="noopener" data-lightbox="pcbuilds" data-caption="Custom PC — build in port-barrel">
+<img src="images/20250607_120713.jpg" alt="Custom PC — build in port-barrel" loading="lazy" decoding="async">
+<span class="caption">Custom PC — build in port-barrel</span>
+<span class="hint">Click to open</span>
+</a>
+
+<a class="img-card" href="images/portvat-opstelling.jpg" target="_blank" rel="noopener" data-lightbox="pcbuilds" data-caption="Barrel workstation setup">
+<img src="images/portvat-opstelling.jpg" alt="Barrel workstation setup" loading="lazy" decoding="async">
+<span class="caption">Barrel workstation setup</span>
+<span class="hint">Click to open</span>
+</a>
+
+<a class="img-card" href="images/gazamelijke-opstelling.jpg" target="_blank" rel="noopener" data-lightbox="pcbuilds" data-caption="Shared workstation setup">
+<img src="images/gazamelijke-opstelling.jpg" alt="Shared workstation setup" loading="lazy" decoding="async">
+<span class="caption">Shared workstation setup</span>
+<span class="hint">Click to open</span>
+</a>
+
+<a class="img-card" href="images/gaming-pc.jpg" target="_blank" rel="noopener" data-lightbox="pcbuilds" data-caption="Shared workstation setup">
+<img src="images/gaming-pc.jpg" alt="Shared workstation setup" loading="lazy" decoding="async">
+<span class="caption">nice final product</span>
+<span class="hint">Click to open</span>
+</a>
+
+<a class="img-card" href="images/nice-color.webp" target="_blank" rel="noopener" data-lightbox="pcbuilds" data-caption="Shared workstation setup">
+<img src="images/nice-color.webp" alt="Shared workstation setup" loading="lazy" decoding="async">
+<span class="caption">nice final product in nice color</span>
+<span class="hint">Click to open</span>
+</a>
+</div>
+</section>
+
+<!-- Remote IT intro (short) -->
+<section id="remote-it">
+<h2>Remote Work & IT Support</h2>
+<p>Many IT issues can be solved quickly and safely <strong>remotely</strong> — sometimes no travel needed. I help homes and small businesses across Sweden with practical, no-nonsense support that just works.</p>
+</section>
+
+<!-- Full-bleed hero (blue webdesign image) -->
+<section class="hero-edge">
+<a class="img-card hero-card image parallax no-bars" href="images/webdesign-hero-1920.webp" data-lightbox="portfolio" data-caption="Web design — Nico on Point Services" aria-label="Open large: Web design">
+<picture class="hero-visual">
+<source type="image/webp" srcset="images/webdesign-hero-960.webp 960w, images/webdesign-hero-1280.webp 1280w, images/webdesign-hero-1920.webp 1920w, images/www.nico-on-point-services.com-1920.webp" sizes="100vw">
+<img class="top-crop" src="images/webdesign-hero-1920.webp" alt="Web design — Nico on Point Services" loading="lazy" decoding="async">
+</picture>
+<span class="caption" style="position:absolute;left:12px;bottom:12px;font-weight:800">Web design</span>
+<span class="hint" style="top:12px;left:12px;right:auto;bottom:auto;transform:none;">Click to open</span>
+</a>
+</section>
+
+<!-- Portfolio under the hero -->
+<section class="portfolio" id="portfolio">
+  <h2>Some of my designs</h2>
+  <p class="sub" style="margin-top:0;opacity:.9">Recent client work & sample designs</p>
+
+  <div class="gallery">
+    <!-- B-Smart Services -->
+    <a class="img-card"
+       href="images/b-smart-services-1200.webp"
+       target="_blank" rel="noopener"
+       data-lightbox="portfolio"
+       data-caption="B-Smart Services — project & operations support site"
+       aria-label="Open large: B-Smart Services — website sample">
+
+      <picture>
+        <source type="image/webp"
+          srcset="images/b-smart-services-600.webp 600w,
+                  images/b-smart-services-900.webp 900w,
+                  images/b-smart-services-1200.webp 1200w"
+          sizes="(max-width: 980px) 100vw, 420px">
+        <img class="top-crop"
+             src="images/b-smart-services-900.webp"
+             alt="B-Smart Services — website sample"
+             loading="lazy" decoding="async">
+      </picture>
+
+      <span class="caption">B-Smart Services <small>Project & Operations Support</small></span>
+      <span class="hint">Click to open</span>
+    </a>
+
+    <!-- Kroon Beveiligingstechniek -->
+    <a class="img-card"
+       href="images/kroonbeveiligingstechniek-1200.webp"
+       target="_blank" rel="noopener"
+       data-lightbox="portfolio"
+       data-caption="Kroon Beveiligingstechniek — security solutions site"
+       aria-label="Open large: Kroon Beveiligingstechniek — website sample">
+
+      <picture>
+        <source type="image/webp"
+          srcset="images/kroonbeveiligingstechniek-600.webp 600w,
+                  images/kroonbeveiligingstechniek-900.webp 900w,
+                  images/kroonbeveiligingstechniek-1200.webp 1200w"
+          sizes="(max-width: 980px) 100vw, 420px">
+        <img
+          src="images/kroonbeveiligingstechniek-900.webp"
+          alt="Kroon Beveiligingstechniek — website sample"
+          loading="lazy" decoding="async">
+      </picture>
+
+      <span class="caption">Kroon Beveiligingstechniek <small>Security Systems</small></span>
+      <span class="hint">Click to open</span>
+    </a>
+  </div>
+</section>
+
+
+<!-- Remote IT: services and details -->
+<section id="remote-it-services">
+<h2>And here some more of the work I can do for you — and stil more.<br>So don’t stop scrolling down!</h2>
+<ul>
+<li>Remote diagnostics & troubleshooting (Windows, macOS, Linux)</li>
+<li>Software installs & configuration (drivers, utilities, tools)</li>
+<li>Email & accounts: Outlook / Microsoft 365 / Gmail setup & fixes</li>
+<li>Backups, data transfer, and basic data recovery</li>
+<li>Security hardening: updates, antivirus, safe settings</li>
+<li>Network help: Wi-Fi optimization, router setup, VPN</li>
+<li>NAS & camera systems: basic setup and troubleshooting</li>
+<li>Website updates and small content changes</li>
+<li>Performance tuning for workstations and gaming PCs</li>
+</ul>
+<p>I use secure, invite-only tools for screen sharing and support, with clear communication at every step. Support available in English, German and Dutch.</p>
+<p>Tell me what you need — if on-site is required, I’m based in Värmland and travel across Sweden. Use the contact form below and I’ll get back to you soon.</p>
+</section>
+
+<section id="remote-cx">
+<h2>Remote Customer Service & Support</h2>
+<p>Friendly, reliable help for your customers — without the overhead. I provide on-demand, remote customer support for all businesses across the world.</p>
+
+<!-- WIDE, NO-CROP + LIGHTBOX -->
+<a class="img-card media-wide no-bars"
+href="images/gazamelijke-opstelling.jpg"
+data-lightbox="remote"
+data-caption="Shared workstation setup"
+aria-label="Open large: Shared workstation setup">
+<img src="images/gazamelijke-opstelling.jpg"
+alt="Shared workstation setup"
+class="image"
+loading="lazy"
+decoding="async">
+<span class="caption">Shared workstation setup</span>
+<span class="hint">Click to open</span>
+</a>
+</section>
+<section id="remote-cx">
+<h2>Below are my online activities in remote support and customer service.</h2>
+<ul>
+<li>Channels: phone, email, chat (Teams/Zoom), social DMs</li>
+<li>Ticketing & CRM: Outlook/Microsoft 365, Gmail, Zendesk/Freshdesk/Jira Service Management</li>
+<li>Tasks: intake & triage, troubleshooting, order/status queries, appointment booking, simple billing & returns</li>
+<li>Process: clear notes, follow-up, and knowledge-base updates</li>
+<li>KPIs I care about: first-contact resolution, response times, customer satisfaction</li>
+<li>Languages: English, German, and Dutch</li>
+</ul>
+<p>I use secure, invite-only tools for screen sharing. Short assignments or ongoing support — your choice.</p>
+</section>
+
+<section class="closing-message">
+<h2>Let’s Make It Happen</h2>
+<p>Every project starts with a simple idea — and a bit of trust. Whether you need something built, fixed, or upgraded, I’m here to help you get it done right. No big company, no middlemen — just honest work, fair prices, and reliable results.</p>
+<p>So tell me what you need, and let’s make your plan a reality. Fill out the contact form below and I’ll get back to you soon.</p>
+</section>
+
+<section>
+<h2>Contact</h2>
+<form class="contact-frame" action="https://formspree.io/f/mzzgdqkb" method="POST">
+<form action="https://formspree.io/f/mzzgdqkb" method="POST">
+<input type="text" name="name" placeholder="Your name" required>
+<input type="email" name="email" placeholder="Your email" required>
+<textarea name="message" rows="5" placeholder="Your message..." required></textarea>
+<input type="hidden" name="_captcha" value="false">
+<input type="hidden" name="_template" value="table">
+<input type="hidden" name="_next" value="https://nico-on-point-services.com">
+<button type="submit">Send</button>
+</form>
+
+<div class="contact-icons">
+<a href="tel:+46707106182" aria-label="Call">
+<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="2" width="10" height="20" rx="2" ry="2"></rect><circle cx="12" cy="18" r="1.5"></circle></svg>
+<span>+46 70 710 61 82</span>
+</a>
+<a href="mailto:nico_on_point-services@outlook.com" aria-label="Email">
+<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2" ry="2"></rect><path d="M3 7l9 7 9-7"></path></svg>
+<span>Email me</span>
+</a>
+<a href="https://www.linkedin.com/in/nico-buijs-24ab5494" target="_blank" rel="noopener" aria-label="LinkedIn">
+<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2" ry="2"></rect><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><path d="M3 12h18"></path></svg>
+<span>LinkedIn</span>
+</a>
+<a href="https://www.facebook.com/profile.php?id=100095125455611" target="_blank" rel="noopener" aria-label="Facebook">
+<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="13" rx="4" ry="4"></rect><path d="M8 21l2-4"></path></svg>
+<span>Facebook</span>
+</a>
+<a href="https://www.instagram.com/nicoonpointservices/" target="_blank" rel="noopener" aria-label="Instagram">
+<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" ry="5"></rect><circle cx="12" cy="12" r="4.5"></circle><circle cx="17" cy="7" r="1.5"></circle></svg>
+<span>Instagram</span>
+</a>
+</div>
+</section>
+
+<footer>
+  <form class="contact-frame" action="https://formspree.io/f/mzzgdqkb" method="POST">
+<p><strong>Nico Buijs</strong> (owner Nico on Point)</p>
+<p>682 94 Lesjöfors, Sverige</p>
+<p>&copy; 2025 Nico on Point Services. All rights reserved.</p>
+<p>webdesign by: Nico on Point Services</p>
+<p>copyright: Nico on Point Services</p>
+</footer>
+
+<!-- Lightbox JS -->
+<script>
+(()=>{
+const qa = s=>Array.from(document.querySelectorAll(s));
+const backdrop = Object.assign(document.createElement('div'),{className:'lb-backdrop'});
+const modal = Object.assign(document.createElement('div'),{className:'lb-modal'});
+modal.setAttribute('role','dialog'); modal.setAttribute('aria-modal','true');
+const frame = Object.assign(document.createElement('div'),{className:'lb-frame'});
+const img = Object.assign(document.createElement('img'),{className:'lb-img',alt:''});
+const cap = Object.assign(document.createElement('div'),{className:'lb-caption'});
+const prev = Object.assign(document.createElement('div'),{className:'lb-btn lb-prev'}); prev.innerHTML='&#10094;';
+const next = Object.assign(document.createElement('div'),{className:'lb-btn lb-next'}); next.innerHTML='&#10095;';
+const close = Object.assign(document.createElement('button'),{className:'lb-close'}); close.setAttribute('aria-label','Close'); close.innerHTML='&times;';
+frame.append(img,cap,prev,next,close); modal.append(frame); document.body.append(backdrop,modal);
+
+let groups={}, current=[], idx=0, lastFocus=null;
+function buildGroups(){ groups={}; qa('a.img-card[data-lightbox]').forEach(a=>{ const g=a.getAttribute('data-lightbox')||'default'; (groups[g] ||= []).push(a); }); }
+buildGroups(); new MutationObserver(buildGroups).observe(document.body,{childList:true,subtree:true});
+
+function openLB(a){
+const gname=a.getAttribute('data-lightbox')||'default'; current=groups[gname]||[a]; idx=Math.max(0,current.indexOf(a));
+const href=a.getAttribute('href'); const caption=a.getAttribute('data-caption')||a.querySelector('.caption')?.textContent||a.querySelector('img')?.alt||''; const alt=a.querySelector('img')?.alt||'';
+img.src=href; img.alt=alt; cap.textContent=caption; lastFocus=document.activeElement; backdrop.classList.add('open'); modal.classList.add('open'); close.focus(); document.body.style.overflow='hidden';
+}
+function closeLB(){ backdrop.classList.remove('open'); modal.classList.remove('open'); img.src=''; cap.textContent=''; document.body.style.overflow=''; if(lastFocus&&lastFocus.focus) lastFocus.focus(); }
+function show(i){ idx=(i+current.length)%current.length; const a=current[idx]; if(!a) return; img.src=a.getAttribute('href'); img.alt=a.querySelector('img')?.alt||''; cap.textContent=a.getAttribute('data-caption')||a.querySelector('.caption')?.textContent||img.alt||''; }
+
+document.addEventListener('click', ev=>{ const a=ev.target.closest('a.img-card[data-lightbox]'); if(a){ ev.preventDefault(); openLB(a);} });
+backdrop.addEventListener('click', closeLB); close.addEventListener('click', closeLB);
+prev.addEventListener('click', ()=>show(idx-1)); next.addEventListener('click', ()=>show(idx+1));
+document.addEventListener('keydown', e=>{ if(!modal.classList.contains('open')) return; if(e.key==='Escape') closeLB(); if(e.key==='ArrowLeft') show(idx-1); if(e.key==='ArrowRight') show(idx+1); });
+let sx=0, sy=0; modal.addEventListener('touchstart', e=>{const t=e.changedTouches[0]; sx=t.clientX; sy=t.clientY;},{passive:true});
+modal.addEventListener('touchend', e=>{const t=e.changedTouches[0]; const dx=t.clientX-sx, dy=t.clientY-sy; if(Math.abs(dx)>40 && Math.abs(dx)>Math.abs(dy)){ dx>0?show(idx-1):show(idx+1);} },{passive:true});
+})();
+</script>
+
+<!-- Tilt voor profiel (werkt voor brede én kleine variant) -->
+<script>
+(() => {
+addEventListener('DOMContentLoaded', () => {
+const wraps = document.querySelectorAll('.profile-hero, .profile-left-figure');
+const maxY = 10, maxX = 6;
+
+wraps.forEach(wrap => {
+const img = wrap.querySelector('img');
+if(!img) return;
+
+function tilt(e){
+const r = wrap.getBoundingClientRect();
+const x = (e.clientX - r.left) / r.width;
+const y = (e.clientY - r.top) / r.height;
+const ry = (x - .5) * (maxY*2);
+const rx = -(y - .5) * (maxX*2);
+img.style.transform = `perspective(900px) rotateY(${ry.toFixed(2)}deg) rotateX(${rx.toFixed(2)}deg)`;
+}
+function reset(){ img.style.transform = ''; }
+
+wrap.addEventListener('mousemove', tilt);
+wrap.addEventListener('mouseleave', reset, {passive:true});
+});
+});
+})();
+</script>
+</body>
+</html>
+
