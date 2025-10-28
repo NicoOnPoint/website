@@ -572,6 +572,31 @@ footer{
   border: 3px solid rgba(255,216,77,.35);
   border-radius: var(--radius);
 }
+  /* === Portfolio: op mobiel onder elkaar (force) === */
+@media (max-width: 700px){
+  /* zet de grid uit en stapel items */
+  .portfolio .gallery{
+    display: block !important;          /* in plaats van grid */
+  }
+  .portfolio .img-card{
+    display: block !important;
+    width: 100% !important;
+    margin: 0 0 14px 0 !important;      /* ruimte tussen kaarten */
+    border-radius: var(--radius);
+  }
+  .portfolio .img-card:last-child{
+    margin-bottom: 0 !important;
+  }
+  /* zorg dat de afbeelding netjes schaalt */
+  .portfolio .img-card picture,
+  .portfolio .img-card img{
+    width: 100% !important;
+    height: auto !important;
+    display: block !important;
+    object-fit: cover;
+  }
+}
+
   
 </style>
 
