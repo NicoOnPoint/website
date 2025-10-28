@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="sv" lang="sv">
+<html lang="en">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Nico on Point Services | Reparationer, installationer & specialbyggda datorer i Sverige</title>
+<title>Nico on Point Services | Fixes, Installs & Custom PCs in Sweden</title>
 <link rel="icon" href="logo.png" type="image/png" />
 
 <!-- Preload Värmland hero image so it loads immediately -->
@@ -58,31 +58,35 @@ ul{padding-left:1.25rem}
 
 
 
-/* ===== Header (centered content + overlay) ===== */
+/* ===== Header (full-width photo background, no overlay) ===== */
 header{
   position:relative;
   text-align:center;
+
+  /* height & spacing */
   min-height: 600px;
   padding: 2rem 1rem 3rem;
-  background-color:#0d0d0d;
-  background-image:image-set(url('images/Värmland.jpg') type('image/jpeg'));
+
+  /* full-bleed background image */
+  background-color:#0d0d0d; /* fallback only */
+  background-image: image-set(
+    url('images/Värmland.jpg') type('image/jpeg')
+  );
   background-repeat:no-repeat;
   background-position:center center;
   background-size:cover;
+
   border-bottom:1px solid rgba(255,216,77,.15);
 }
-header::before{
-  content:"";
-  position:absolute; inset:0;
-  background:linear-gradient(to bottom, rgba(0,0,0,.55), rgba(0,0,0,.35) 40%, rgba(0,0,0,.55));
-  z-index:0;
-}
+/* golden line bottom */
 header::after{
-  content:""; position:absolute; left:0; right:0; bottom:-1px; height:10px;
+  content:"";
+  position:absolute; left:0; right:0; bottom:-1px; height:10px;
   background:linear-gradient(90deg, rgba(255,216,77,0) 0%, rgba(255,216,77,.85) 12%, var(--brand) 50%, rgba(255,216,77,.85) 88%, rgba(255,216,77,0) 100%);
   box-shadow:0 6px 16px rgba(230,184,0,.35);
   z-index:2;
 }
+/* keep content above background context */
 header > *{ position:relative; z-index:1; }
 .logo-wrap{position:relative;display:inline-block}
 .logo-wrap::before{content:"";position:absolute;inset:-18%;border-radius:50%;background:radial-gradient(circle, rgba(255,216,77,.35) 0%, rgba(255,216,77,.18) 40%, rgba(255,216,77,0) 72%);filter:blur(12px);pointer-events:none}
@@ -539,6 +543,21 @@ footer{
   opacity:.6;
 }
 
+/* === Subtle gold frames for sections and image cards (transparent background) === */
+section{
+  border: 1px solid rgba(255,216,77,.35);
+  border-radius: var(--radius);
+  background: transparent;
+}
+.img-card{
+  border: 1px solid rgba(255,216,77,.35);
+  border-radius: var(--radius);
+  background: transparent !important;
+}
+.img-card picture,
+.img-card img{
+  border-radius: inherit;
+}
 </style>
 
 <!-- Google tag (gtag.js) -->
@@ -617,6 +636,7 @@ onScroll();
 </div>
 <h1>Nico on Point Services</h1>
 <p>Mångsidig hjälp med fastighetsarbete, renoveringar, installationer & datorer</p>
+<!-- Profilbilden stod här; är nu flyttad till Om-sektionen -->
 </header>
 
 <!-- TEXT + LOGO SCROLLING BANNER -->
