@@ -572,6 +572,17 @@ footer{
   border: 3px solid rgba(255,216,77,.35);
   border-radius: var(--radius);
 }
+  /* Mobiel: portfolio-kaarten niet tegen elkaar */
+@media (max-width: 640px){
+  .portfolio .gallery{
+    grid-template-columns: 1fr;                 /* onder elkaar */
+    gap: clamp(12px, 4vw, 22px);                /* extra ruimte ertussen */
+  }
+  .portfolio .img-card{
+    aspect-ratio: 16 / 10;                      /* mooie verhouding op mobiel */
+  }
+}
+
 
 </style>
 
