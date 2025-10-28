@@ -12,6 +12,15 @@
 <style>
 /* ===== Base ===== */
 :root{
+  --hero-pt: clamp(4rem, 18vh, 12rem);
+  --hero-title: clamp(1.6rem, 3vw, 2.4rem);
+  --hero-subtitle: clamp(0.95rem, 1.6vw, 1.2rem);
+  --hero-logo-w: clamp(140px, 20vw, 240px);
+  --hero-logo-mt: .5rem;
+  --hero-shadow: 0 1px 2px rgba(0,0,0,.55), 0 2px 8px rgba(0,0,0,.35);
+  --hero-left: clamp(8px, 2vw, 24px);
+  --hero-bottom: clamp(12px, 8vh, 96px);
+
 --brand:#e6b800; /* gold */
 --ink:#f4f4f4;
 --bg:#1b1b1b;
@@ -55,9 +64,44 @@ ul{padding-left:1.25rem}
 @media (max-width:420px){.lang-switch img{width:32px}}
 
 /* ===== Header ===== */
-header{position:relative;padding:1rem 1rem 2.25rem;text-align:center;background:#1a1a1a;border-bottom:1px solid rgba(255,216,77,.15)}
-header::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:10px;background:linear-gradient(90deg, rgba(255,216,77,0) 0%, rgba(255,216,77,.85) 12%, var(--brand) 50%, rgba(255,216,77,.85) 88%, rgba(255,216,77,0) 100%);box-shadow:0 6px 16px rgba(230,184,0,.35)}
 
+
+
+/* ===== Header (full-width background, linksonder content) ===== */
+header{
+  position:relative;
+  text-align:left;
+  min-height: 600px;
+  padding: 0 0 3rem;                  /* onderruimte voor gouden lijn */
+  background-color:#0d0d0d;           /* fallback */
+  background-image: image-set(
+    url('images/Värmland.jpg') type('image/jpeg')
+  );
+  background-repeat:no-repeat;
+  background-position:center center;
+  background-size:cover;
+  border-bottom:1px solid rgba(255,216,77,.15);
+}
+header::after{
+  content:""; position:absolute; left:0; right:0; bottom:-1px; height:10px;
+  background:linear-gradient(90deg, rgba(255,216,77,0) 0%, rgba(255,216,77,.85) 12%, var(--brand) 50%, rgba(255,216,77,.85) 88%, rgba(255,216,77,0) 100%);
+  box-shadow:0 6px 16px rgba(230,184,0,.35);
+  z-index:2;
+}
+/* hero content linksonder in de foto */
+.hero-inner{
+  position:absolute;
+  left: var(--hero-left);
+  bottom: var(--hero-bottom);
+  display:flex;
+  align-items:flex-end;
+  gap: clamp(0.75rem, 2vw, 1.5rem);
+  margin:0; padding:0;
+}
+/* Typografie & logo via variabelen */
+header h1{ font-size: var(--hero-title); line-height:1.2; margin:.5rem 0 .25rem; text-shadow: var(--hero-shadow); }
+header p{ font-size: var(--hero-subtitle); margin:.25rem 0 0; max-width: 70ch; opacity:.9; text-shadow: var(--hero-shadow); }
+.logo{ width: var(--hero-logo-w); margin-top: var(--hero-logo-mt); }
 .logo-wrap{position:relative;display:inline-block}
 .logo-wrap::before{content:"";position:absolute;inset:-18%;border-radius:50%;background:radial-gradient(circle, rgba(255,216,77,.35) 0%, rgba(255,216,77,.18) 40%, rgba(255,216,77,0) 72%);filter:blur(12px);pointer-events:none}
 .logo{width:clamp(140px,22vw,220px);margin:1.25rem auto .25rem;animation:pulse 3s ease-in-out infinite;position:relative}
@@ -586,12 +630,16 @@ onScroll();
 </div>
 
 <header>
-<div class="logo-wrap">
-<img src="logo.png" alt="Nico on Point-logotyp" class="logo" onerror="this.closest('.logo-wrap').style.display='none'">
+<!-- Hjälteområde: logotyp + text, placerad längst ned till vänster -->
+<div class="hero-inner">
+  <div class="logo-wrap">
+<img src="logo.png" alt="Nico on Point Services logotyp" class="logo" onerror="this.closest('.logo-wrap').style.display='none'">
 </div>
-<h1>Nico on Point Services</h1>
-<p>Mångsidig hjälp med fastighetsarbete, renoveringar, installationer & datorer</p>
-<!-- Profilbilden stod här; är nu flyttad till Om-sektionen -->
+  <div class="hero-copy">
+    <h1>Nico on Point Services</h1>
+    <p>Mångsidig hjälp med fastighetsarbete, renoveringar, installationer & datorer</p>
+  </div>
+</div>
 </header>
 
 <!-- TEXT + LOGO SCROLLING BANNER -->
