@@ -20,6 +20,51 @@
 --shadow: 0 8px 22px rgba(0,0,0,.35);
 --radius: 14px;
 }
+
+
+/* ===== Header ===== */
+header{
+  position:relative;
+  text-align:center;
+
+  /* hoogte en ruimte */
+  min-height: 600px;            /* maak de zwarte balk/foto hoger */
+  padding: 2rem 1rem 3rem;      /* extra ruimte onder voor gradient */
+
+  /* achtergrondafbeelding over de volle breedte */
+  background-color:#0d0d0d;     /* fallback kleur */
+  background-image:
+    image-set(
+      url('images/Värmland.jpg') type('image/jpeg')
+    );
+  background-repeat:no-repeat;
+  background-position:center center;
+  background-size:cover;
+
+  border-bottom:1px solid rgba(255,216,77,.15);
+}
+/* half-transparante overlay voor leesbaarheid bovenop de foto */
+header::before{
+  content:"";
+  position:absolute; inset:0;
+  background:linear-gradient(
+    to bottom,
+    rgba(0,0,0,.55),
+    rgba(0,0,0,.35) 40%,
+    rgba(0,0,0,.55)
+  );
+  z-index:0;
+}
+/* gouden lijn onderaan blijft zichtbaar */
+header::after{
+  content:""; position:absolute; left:0; right:0; bottom:-1px; height:10px;
+  background:linear-gradient(90deg, rgba(255,216,77,0) 0%, rgba(255,216,77,.85) 12%, var(--brand) 50%, rgba(255,216,77,.85) 88%, rgba(255,216,77,0) 100%);
+  box-shadow:0 6px 16px rgba(230,184,0,.35);
+  z-index:2;
+}
+/* zorg dat content boven overlay ligt */
+header > *{ position:relative; z-index:1; }
+
 html{scroll-behavior:smooth}
 *,*::before,*::after{box-sizing:border-box}
 body{
@@ -55,8 +100,8 @@ ul{padding-left:1.25rem}
 @media (max-width:420px){.lang-switch img{width:32px}}
 
 /* ===== Header ===== */
-header{position:relative;padding:1rem 1rem 2.25rem;text-align:center;background:#1a1a1a;border-bottom:1px solid rgba(255,216,77,.15)}
-header::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:10px;background:linear-gradient(90deg, rgba(255,216,77,0) 0%, rgba(255,216,77,.85) 12%, var(--brand) 50%, rgba(255,216,77,.85) 88%, rgba(255,216,77,0) 100%);box-shadow:0 6px 16px rgba(230,184,0,.35)}
+
+
 
 .logo-wrap{position:relative;display:inline-block}
 .logo-wrap::before{content:"";position:absolute;inset:-18%;border-radius:50%;background:radial-gradient(circle, rgba(255,216,77,.35) 0%, rgba(255,216,77,.18) 40%, rgba(255,216,77,0) 72%);filter:blur(12px);pointer-events:none}
@@ -705,8 +750,8 @@ onerror="this.style.display='none'">
 <span class="hint">Click to open</span>
 </a>
 
-<a class="img-card" href="images/me.jpg" target="_blank" rel="noopener" data-lightbox="renov" data-caption="Me at a little painting job">
-<img src="images/me.jpg" alt="Me at a little painting job" loading="lazy" decoding="async">
+<a class="img-card" href="images/me.jpg" target="_blank" rel="noopener" data-lightbox="renov" data-caption="Renovation progress — 2025-05-27">
+<img src="images/me.jpg" alt="Renovation progress — 2025-05-27" loading="lazy" decoding="async">
 <span class="caption">images/me in fine progress — 2025-05-27</span>
 <span class="hint">Click to open</span>
 </a>
@@ -719,7 +764,7 @@ onerror="this.style.display='none'">
 <div class="gallery">
 <a class="img-card" href="images/20250607_120555.jpg" target="_blank" rel="noopener" data-lightbox="pcbuilds" data-caption="Custom PC — interior view">
 <img src="images/20250607_120555.jpg" alt="Custom PC — interior view" loading="lazy" decoding="async">
-<span class="caption">Custom gaming and work build — open case build</span>
+<span class="caption">Custom PC — interior view</span>
 <span class="hint">Click to open</span>
 </a>
 
@@ -735,20 +780,20 @@ onerror="this.style.display='none'">
 <span class="hint">Click to open</span>
 </a>
 
-<a class="img-card" href="images/gazamelijke-opstelling.jpg" target="_blank" rel="noopener" data-lightbox="pcbuilds" data-caption="workstation setup">
-<img src="images/gazamelijke-opstelling.jpg" alt="workstation setup" loading="lazy" decoding="async">
+<a class="img-card" href="images/gazamelijke-opstelling.jpg" target="_blank" rel="noopener" data-lightbox="pcbuilds" data-caption="Shared workstation setup">
+<img src="images/gazamelijke-opstelling.jpg" alt="Shared workstation setup" loading="lazy" decoding="async">
 <span class="caption">Shared workstation setup</span>
 <span class="hint">Click to open</span>
 </a>
 
-<a class="img-card" href="images/gaming-pc.jpg" target="_blank" rel="noopener" data-lightbox="pcbuilds" data-caption="“custom liquid-cooled gaming PC”">
-<img src="images/gaming-pc.jpg" alt="“custom liquid-cooled gaming PC”" loading="lazy" decoding="async">
+<a class="img-card" href="images/gaming-pc.jpg" target="_blank" rel="noopener" data-lightbox="pcbuilds" data-caption="Shared workstation setup">
+<img src="images/gaming-pc.jpg" alt="Shared workstation setup" loading="lazy" decoding="async">
 <span class="caption">nice final product</span>
 <span class="hint">Click to open</span>
 </a>
 
-<a class="img-card" href="images/nice-color.webp" target="_blank" rel="noopener" data-lightbox="pcbuilds" data-caption="“custom liquid-cooled gaming PC in nice red collor”">
-<img src="images/nice-color.webp" alt="“custom liquid-cooled gaming PC in nice red collor”" loading="lazy" decoding="async">
+<a class="img-card" href="images/nice-color.webp" target="_blank" rel="noopener" data-lightbox="pcbuilds" data-caption="Shared workstation setup">
+<img src="images/nice-color.webp" alt="Shared workstation setup" loading="lazy" decoding="async">
 <span class="caption">nice final product in nice color</span>
 <span class="hint">Click to open</span>
 </a>
