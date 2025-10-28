@@ -20,6 +20,51 @@
 --shadow: 0 8px 22px rgba(0,0,0,.35);
 --radius: 14px;
 }
+
+
+/* ===== Header ===== */
+header{
+  position:relative;
+  text-align:center;
+
+  /* hoogte en ruimte */
+  min-height: 600px;            /* maak de zwarte balk/foto hoger */
+  padding: 2rem 1rem 3rem;      /* extra ruimte onder voor gradient */
+
+  /* achtergrondafbeelding over de volle breedte */
+  background-color:#0d0d0d;     /* fallback kleur */
+  background-image:
+    image-set(
+      url('images/Värmland.jpg') type('image/jpeg')
+    );
+  background-repeat:no-repeat;
+  background-position:center center;
+  background-size:cover;
+
+  border-bottom:1px solid rgba(255,216,77,.15);
+}
+/* half-transparante overlay voor leesbaarheid bovenop de foto */
+header::before{
+  content:"";
+  position:absolute; inset:0;
+  background:linear-gradient(
+    to bottom,
+    rgba(0,0,0,.55),
+    rgba(0,0,0,.35) 40%,
+    rgba(0,0,0,.55)
+  );
+  z-index:0;
+}
+/* gouden lijn onderaan blijft zichtbaar */
+header::after{
+  content:""; position:absolute; left:0; right:0; bottom:-1px; height:10px;
+  background:linear-gradient(90deg, rgba(255,216,77,0) 0%, rgba(255,216,77,.85) 12%, var(--brand) 50%, rgba(255,216,77,.85) 88%, rgba(255,216,77,0) 100%);
+  box-shadow:0 6px 16px rgba(230,184,0,.35);
+  z-index:2;
+}
+/* zorg dat content boven overlay ligt */
+header > *{ position:relative; z-index:1; }
+
 html{scroll-behavior:smooth}
 *,*::before,*::after{box-sizing:border-box}
 body{
@@ -58,36 +103,6 @@ ul{padding-left:1.25rem}
 
 
 
-/* ===== Header (full-width photo background, no overlay) ===== */
-header{
-  position:relative;
-  text-align:center;
-
-  /* height & spacing */
-  min-height: 600px;
-  padding: 2rem 1rem 3rem;
-
-  /* full-bleed background image */
-  background-color:#0d0d0d; /* fallback only */
-  background-image: image-set(
-    url('images/Värmland.jpg') type('image/jpeg')
-  );
-  background-repeat:no-repeat;
-  background-position:center center;
-  background-size:cover;
-
-  border-bottom:1px solid rgba(255,216,77,.15);
-}
-/* golden line bottom */
-header::after{
-  content:"";
-  position:absolute; left:0; right:0; bottom:-1px; height:10px;
-  background:linear-gradient(90deg, rgba(255,216,77,0) 0%, rgba(255,216,77,.85) 12%, var(--brand) 50%, rgba(255,216,77,.85) 88%, rgba(255,216,77,0) 100%);
-  box-shadow:0 6px 16px rgba(230,184,0,.35);
-  z-index:2;
-}
-/* keep content above background context */
-header > *{ position:relative; z-index:1; }
 .logo-wrap{position:relative;display:inline-block}
 .logo-wrap::before{content:"";position:absolute;inset:-18%;border-radius:50%;background:radial-gradient(circle, rgba(255,216,77,.35) 0%, rgba(255,216,77,.18) 40%, rgba(255,216,77,0) 72%);filter:blur(12px);pointer-events:none}
 .logo{width:clamp(140px,22vw,220px);margin:1.25rem auto .25rem;animation:pulse 3s ease-in-out infinite;position:relative}
@@ -542,22 +557,13 @@ footer{
   background: linear-gradient(90deg, rgba(255,216,77,0), rgba(255,216,77,.35), rgba(255,216,77,0));
   opacity:.6;
 }
+  .framed {
+  border: 3px solid var(--brand);
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(230, 184, 0, 0.3);
+}
 
-/* === Subtle gold frames for sections and image cards (transparent background) === */
-section{
-  border: 1px solid rgba(255,216,77,.35);
-  border-radius: var(--radius);
-  background: transparent;
-}
-.img-card{
-  border: 1px solid rgba(255,216,77,.35);
-  border-radius: var(--radius);
-  background: transparent !important;
-}
-.img-card picture,
-.img-card img{
-  border-radius: inherit;
-}
+
 </style>
 
 <!-- Google tag (gtag.js) -->
@@ -569,7 +575,7 @@ gtag('js', new Date());
 gtag('config', 'G-1LT3BX7VW7');
 </script>
 
-<!-- Fade-in vid scroll för .image -->
+<!-- Fade-in on scroll for .image -->
 <script>
 addEventListener('scroll', () => {
 document.querySelectorAll('.image').forEach(img => {
@@ -579,29 +585,29 @@ if (r.top < innerHeight - 100) img.classList.add('fade-in');
 }, {passive:true});
 </script>
 
-<!-- Tilt + liten parallax för hero (stödjer flera .hero-card) -->
+<!-- Tilt + tiny parallax for hero (now supports multiple .hero-card) -->
 <script>
 (() => {
 addEventListener('DOMContentLoaded', () => {
 const canHover = matchMedia('(hover:hover)').matches;
 const prefersReduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-// === Tilt på alla hero-kort ===
+// === Tilt on all hero cards ===
 if (canHover && !prefersReduced){
 document.querySelectorAll('.hero-card').forEach(hero => {
 hero.addEventListener('mousemove', e => {
 const r = hero.getBoundingClientRect();
 const x = (e.clientX - r.left) / r.width;
 const y = (e.clientY - r.top) / r.height;
-const ry = (x - 0.5) * 10; // vänster/höger
-const rx = -(y - 0.5) * 6; // upp/ner
+const ry = (x - 0.5) * 10; // left/right
+const rx = -(y - 0.5) * 6; // up/down
 hero.style.transform = `perspective(900px) rotateY(${ry.toFixed(2)}deg) rotateX(${rx.toFixed(2)}deg)`;
 });
 hero.addEventListener('mouseleave', () => { hero.style.transform = 'none'; });
 });
 }
 
-// === Parallax för alla hero-kort med .parallax ===
+// === Parallax for all hero cards with .parallax ===
 if (!prefersReduced){
 const pars = Array.from(document.querySelectorAll('.hero-card.parallax'));
 if (pars.length){
@@ -625,31 +631,31 @@ onScroll();
 </head>
 
 <body>
-<div class="lang-switch" aria-label="Språkval">
-<a href="index-en.html" aria-label="Engelska" title="Engelska"><img src="flags/en.png" alt="Brittisk flagga"></a>
-<a href="index-sv.html" aria-label="Svenska" title="Svenska"><img src="flags/sv.png" alt="Svensk flagga"></a>
+<div class="lang-switch" aria-label="Language selector">
+<a href="index-en.html" aria-label="English" title="English"><img src="flags/en.png" alt="English flag"></a>
+<a href="index-sv.html" aria-label="Svenska" title="Svenska"><img src="flags/sv.png" alt="Swedish flag"></a>
 </div>
 
 <header>
 <div class="logo-wrap">
-<img src="logo.png" alt="Nico on Point-logotyp" class="logo" onerror="this.closest('.logo-wrap').style.display='none'">
+<img src="logo.png" alt="Nico on Point logo" class="logo" onerror="this.closest('.logo-wrap').style.display='none'">
 </div>
 <h1>Nico on Point Services</h1>
-<p>Mångsidig hjälp med fastighetsarbete, renoveringar, installationer & datorer</p>
-<!-- Profilbilden stod här; är nu flyttad till Om-sektionen -->
+<p>Versatile help with facility work, renovations, installations & PCs</p>
+<!-- Profielfoto stond hier; is nu verplaatst naar de About-sectie -->
 </header>
 
 <!-- TEXT + LOGO SCROLLING BANNER -->
-<section class="text-banner" aria-label="Varumärkeshöjdpunkter">
+<section class="text-banner" aria-label="Brand highlights">
 <div class="tb-shell">
 <div class="tb-track" aria-hidden="true">
 <div class="tb-item">
 <img src="images/logo.webp" alt="">
-<span class="brand">Nico on Point Services</span><span class="sep">•</span><span>PC-byggen</span><span class="sep">•</span><span>Reparationer</span><span class="sep">•</span><span>Installationer</span><span class="sep">•</span><span class="cta">För gratis rådgivning, ring 📞 +46 70 710 61 82</span>
+<span class="brand">Nico on Point Services</span><span class="sep">•</span><span>PC Builds</span><span class="sep">•</span><span>Repairs</span><span class="sep">•</span><span>Installations</span><span class="sep">•</span><span class="cta">For free advice, call 📞 +46 70 710 61 82</span>
 </div>
 <div class="tb-item">
 <img src="images/logo.webp" alt="">
-<span class="brand">Nico on Point Services</span><span class="sep">•</span><span>PC-byggen</span><span class="sep">•</span><span>Reparationer</span><span class="sep">•</span><span>Installationer</span><span class="sep">•</span><span class="cta">För gratis rådgivning, ring 📞 +46 70 710 61 82</span>
+<span class="brand">Nico on Point Services</span><span class="sep">•</span><span>PC Builds</span><span class="sep">•</span><span>Repairs</span><span class="sep">•</span><span>Installations</span><span class="sep">•</span><span class="cta">For free advice, call 📞 +46 70 710 61 82</span>
 </div>
 </div>
 </div>
@@ -657,171 +663,171 @@ onScroll();
 
 <section id="about">
 
-<h2>Om mig – vad jag kan göra för dig</h2>
+<h2>About Me. What I can do for you.....</h2>
 
-<!-- LITEN & VÄNSTER-UPP: profilfoto i texten -->
+<!-- KLEIN & LINKS-BOVEN: profielfoto in de tekst -->
 <figure class="profile-left-figure">
 <img src="images/Nico.png"
-alt="Profilfoto på Nico"
+alt="Profile photo of Nico"
 class="profile-left"
 onerror="this.style.display='none'">
 <figcaption class="profile-caption" aria-hidden="true">Nico Buijs</figcaption>
 </figure>
 
-<p>Ursprungligen från Amsterdam i Nederländerna har jag arbetat många år inom bygg, tekniska tjänster och IT. Under åren har jag skaffat mig en bred uppsättning diplom och certifieringar och arbetat i många projekt – även för flera (semi) offentliga organisationer. Den här mixen av erfarenheter har gett mig en solid förståelse för både praktiskt hantverk och modern teknik.</p>
-<p>Nu, baserad i vackra Värmland, kombinerar jag alla dessa färdigheter för att hjälpa människor med allt som behöver fixas, installeras eller förbättras. Oavsett om det gäller en liten reparation hemma, ett knepigt tekniskt problem eller ett större renoveringsprojekt – jag tar mig an varje uppgift med noggrannhet, precision och en no-nonsense-attityd.</p>
-<p>På tech-sidan brinner jag också för att bygga och reparera specialanpassade datorer – från tysta och effektiva arbetsstationer till högpresterande gamingriggar med avancerad vätskekylning. Jag ser till att varje bygge fungerar smidigt och ser snyggt ut.</p>
-<p>Jag är en praktisk problemlösare som gillar att hitta smarta och funktionella lösningar, både i hem och för företag. Du kan räkna med professionella resultat, tydlig kommunikation och rättvisa priser från <strong>450 SEK/timme</strong>.</p>
-<p>Bas i vackra Värmland men ständigt på väg över hela Sverige för att få saker gjorda. Oavsett om det handlar om att hänga upp en lampa, fixa en droppande kran, montera möbler eller ta hand om småreparationer i hemmet – jag är din go-to för alla vardagsjobb som gör hemmet komplett.</p>
-<p>Jag tar också större hemprojekt som renoveringar, installationer och felsökning – alltid med omsorg, precision och en rak, ärlig stil.</p>
-<p>Och för alla teknikentusiaster: jag designar, bygger och reparerar skräddarsydda datorer, inklusive högpresterande gamingriggar med vätskekylning. Varje bygge anpassas efter dina behov för topprestanda och ett rent, proffsigt utseende.</p>
-<p>Du får ärliga råd, schyssta priser och pålitlig service som alltid är on point. Så oavsett om du har en snabbfix eller en stor idé – låt oss få det gjort!</p>
+<p>Originally from Amsterdam, the Netherlands, I’ve spent many years working in construction, technical services, and IT. Over the years, I’ve earned a wide range of diplomas and certifications, and worked on numerous projects – including for several (semi) government organizations. This mix of experience has given me a solid understanding of both practical craftsmanship and modern technology.</p>
+<p>Now based in beautiful Värmland, Sweden, I combine all those skills to help people with whatever needs fixing, installing, or improving. Whether it’s a small home repair, a tricky technical issue, or a larger renovation project – I handle every task with care, precision, and a no-nonsense attitude.</p>
+<p>On the tech side, I’m also passionate about building and repairing custom PCs – from quiet and efficient workstations to high-performance gaming rigs with advanced liquid cooling. I make sure every build runs smoothly and looks great.</p>
+<p>I’m a hands-on problem solver who enjoys finding smart and practical solutions, both in homes and for businesses. You can count on professional results, honest communication, and fair rates starting at <strong>450 SEK/hour</strong>.</p>
+<p>Based in beautiful Värmland, but always on the move across Sweden to help people get things done. Whether it’s hanging a lamp, fixing a leaky tap, assembling furniture, or handling small repairs around the house – I’m your go-to guy for all those everyday jobs that make your home feel complete.</p>
+<p>I also take on larger home projects such as renovations, installations, and troubleshooting – always with care, precision, and a no-nonsense attitude.</p>
+<p>And again for the tech enthusiasts out there: I design, build, and repair custom PCs, including high-performance gaming rigs with liquid cooling. Every build is tailored to your needs for top-notch performance and a clean, professional look.</p>
+<p>You’ll get honest advice, fair prices, and reliable service that’s always on point. So whether you’ve got a quick fix or a big idea in mind – let’s make it happen!</p>
 </section>
 
 <section class="hero-edge">
 <section id="about">
-<h2>Att bo och arbeta i Värmland</h2>
+<h2>Living and working in Värmland</h2>
 <div class="side-hero">
-<a class="img-card hero-card contained image parallax fade-in no-bars" href="images/Värmland.jpg" data-lightbox="renov" data-caption="Solnedgång i Värmland" aria-label="Öppna stor bild: Solnedgång i Värmland">
+<a class="img-card hero-card contained image parallax fade-in no-bars" href="images/Värmland.jpg" data-lightbox="renov" data-caption="Värmland sunset" aria-label="Open large: Värmland sunset">
 <picture class="hero-visual">
-<img src="images/Värmland.jpg" alt="Solnedgång i Värmland" loading="eager" decoding="sync" fetchpriority="high">
+<img src="images/Värmland.jpg" alt="Värmland sunset" loading="eager" decoding="sync" fetchpriority="high">
 </picture>
-<span class="caption" style="position:absolute;left:12px;bottom:12px;font-weight:800">Att bo och arbeta i Värmland</span>
-<span class="hint hint-top-left">Klicka för att öppna</span>
+<span class="caption" style="position:absolute;left:12px;bottom:12px;font-weight:800">Living and working in Värmland</span>
+<span class="hint hint-top-left">Click to open</span>
 </a>
 <div class="hero-aside-text">
-<p>Att leva och arbeta i Värmland gör mig genuint glad. De lugna skogarna, klara sjöarna och vänliga grannarna skapar den perfekta ramen för det jag älskar att göra — från praktiska fix och renoveringar till att designa och bygga specialanpassade datorer. Årstiderna här håller mig jordad och fokuserad: ljusa sommarkvällar för stora idéer och stilla vinterdagar för noggrant, detaljerat arbete. Varje projekt får den tid och precision det förtjänar, med tydlig kommunikation och pålitliga resultat. Jag är tacksam över att kalla det här hem och stolt över att hjälpa hushåll och småföretag i hela regionen att få saker gjorda på rätt sätt.</p>
+<p>Living and working in Värmland makes me genuinely happy. The calm forests, clear lakes, and friendly neighbors create the perfect backdrop for the work I love — from practical fixes and renovations to designing and building custom PCs. The seasons here keep me grounded and focused: bright summer evenings for big ideas, and quiet winter days for careful, detailed work. Every project gets the time and precision it deserves, with honest communication and reliable results. I’m grateful to call this place home, and proud to help households and small businesses across the region get things done right.</p>
 </div>
 </div>
 </section>
 
 <section>
 <section id="about">
-<h2>Några exempel på vad jag kan göra för dig — och mer. Fortsätt gärna scrolla!</h2>
+<h2>Some of the work I can do for you — and more. So don’t stop scrolling down!</h2>
 <ul>
-<li>Husmålning, invändigt och utvändigt.</li>
-<li>Underhåll och felsökning av hemmainstallationer.</li>
-<li class="no-bullet">&nbsp;</li>
-<li>Webbdesign och utveckling av skräddarsydda webbplatser.</li>
-<li>Bygge, felsökning och reparation av datorer, arbetsstationer och gamingriggar.</li>
-<li>Skräddarsydda gamingdatorer med eller utan vätskekylning.</li>
-<li>Skräddarsydda arbetsstationer för hem eller företag.</li>
-<li>Hård- och mjukvarulösningar.</li>
-<li class="no-bullet">&nbsp;</li>
-<li>Erfarenhet av säkerhetssystem: installation, underhåll och felsökning.</li>
-<li>Larmcentraloperatör.</li>
-<li class="no-bullet">&nbsp;</li>
-<li>Kundservice och kundkontakt.</li>
-<li>Onlinesupport.</li>
+<li>House painting, interior and exterior.</li>
+<li>Maintenance and troubleshooting of home installations.</li>
+<li class="no-bullet">&nbsp;</li> <!-- lege regel zonder bolletje -->
+<li>Web design and development of custom websites.</li>
+<li>Building, troubleshooting, and repairing PCs, workstations, and gaming rigs.</li>
+<li>Custom-built gaming PCs with or without liquid cooling.</li>
+<li>Custom-built workstations for home or business.</li>
+<li>Hardware and software solutions.</li>
+<li class="no-bullet">&nbsp;</li> <!-- lege regel zonder bolletje -->
+<li>Experience with security systems: installation, maintenance, and troubleshooting.</li>
+<li>Alarm center operator.</li>
+<li class="no-bullet">&nbsp;</li> <!-- lege regel zonder bolletje -->
+<li>Customer service and client contact.</li>
+<li>Online support.</li>
 </ul>
 </section>
 
-<!-- Renoveringsprojekt (ren galleria) -->
+<!-- Renovation projects (clean gallery) -->
 <section id="renovation-projects">
-<h2>Några av mina renoveringsprojekt</h2>
+<h2>Some of my renovation projects</h2>
 <div class="gallery">
-<a class="img-card" href="images/douche.jpg" target="_blank" rel="noopener" data-lightbox="renov" data-caption="Badrumsrenovering — duschdel">
-<img src="images/douche.jpg" alt="Badrumsrenovering — duschdel" loading="lazy" decoding="async">
-<span class="caption">Badrumsrenovering — duschdel</span>
-<span class="hint">Klicka för att öppna</span>
+<a class="img-card" href="images/douche.jpg" target="_blank" rel="noopener" data-lightbox="renov" data-caption="Bathroom renovation — shower area">
+<img src="images/douche.jpg" alt="Bathroom renovation — shower area" loading="lazy" decoding="async">
+<span class="caption">Bathroom renovation — shower area</span>
+<span class="hint">Click to open</span>
 </a>
 
-<a class="img-card" href="images/wal-and-toilet%E2%81%84shower.jpg" target="_blank" rel="noopener" data-lightbox="renov" data-caption="Badrumsvägg och toalett — närbild">
-<img src="images/wal-and-toilet%E2%81%84shower.jpg" alt="Badrumsvägg och toalett — närbild" loading="lazy" decoding="async">
-<span class="caption">Badrumsvägg och toalett — närbild</span>
-<span class="hint">Klicka för att öppna</span>
+<a class="img-card" href="images/wal-and-toilet%E2%81%84shower.jpg" target="_blank" rel="noopener" data-lightbox="renov" data-caption="Bathroom wall and toilet — close-up">
+<img src="images/wal-and-toilet%E2%81%84shower.jpg" alt="Bathroom wall and toilet — close-up" loading="lazy" decoding="async">
+<span class="caption">Bathroom wall and toilet — close-up</span>
+<span class="hint">Click to open</span>
 </a>
 
-<a class="img-card" href="images/sorbygden1.jpg" target="_blank" rel="noopener" data-lightbox="renov" data-caption="Sörbygden — utvändigt arbete">
-<img src="images/sorbygden1.jpg" alt="Sörbygden — utvändigt arbete" loading="lazy" decoding="async">
-<span class="caption">Sörbygden — utvändigt arbete</span>
-<span class="hint">Klicka för att öppna</span>
+<a class="img-card" href="images/sorbygden1.jpg" target="_blank" rel="noopener" data-lightbox="renov" data-caption="Sörbygden — exterior work">
+<img src="images/sorbygden1.jpg" alt="Sörbygden — exterior work" loading="lazy" decoding="async">
+<span class="caption">Sörbygden — exterior work</span>
+<span class="hint">Click to open</span>
 </a>
 
-<a class="img-card" href="images/20250527_145131.jpg" target="_blank" rel="noopener" data-lightbox="renov" data-caption="Renoveringsstatus — 2025-05-27">
-<img src="images/20250527_145131.jpg" alt="Renoveringsstatus — 2025-05-27" loading="lazy" decoding="async">
-<span class="caption">Renoveringsstatus — 2025-05-27</span>
-<span class="hint">Klicka för att öppna</span>
+<a class="img-card" href="images/20250527_145131.jpg" target="_blank" rel="noopener" data-lightbox="renov" data-caption="Renovation progress — 2025-05-27">
+<img src="images/20250527_145131.jpg" alt="Renovation progress — 2025-05-27" loading="lazy" decoding="async">
+<span class="caption">Renovation progress — 2025-05-27</span>
+<span class="hint">Click to open</span>
 </a>
 
-<a class="img-card" href="images/painting-job.jpg" target="_blank" rel="noopener" data-lightbox="renov" data-caption="Målningsarbete pågår — 2025-05-27">
-<img src="images/painting-job.jpg" alt="Målningsarbete pågår — 2025-05-27" loading="lazy" decoding="async">
-<span class="caption">Målningsarbete pågår — 2025-05-27</span>
-<span class="hint">Klicka för att öppna</span>
+<a class="img-card" href="images/painting-job.jpg" target="_blank" rel="noopener" data-lightbox="renov" data-caption="Renovation progress — 2025-05-27">
+<img src="images/painting-job.jpg" alt="Renovation progress — 2025-05-27" loading="lazy" decoding="async">
+<span class="caption">images/painting job in progress — 2025-05-27</span>
+<span class="hint">Click to open</span>
 </a>
 
-<a class="img-card" href="images/me.jpg" target="_blank" rel="noopener" data-lightbox="renov" data-caption="Arbete i god takt — 2025-05-27">
-<img src="images/me.jpg" alt="Arbete i god takt — 2025-05-27" loading="lazy" decoding="async">
-<span class="caption">Arbete i god takt — 2025-05-27</span>
-<span class="hint">Klicka för att öppna</span>
+<a class="img-card" href="images/me.jpg" target="_blank" rel="noopener" data-lightbox="renov" data-caption="Renovation progress — 2025-05-27">
+<img src="images/me.jpg" alt="Renovation progress — 2025-05-27" loading="lazy" decoding="async">
+<span class="caption">images/me in fine progress — 2025-05-27</span>
+<span class="hint">Click to open</span>
 </a>
 </div>
 </section>
 
-<!-- PC-byggen (ren galleria) -->
+<!-- PC builds (clean gallery) -->
 <section id="pc-builds">
-<h2>Några av mina PC-byggen</h2>
+<h2>Some of my PC builds</h2>
 <div class="gallery">
-<a class="img-card" href="images/20250607_120555.jpg" target="_blank" rel="noopener" data-lightbox="pcbuilds" data-caption="Specialbyggd PC — interiör">
-<img src="images/20250607_120555.jpg" alt="Specialbyggd PC — interiör" loading="lazy" decoding="async">
-<span class="caption">Specialbyggd PC — interiör</span>
-<span class="hint">Klicka för att öppna</span>
+<a class="img-card" href="images/20250607_120555.jpg" target="_blank" rel="noopener" data-lightbox="pcbuilds" data-caption="Custom PC — interior view">
+<img src="images/20250607_120555.jpg" alt="Custom PC — interior view" loading="lazy" decoding="async">
+<span class="caption">Custom PC — interior view</span>
+<span class="hint">Click to open</span>
 </a>
 
-<a class="img-card" href="images/20250607_120713.jpg" target="_blank" rel="noopener" data-lightbox="pcbuilds" data-caption="Specialbyggd PC — i portfat">
-<img src="images/20250607_120713.jpg" alt="Specialbyggd PC — i portfat" loading="lazy" decoding="async">
-<span class="caption">Specialbyggd PC — i portfat</span>
-<span class="hint">Klicka för att öppna</span>
+<a class="img-card" href="images/20250607_120713.jpg" target="_blank" rel="noopener" data-lightbox="pcbuilds" data-caption="Custom PC — build in port-barrel">
+<img src="images/20250607_120713.jpg" alt="Custom PC — build in port-barrel" loading="lazy" decoding="async">
+<span class="caption">Custom PC — build in port-barrel</span>
+<span class="hint">Click to open</span>
 </a>
 
-<a class="img-card" href="images/portvat-opstelling.jpg" target="_blank" rel="noopener" data-lightbox="pcbuilds" data-caption="Arbetsstation i fat">
-<img src="images/portvat-opstelling.jpg" alt="Arbetsstation i fat" loading="lazy" decoding="async">
-<span class="caption">Arbetsstation i fat</span>
-<span class="hint">Klicka för att öppna</span>
+<a class="img-card" href="images/portvat-opstelling.jpg" target="_blank" rel="noopener" data-lightbox="pcbuilds" data-caption="Barrel workstation setup">
+<img src="images/portvat-opstelling.jpg" alt="Barrel workstation setup" loading="lazy" decoding="async">
+<span class="caption">Barrel workstation setup</span>
+<span class="hint">Click to open</span>
 </a>
 
-<a class="img-card" href="images/gazamelijke-opstelling.jpg" target="_blank" rel="noopener" data-lightbox="pcbuilds" data-caption="Delad arbetsstation">
-<img src="images/gazamelijke-opstelling.jpg" alt="Delad arbetsstation" loading="lazy" decoding="async">
-<span class="caption">Delad arbetsstation</span>
-<span class="hint">Klicka för att öppna</span>
+<a class="img-card" href="images/gazamelijke-opstelling.jpg" target="_blank" rel="noopener" data-lightbox="pcbuilds" data-caption="Shared workstation setup">
+<img src="images/gazamelijke-opstelling.jpg" alt="Shared workstation setup" loading="lazy" decoding="async">
+<span class="caption">Shared workstation setup</span>
+<span class="hint">Click to open</span>
 </a>
 
-<a class="img-card" href="images/gaming-pc.jpg" target="_blank" rel="noopener" data-lightbox="pcbuilds" data-caption="Gaming-PC — slutresultat">
-<img src="images/gaming-pc.jpg" alt="Gaming-PC — slutresultat" loading="lazy" decoding="async">
-<span class="caption">Snyggt slutresultat</span>
-<span class="hint">Klicka för att öppna</span>
+<a class="img-card" href="images/gaming-pc.jpg" target="_blank" rel="noopener" data-lightbox="pcbuilds" data-caption="Shared workstation setup">
+<img src="images/gaming-pc.jpg" alt="Shared workstation setup" loading="lazy" decoding="async">
+<span class="caption">nice final product</span>
+<span class="hint">Click to open</span>
 </a>
 
-<a class="img-card" href="images/nice-color.webp" target="_blank" rel="noopener" data-lightbox="pcbuilds" data-caption="Gaming-PC — snygg färg">
-<img src="images/nice-color.webp" alt="Gaming-PC — snygg färg" loading="lazy" decoding="async">
-<span class="caption">Snyggt slutresultat i fin färg</span>
-<span class="hint">Klicka för att öppna</span>
+<a class="img-card" href="images/nice-color.webp" target="_blank" rel="noopener" data-lightbox="pcbuilds" data-caption="Shared workstation setup">
+<img src="images/nice-color.webp" alt="Shared workstation setup" loading="lazy" decoding="async">
+<span class="caption">nice final product in nice color</span>
+<span class="hint">Click to open</span>
 </a>
 </div>
 </section>
 
-<!-- Kort intro om fjärr-IT -->
+<!-- Remote IT intro (short) -->
 <section id="remote-it">
-<h2>Fjärrarbete & IT-support</h2>
-<p>Många IT-problem kan lösas snabbt och säkert <strong>på distans</strong> — ibland utan att resa ut. Jag hjälper hem och småföretag i hela Sverige med praktisk, no-nonsense-support som bara fungerar.</p>
+<h2>Remote Work & IT Support</h2>
+<p>Many IT issues can be solved quickly and safely <strong>remotely</strong> — sometimes no travel needed. I help homes and small businesses across Sweden with practical, no-nonsense support that just works.</p>
 </section>
 
-<!-- Fullbredds-hero (blå webbdesign-bild) -->
+<!-- Full-bleed hero (blue webdesign image) -->
 <section class="hero-edge">
-<a class="img-card hero-card image parallax no-bars" href="images/webdesign-hero-1920.webp" data-lightbox="portfolio" data-caption="Webbdesign — Nico on Point Services" aria-label="Öppna stor bild: Webbdesign">
+<a class="img-card hero-card image parallax no-bars image framed" href="images/webdesign-hero-1920.webp" data-lightbox="portfolio" data-caption="Web design — Nico on Point Services" aria-label="Open large: Web design">
 <picture class="hero-visual">
 <source type="image/webp" srcset="images/webdesign-hero-960.webp 960w, images/webdesign-hero-1280.webp 1280w, images/webdesign-hero-1920.webp 1920w, images/www.nico-on-point-services.com-1920.webp" sizes="100vw">
-<img class="top-crop" src="images/webdesign-hero-1920.webp" alt="Webbdesign — Nico on Point Services" loading="lazy" decoding="async">
+<img class="top-crop" src="images/webdesign-hero-1920.webp" alt="Web design — Nico on Point Services" loading="lazy" decoding="async">
 </picture>
-<span class="caption" style="position:absolute;left:12px;bottom:12px;font-weight:800">Webbdesign</span>
-<span class="hint" style="top:12px;left:12px;right:auto;bottom:auto;transform:none;">Klicka för att öppna</span>
+<span class="caption" style="position:absolute;left:12px;bottom:12px;font-weight:800">Web design</span>
+<span class="hint" style="top:12px;left:12px;right:auto;bottom:auto;transform:none;">Click to open</span>
 </a>
 </section>
 
-<!-- Portfolio under hero -->
+<!-- Portfolio under the hero -->
 <section class="portfolio" id="portfolio">
-  <h2>Några av mina designprojekt</h2>
-  <p class="sub" style="margin-top:0;opacity:.9">Nyliga kunduppdrag & exempel</p>
+  <h2>Some of my designs</h2>
+  <p class="sub" style="margin-top:0;opacity:.9">Recent client work & sample designs</p>
 
   <div class="gallery">
     <!-- B-Smart Services -->
@@ -829,8 +835,8 @@ onerror="this.style.display='none'">
        href="images/b-smart-services-1200.webp"
        target="_blank" rel="noopener"
        data-lightbox="portfolio"
-       data-caption="B-Smart Services — webbplats för projekt- och driftstöd"
-       aria-label="Öppna stor bild: B-Smart Services — webbplatsexempel">
+       data-caption="B-Smart Services — project & operations support site"
+       aria-label="Open large: B-Smart Services — website sample">
 
       <picture>
         <source type="image/webp"
@@ -840,12 +846,12 @@ onerror="this.style.display='none'">
           sizes="(max-width: 980px) 100vw, 420px">
         <img class="top-crop"
              src="images/b-smart-services-900.webp"
-             alt="B-Smart Services — webbplatsexempel"
+             alt="B-Smart Services — website sample"
              loading="lazy" decoding="async">
       </picture>
 
-      <span class="caption">B-Smart Services <small>Projekt- & driftstöd</small></span>
-      <span class="hint">Klicka för att öppna</span>
+      <span class="caption">B-Smart Services <small>Project & Operations Support</small></span>
+      <span class="hint">Click to open</span>
     </a>
 
     <!-- Kroon Beveiligingstechniek -->
@@ -853,8 +859,8 @@ onerror="this.style.display='none'">
        href="images/kroonbeveiligingstechniek-1200.webp"
        target="_blank" rel="noopener"
        data-lightbox="portfolio"
-       data-caption="Kroon Beveiligingstechniek — webbplats för säkerhetslösningar"
-       aria-label="Öppna stor bild: Kroon Beveiligingstechniek — webbplatsexempel">
+       data-caption="Kroon Beveiligingstechniek — security solutions site"
+       aria-label="Open large: Kroon Beveiligingstechniek — website sample">
 
       <picture>
         <source type="image/webp"
@@ -864,94 +870,94 @@ onerror="this.style.display='none'">
           sizes="(max-width: 980px) 100vw, 420px">
         <img
           src="images/kroonbeveiligingstechniek-900.webp"
-          alt="Kroon Beveiligingstechniek — webbplatsexempel"
+          alt="Kroon Beveiligingstechniek — website sample"
           loading="lazy" decoding="async">
       </picture>
 
-      <span class="caption">Kroon Beveiligingstechniek <small>Säkerhetssystem</small></span>
-      <span class="hint">Klicka för att öppna</span>
+      <span class="caption">Kroon Beveiligingstechniek <small>Security Systems</small></span>
+      <span class="hint">Click to open</span>
     </a>
   </div>
 </section>
 
 
-<!-- Fjärr-IT: tjänster och detaljer -->
+<!-- Remote IT: services and details -->
 <section id="remote-it-services">
-<h2>Här är ännu mer av det jag kan hjälpa dig med.<br>Fortsätt gärna scrolla!</h2>
+<h2>And here some more of the work I can do for you — and stil more.<br>So don’t stop scrolling down!</h2>
 <ul>
-<li>Fjärrdiagnostik & felsökning (Windows, macOS, Linux)</li>
-<li>Installation & konfiguration av programvara (drivrutiner, verktyg, appar)</li>
-<li>E-post & konton: Outlook / Microsoft 365 / Gmail – uppsättning & åtgärder</li>
-<li>Säkerhetskopior, dataöverföring och grundläggande dataåterställning</li>
-<li>Säkerhetshärdning: uppdateringar, antivirus, säkra inställningar</li>
-<li>Nätverkshjälp: Wi-Fi-optimering, routeruppsättning, VPN</li>
-<li>NAS- & kamerasystem: grundläggande uppsättning och felsökning</li>
-<li>Uppdatering av webbplatser och mindre innehållsändringar</li>
-<li>Prestandaoptimering för arbetsstationer och gaming-datorer</li>
+<li>Remote diagnostics & troubleshooting (Windows, macOS, Linux)</li>
+<li>Software installs & configuration (drivers, utilities, tools)</li>
+<li>Email & accounts: Outlook / Microsoft 365 / Gmail setup & fixes</li>
+<li>Backups, data transfer, and basic data recovery</li>
+<li>Security hardening: updates, antivirus, safe settings</li>
+<li>Network help: Wi-Fi optimization, router setup, VPN</li>
+<li>NAS & camera systems: basic setup and troubleshooting</li>
+<li>Website updates and small content changes</li>
+<li>Performance tuning for workstations and gaming PCs</li>
 </ul>
-<p>Jag använder säkra, inbjudningsbaserade verktyg för skärmdelning och support, med tydlig kommunikation i varje steg. Support finns på engelska, tyska och nederländska.</p>
-<p>Berätta vad du behöver — om platsbesök krävs utgår jag från Värmland och reser i hela Sverige. Använd kontaktformuläret nedan så återkommer jag snart.</p>
+<p>I use secure, invite-only tools for screen sharing and support, with clear communication at every step. Support available in English, German and Dutch.</p>
+<p>Tell me what you need — if on-site is required, I’m based in Värmland and travel across Sweden. Use the contact form below and I’ll get back to you soon.</p>
 </section>
 
 <section id="remote-cx">
-<h2>Fjärr kundservice & support</h2>
-<p>Vänlig, pålitlig hjälp för dina kunder — utan overhead. Jag erbjuder behovsstyrd, fjärrbaserad kundsupport för företag i hela världen.</p>
+<h2>Remote Customer Service & Support</h2>
+<p>Friendly, reliable help for your customers — without the overhead. I provide on-demand, remote customer support for all businesses across the world.</p>
 
-<!-- BRED, INGEN BESKÄRNING + LIGHTBOX -->
+<!-- WIDE, NO-CROP + LIGHTBOX -->
 <a class="img-card media-wide no-bars"
 href="images/gazamelijke-opstelling.jpg"
 data-lightbox="remote"
-data-caption="Delad arbetsstation"
-aria-label="Öppna stor bild: Delad arbetsstation">
+data-caption="Shared workstation setup"
+aria-label="Open large: Shared workstation setup">
 <img src="images/gazamelijke-opstelling.jpg"
-alt="Delad arbetsstation"
+alt="Shared workstation setup"
 class="image"
 loading="lazy"
 decoding="async">
-<span class="caption">Delad arbetsstation</span>
-<span class="hint">Klicka för att öppna</span>
+<span class="caption">Shared workstation setup</span>
+<span class="hint">Click to open</span>
 </a>
 </section>
 <section id="remote-cx">
-<h2>Nedan är mina onlineaktiviteter inom fjärrsupport och kundservice.</h2>
+<h2>Below are my online activities in remote support and customer service.</h2>
 <ul>
-<li>Kanaler: telefon, e-post, chatt (Teams/Zoom), sociala DMs</li>
-<li>Ärendehantering & CRM: Outlook/Microsoft 365, Gmail, Zendesk/Freshdesk/Jira Service Management</li>
-<li>Uppgifter: intake & triagering, felsökning, order-/statusfrågor, tidsbokning, enkel fakturering & returer</li>
-<li>Process: tydliga anteckningar, uppföljning och kunskapsbas-uppdateringar</li>
-<li>Viktiga KPI: lösning vid första kontakt, svarstider, kundnöjdhet</li>
-<li>Språk: engelska, tyska och nederländska</li>
+<li>Channels: phone, email, chat (Teams/Zoom), social DMs</li>
+<li>Ticketing & CRM: Outlook/Microsoft 365, Gmail, Zendesk/Freshdesk/Jira Service Management</li>
+<li>Tasks: intake & triage, troubleshooting, order/status queries, appointment booking, simple billing & returns</li>
+<li>Process: clear notes, follow-up, and knowledge-base updates</li>
+<li>KPIs I care about: first-contact resolution, response times, customer satisfaction</li>
+<li>Languages: English, German, and Dutch</li>
 </ul>
-<p>Jag använder säkra, inbjudningsbaserade verktyg för skärmdelning. Korta uppdrag eller löpande stöd — du väljer.</p>
+<p>I use secure, invite-only tools for screen sharing. Short assignments or ongoing support — your choice.</p>
 </section>
 
 <section class="closing-message">
-<h2>Låt oss göra det verklighet</h2>
-<p>Varje projekt börjar med en enkel idé — och lite förtroende. Oavsett om du behöver bygga, fixa eller uppgradera något är jag här för att hjälpa dig få det gjort på rätt sätt. Inga storbolag, inga mellanhänder — bara ärligt arbete, rättvisa priser och pålitliga resultat.</p>
-<p>Säg vad du behöver, så gör vi din plan till verklighet. Fyll i kontaktformuläret nedan så hör jag av mig snart.</p>
+<h2>Let’s Make It Happen</h2>
+<p>Every project starts with a simple idea — and a bit of trust. Whether you need something built, fixed, or upgraded, I’m here to help you get it done right. No big company, no middlemen — just honest work, fair prices, and reliable results.</p>
+<p>So tell me what you need, and let’s make your plan a reality. Fill out the contact form below and I’ll get back to you soon.</p>
 </section>
 
 <section>
-<h2>Kontakt</h2>
+<h2>Contact</h2>
 <form class="contact-frame" action="https://formspree.io/f/mzzgdqkb" method="POST">
 <form action="https://formspree.io/f/mzzgdqkb" method="POST">
-<input type="text" name="name" placeholder="Ditt namn" required>
-<input type="email" name="email" placeholder="Din e-post" required>
-<textarea name="message" rows="5" placeholder="Ditt meddelande..." required></textarea>
+<input type="text" name="name" placeholder="Your name" required>
+<input type="email" name="email" placeholder="Your email" required>
+<textarea name="message" rows="5" placeholder="Your message..." required></textarea>
 <input type="hidden" name="_captcha" value="false">
 <input type="hidden" name="_template" value="table">
 <input type="hidden" name="_next" value="https://nico-on-point-services.com">
-<button type="submit">Skicka</button>
+<button type="submit">Send</button>
 </form>
 
 <div class="contact-icons">
-<a href="tel:+46707106182" aria-label="Ring">
+<a href="tel:+46707106182" aria-label="Call">
 <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="2" width="10" height="20" rx="2" ry="2"></rect><circle cx="12" cy="18" r="1.5"></circle></svg>
 <span>+46 70 710 61 82</span>
 </a>
-<a href="mailto:nico_on_point-services@outlook.com" aria-label="E-post">
+<a href="mailto:nico_on_point-services@outlook.com" aria-label="Email">
 <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2" ry="2"></rect><path d="M3 7l9 7 9-7"></path></svg>
-<span>Mejla mig</span>
+<span>Email me</span>
 </a>
 <a href="https://www.linkedin.com/in/nico-buijs-24ab5494" target="_blank" rel="noopener" aria-label="LinkedIn">
 <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2" ry="2"></rect><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><path d="M3 12h18"></path></svg>
@@ -970,10 +976,10 @@ decoding="async">
 
 <footer>
   <form class="contact-frame" action="https://formspree.io/f/mzzgdqkb" method="POST">
-<p><strong>Nico Buijs</strong> (ägare Nico on Point)</p>
+<p><strong>Nico Buijs</strong> (owner Nico on Point)</p>
 <p>682 94 Lesjöfors, Sverige</p>
-<p>&copy; 2025 Nico on Point Services. Alla rättigheter förbehållna.</p>
-<p>webbdesign av: Nico on Point Services</p>
+<p>&copy; 2025 Nico on Point Services. All rights reserved.</p>
+<p>webdesign by: Nico on Point Services</p>
 <p>copyright: Nico on Point Services</p>
 </footer>
 
@@ -989,7 +995,7 @@ const img = Object.assign(document.createElement('img'),{className:'lb-img',alt:
 const cap = Object.assign(document.createElement('div'),{className:'lb-caption'});
 const prev = Object.assign(document.createElement('div'),{className:'lb-btn lb-prev'}); prev.innerHTML='&#10094;';
 const next = Object.assign(document.createElement('div'),{className:'lb-btn lb-next'}); next.innerHTML='&#10095;';
-const close = Object.assign(document.createElement('button'),{className:'lb-close'}); close.setAttribute('aria-label','Stäng'); close.innerHTML='&times;';
+const close = Object.assign(document.createElement('button'),{className:'lb-close'}); close.setAttribute('aria-label','Close'); close.innerHTML='&times;';
 frame.append(img,cap,prev,next,close); modal.append(frame); document.body.append(backdrop,modal);
 
 let groups={}, current=[], idx=0, lastFocus=null;
@@ -1013,7 +1019,7 @@ modal.addEventListener('touchend', e=>{const t=e.changedTouches[0]; const dx=t.c
 })();
 </script>
 
-<!-- Tilt för profil (fungerar för både bred och liten variant) -->
+<!-- Tilt voor profiel (werkt voor brede én kleine variant) -->
 <script>
 (() => {
 addEventListener('DOMContentLoaded', () => {
