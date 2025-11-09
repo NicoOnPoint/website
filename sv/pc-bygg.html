@@ -1,0 +1,315 @@
+<!doctype html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hem — Nico on Point</title>
+  <link rel="stylesheet" href="../assets/style.css" />
+  <!-- Header-bakgrund -->
+  <style>
+  :root{
+    /* ny headerbild */
+    --header-bg: url('../images/headers/pc-builds.png');
+  }
+  header{
+    background-image: var(--header-bg);
+    background-size: cover;
+    background-position: center 10%;
+  }
+
+  :root{
+    --gold:#d6b25e;
+    --gold-soft:#d6b25e33;
+    --surface:#141416;
+    --text:#e9e9ea;
+  }
+
+  /* sektion: tunn linje + spacing */
+  .pc-builds-section{
+    border-top:1px solid var(--gold);
+    padding-top:2rem;
+    margin-top:3rem;
+  }
+
+  /* titel i guld med subtil glow */
+  .pc-builds-title{
+    color:var(--gold);
+    font-weight:800;
+    letter-spacing:.6px;
+    text-transform:unset;
+    margin-bottom:1.25rem;
+    text-shadow:0 0 12px var(--gold-soft);
+  }
+
+  /* kortstil för figurer */
+  .cards-gold figure{
+    background:linear-gradient(180deg,#151515,#0f0f10 60%);
+    border:1px solid rgba(214,178,94,.45);
+    border-radius:14px;
+    padding:.6rem .6rem .2rem;
+    box-shadow:0 1px 8px rgba(0,0,0,.45);
+    transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+  }
+  .cards-gold figure:hover{
+    transform:translateY(-2px);
+    border-color:var(--gold);
+    box-shadow:0 0 0 1px var(--gold), 0 8px 26px var(--gold-soft), 0 12px 26px rgba(0,0,0,.5);
+  }
+
+  /* bilder */
+  .cards-gold figure img{
+    display:block;
+    width:100%;
+    height:auto;
+    border-radius:10px;
+    outline:1px solid rgba(214,178,94,.25);
+    outline-offset:-1px;
+  }
+
+  /* bildtexter */
+  .cards-gold figure figcaption{
+    color:var(--text);
+    font-size:.95rem;
+    line-height:1.2;
+    padding:.55rem .25rem .65rem;
+    opacity:.95;
+  }
+
+  .pc-builds-section + .pc-builds-section,
+  .pc-builds-section + .content{
+    border-top:1px solid rgba(214,178,94,.35);
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .cards-gold figure{ transition:none; }
+  }
+  </style>
+
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1LT3BX7VW7"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);} 
+gtag('js', new Date());
+gtag('config', 'G-1LT3BX7VW7');
+</script>
+
+<!-- Favicons -->
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32.png">
+<link rel="icon" type="image/png" sizes="48x48" href="/icons/favicon-48.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+
+<!-- PWA / Android -->
+<link rel="manifest" href="/icons/site.webmanifest">
+<meta name="theme-color" content="#0f0f0f">
+
+
+</head>
+<body>
+
+  <!-- Språkväxlare -->
+  <div class="lang-switch">
+    <a href="../en/index.html" aria-label="English" data-lang="en">
+      <img src="../images/flags/en.png" alt="English" class="flag">
+    </a>
+    <a href="../sv/index.html" aria-label="Svenska" data-lang="sv">
+      <img src="../images/flags/sv.png" alt="Svenska" class="flag">
+    </a>
+  </div>
+
+  <!-- HEADER med logga och meny -->
+  <header>
+    <div class="title-center">
+      <img src="../logo.png" alt="Nico on Point logotyp" class="brand" onerror="this.style.display='none'">
+      <h1>Nico on Point Services</h1>
+    </div>
+
+    <p><strong>Mångsidig hjälp med bygge, felsökning och underhåll av arbetsstationer, laptops och gaming-PC</strong></p>
+
+    <nav class="contact-icons">
+      <a href="tel:+46707106182">📞 +46 70 710 61 82</a>
+      <a href="mailto:nico_on_point-services@outlook.com">✉️ nico_on_point-services@outlook.com</a>
+    </nav>
+
+    <nav class="contact-icons">
+      <a href="index.html">Hem</a>
+      <a href="multikompetent-tekniker.html">Multikompetent tekniker</a>
+      <a href="pc-bygg.html">PC-bygg</a>
+      <a href="webdesign.html">Webbdesign</a>
+      <a href="fjarrarbete.html">Fjärrarbete</a>
+      <a href="kontakt.html">Kontakt</a>
+    </nav>
+  </header>
+
+  <!-- Heltäckande ticker -->
+  <div class="ticker ticker--full" id="ticker" role="region" aria-label="Tjänsteticker">
+    <div class="ticker__track"></div>
+  </div>
+
+  <section class="content about">
+    <h2 class="section-title">Skräddarsydda eller standardbyggen — jag bygger dem åt dig.</h2>
+
+    <div class="about-prose">
+      <p>Jag brinner verkligen för att bygga och reparera datorer.</p>
+      <p>Från budgetvänliga byggen till extrema, högpresterande vattenkylda maskiner — jag bygger system som matchar dina behov, din stil och dina prestandamål.</p>
+      <p>Vill du ha en tyst arbetsstation, en RGB-prydd gaming-showpiece eller en överklockad kraftmaskin?</p>
+      <p>Jag fokuserar på ren kabeldragning, förstklassig kylning och långsiktig driftsäkerhet.</p>
+      <p>Jag erbjuder även stöd för Windows, Linux och dual-boot, så att kreatörer, gamers och power users kan få det bästa av två världar.</p>
+      <p>Letar du efter en PC som är snabb, framtidssäker och byggd för att se lika bra ut som den presterar? Då bygger jag den gärna åt dig.</p>
+    </div>
+  </section>
+
+  <section id="pc-builds" class="content pc-builds-section">
+    <h2 class="pc-builds-title">Några av mina PC-byggen och exempel</h2>
+
+    <div class="image-grid lightbox-gallery cards-gold">
+      <div class="image-grid lightbox-gallery">
+        <figure>
+          <img src="../images/pc-builds/gaming-pc.jpg" data-full="../images/pc-builds/gaming-pc.jpg" alt="Skräddarsydd RGB-PC">
+          <figcaption>Skräddarsydd PC — RGB-chassi</figcaption>
+        </figure>
+
+        <figure>
+          <img src="../images/pc-builds/nice-color.webp" data-full="../images/pc-builds/nice-color.webp" alt="Rött tema PC">
+          <figcaption>Showcase-bygge — rött tema</figcaption>
+        </figure>
+
+        <figure>
+          <img src="../images/pc-builds/portvat-opstelling.jpg" data-full="../images/pc-builds/portvat-opstelling.jpg" alt="Tunna-PC arbetsstation">
+          <figcaption>Arbetsstationssetup i tunna</figcaption>
+        </figure>
+
+        <figure>
+          <img src="../images/pc-builds/my-workstation.jpg" data-full="../images/pc-builds/my-workstation.jpg" alt="Min vattenkylda workstation">
+          <figcaption>Min workstation — vattenkyld</figcaption>
+        </figure>
+
+        <figure>
+          <img src="../images/pc-builds/barrel-pc.jpg" data-full="../images/pc-builds/barrel-pc.jpg" alt="Tunna-PC med extern radiator">
+          <figcaption>Tunna-PC — extern radiator</figcaption>
+        </figure>
+
+        <figure>
+          <img src="../images/pc-builds/close-up.jpg" data-full="../images/pc-builds/close-up.jpg" alt="Närbild på komponenter">
+          <figcaption>Närbild</figcaption>
+        </figure>
+
+        <figure>
+          <img src="../images/pc-builds/work-station-white.jpg" data-full="../images/pc-builds/work-station-white.jpg" alt="Vit RGB-arbetsstation">
+          <figcaption>Skräddarsydd setup — vitt RGB-chassi</figcaption>
+        </figure>
+
+        <figure>
+          <img src="../images/pc-builds/work_from_home_setup.jpg" data-full="../images/pc-builds/work_from_home_setup.jpg" alt="Hemmaarbetsplats">
+          <figcaption>Setup för hemarbete</figcaption>
+        </figure>
+
+        <figure>
+          <img src="../images/pc-builds/laptop-fix.jpg" data-full="../images/pc-builds/laptop-fix.jpg" alt="Laptopreparation">
+          <figcaption>Reparation av laptops</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lightbox overlay -->
+  <div id="lightbox" class="lightbox">
+    <span class="close" aria-label="Stäng">&times;</span>
+    <img class="lightbox-img" src="" alt="">
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-wrap">
+      <div class="footer-card">
+        <p><strong>Nico Buijs</strong> (ägare Nico on Point)</p>
+        <p>682 94 Lesjöfors, Sverige</p>
+        <span class="sep"></span>
+        <p>© <span id="y"></span> Nico on Point Services. Alla rättigheter förbehållna.</p>
+        <p>webbdesign av: Nico on Point Services</p>
+        <p>copyright: Nico on Point Services</p>
+        <p>VAT-nummer: SE6609238354</p>
+      </div>
+    </div>
+    <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+  </footer>
+
+  <!-- Lightbox JS -->
+  <script>
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = document.querySelector(".lightbox-img");
+  const closeBtn = document.querySelector(".lightbox .close");
+
+  document.querySelectorAll(".lightbox-gallery img").forEach(img => {
+    img.addEventListener("click", () => {
+      lightboxImg.src = img.dataset.full || img.src;
+      lightbox.style.display = "flex";
+      document.body.style.overflow = "hidden";
+    });
+  });
+
+  function closeLightbox(){
+    lightbox.style.display = "none";
+    lightboxImg.src = "";
+    document.body.style.overflow = "";
+  }
+
+  closeBtn.addEventListener("click", closeLightbox);
+  lightbox.addEventListener("click", e => {
+    if (e.target === lightbox) closeLightbox();
+  });
+  document.addEventListener("keydown", e => {
+    if (e.key === "Escape") closeLightbox();
+  });
+  </script>
+
+  <!-- Språkväxling -->
+  <script>
+  (function(){
+    const map = {
+      en: {
+        "index.html":        "index.html",
+        "multi-skill-technician.html":  "multikompetent-tekniker.html",
+        "pc-building.html":  "pc-bygg.html",
+        "webdesign.html":    "webdesign.html",
+        "remote-work.html":  "fjarrarbete.html",
+        "contact.html":      "kontakt.html",
+      },
+      sv: {
+        "index.html":        "index.html",
+        "multikompetent-tekniker.html":   "multi-skill-technician.html",
+        "pc-bygg.html":      "pc-building.html",
+        "webdesign.html":    "webdesign.html",
+        "fjarrarbete.html":  "remote-work.html",
+        "kontakt.html":      "contact.html",
+      }
+    };
+
+    const curLang = (document.documentElement.lang || 'sv').slice(0,2);
+    const other   = curLang === 'en' ? 'sv' : 'en';
+
+    const path = location.pathname;
+    const base = path.replace(/\/(en|sv)\/.*$/, '/');
+    let page   = path.split('/').pop();
+    if (!page || !page.includes('.')) page = 'index.html';
+
+    const targetPage = (map[curLang] && map[curLang][page]) ? map[curLang][page] : 'index.html';
+    const targetUrl  = base + other + '/' + targetPage + location.search + location.hash;
+
+    document.querySelectorAll('.lang-switch a[data-lang]').forEach(a => {
+      a.addEventListener('click', (e) => {
+        const to = a.dataset.lang;
+        if (!to) return;
+        e.preventDefault();
+        if (to === other) {
+          location.href = targetUrl;
+        }
+      });
+    });
+  })();
+  </script>
+
+</body>
+</html>

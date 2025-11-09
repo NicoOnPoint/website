@@ -1,0 +1,385 @@
+<!doctype html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hem — Nico on Point</title>
+  <link rel="stylesheet" href="../assets/style.css" />
+  <!-- Header-bakgrund -->
+  <style>
+  :root{
+    --header-bg: url('../images/headers/tools-banner.png');
+  }
+  header{
+    background-image: var(--header-bg);
+    background-size: cover;
+    background-position: center 10%;
+  }
+  </style>
+
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1LT3BX7VW7"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);} 
+gtag('js', new Date());
+gtag('config', 'G-1LT3BX7VW7');
+</script>
+
+<!-- Favicons -->
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32.png">
+<link rel="icon" type="image/png" sizes="48x48" href="/icons/favicon-48.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+
+<!-- PWA / Android -->
+<link rel="manifest" href="/icons/site.webmanifest">
+<meta name="theme-color" content="#0f0f0f">
+
+
+</head>
+
+<body>
+  <!-- Schema.org kan gerust in EN blijven -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Nico on Point Services",
+    "url": "https://www.nico-on-point-services.com/",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "reviewCount": "23"
+    }
+  }
+  </script>
+
+  <script>
+  (function(){
+    const ticker = document.getElementById('ticker');
+    if (!ticker) return;
+    const track = ticker.querySelector('.ticker__track');
+    if (!track) return;
+
+    function initTicker(){
+      const items = Array.from(track.querySelectorAll('span')).filter(s => !s.hasAttribute('data-clone'));
+      track.innerHTML = '';
+      items.forEach(s => track.appendChild(s));
+
+      const containerW = ticker.clientWidth || window.innerWidth;
+      while (track.scrollWidth < containerW * 2) {
+        items.forEach(s => {
+          const clone = s.cloneNode(true);
+          clone.setAttribute('data-clone','');
+          track.appendChild(clone);
+        });
+      }
+      const distance = track.scrollWidth / 2;
+      track.style.setProperty('--distance', distance + 'px');
+    }
+
+    initTicker();
+    let to;
+    window.addEventListener('resize', () => {
+      clearTimeout(to);
+      to = setTimeout(initTicker, 200);
+    });
+  })();
+  </script>
+
+  <!-- Språkväxlare -->
+  <div class="lang-switch">
+    <a href="../en/index.html" aria-label="English" data-lang="en">
+      <img src="../images/flags/en.png" alt="English" class="flag">
+    </a>
+    <a href="../sv/index.html" aria-label="Svenska" data-lang="sv">
+      <img src="../images/flags/sv.png" alt="Svenska" class="flag">
+    </a>
+  </div>
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-wrap">
+      <div class="title-center">
+        <img src="../logo.png" alt="Nico on Point logo" class="brand" onerror="this.style.display='none'">
+        <h1>Nico on Point Services</h1>
+      </div>
+      <p><strong>Mångsidig hjälp med fastighetsarbete, renoveringar, installationer, webbdesign, distansarbete samt PC och laptops</strong></p>
+
+      <nav class="contact-icons">
+        <a href="tel:+46707106182">📞 +46 70 710 61 82</a>
+        <a href="mailto:nico_on_point-services@outlook.com">✉️ nico_on_point-services@outlook.com</a>
+      </nav>
+
+      <nav class="contact-icons">
+        <a href="index.html">Hem</a>
+        <a href="multikompetent-tekniker.html">Multikompetent tekniker</a>
+        <a href="pc-bygg.html">PC-bygg</a>
+        <a href="webdesign.html">Webbdesign</a>
+        <a href="fjarrarbete.html">Fjärrarbete</a>
+        <a href="kontakt.html">Kontakt</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Heltäckande ticker -->
+  <div class="ticker ticker--full" id="ticker" role="region" aria-label="Tjänsteticker">
+    <div class="ticker__track">
+      <span>För kostnadsfri rådgivning, ring <strong>+46 70 710 61 82</strong></span>
+      <span>Eller mejla <strong>nico_on_point-services@outlook.com</strong></span>
+      <span>Skräddarsydda PC • Vattenkylning • Reparationer</span>
+      <span>Multikompetent tekniker. Renoveringar & installationer i Värmland</span>
+      <span>Webbdesign • Fjärrsupport för IT</span>
+      <span>För kostnadsfri rådgivning, ring <strong>+46 70 710 61 82</strong></span>
+      <span>Eller mejla <strong>nico_on_point-services@outlook.com</strong></span>
+      <span>Skräddarsydda PC • Vattenkylning • Reparationer</span>
+      <span>Multikompetent tekniker. Renoveringar & installationer i Värmland</span>
+      <span>Webbdesign • Fjärrsupport för IT</span>
+    </div>
+  </div>
+
+  <section class="content about full-bleed slide-in from-left">
+    <h2 class="section-title">Om mig — Vad jag kan göra för dig</h2>
+
+    <div class="about-prose">
+      <img class="about-photo" src="../images/handyman/Nico.webp" alt="Nico Buijs">
+
+      <p>
+        Ursprungligen från Amsterdam och nu bosatt i Värmland, Sverige. Jag har arbetat i många år
+        inom bygg, tekniska tjänster och IT och samlat på mig ett brett urval av utbildningar och certifikat.
+      </p>
+
+      <p>
+        Nu kombinerar jag alla de färdigheterna för att hjälpa människor med det som behöver fixas,
+        installeras eller förbättras — från praktiska hemjobb till tekniska lösningar.
+      </p>
+
+      <p>
+        Som multikompetent tekniker hjälper jag både med praktiska hushållsuppgifter och tekniska lösningar.
+        Behöver du installationer, småreparationer eller avancerade, skräddarsydda PC-byggen kan du räkna
+        med noggrannhet, flexibilitet och pålitliga resultat varje gång.
+      </p>
+
+      <p>
+        Jag är en lösningsorienterad ”hands-on”-person som gillar smarta, praktiska lösningar för både hem och företag.
+        Du kan räkna med professionella resultat, rak kommunikation och rimliga priser från
+        <strong>450 SEK/timme</strong> beroende på uppdrag.
+      </p>
+
+      <p>
+        Bas i Värmland men rör mig över hela Sverige för att hjälpa till. Oavsett om det handlar om att hänga upp en lampa,
+        fixa en droppande kran, montera möbler eller ta hand om småreparationer — jag är din kontakt för praktiskt vardagsarbete.
+      </p>
+
+      <p>
+        Jag tar även större uppdrag som renoveringar, installationer och felsökning — alltid med noggrannhet,
+        omtanke och en no-nonsense attityd.
+      </p>
+
+      <p>
+        På den tekniska sidan brinner jag för att bygga och reparera datorer — från tysta,
+        effektiva arbetsstationer till högpresterande vattenkylda gaming-riggar.
+        Varje bygge skräddarsys efter dina behov för topprestanda och en ren, professionell finish.
+      </p>
+    </div>
+  </section>
+
+  <!-- Hem-kort -->
+  <section class="content">
+    <h2 class="section-title">&dArr;Hur kan jag hjälpa dig?&dArr;</h2>
+    <div class="grid-home">
+      <a class="card-link card-bg"
+         href="multikompetent-tekniker.html"
+         style="--bg: url('../images/cards/renovations.jpg')">
+        <h3>Renoveringar & installationer</h3>
+        <p>Pålitligt arbete i Värmland med omnejd.</p>
+      </a>
+
+      <a class="card-link card-bg"
+         href="pc-bygg.html"
+         style="--bg: url('../images/cards/pc-building.jpg')">
+        <h3>Skräddarsydda PC</h3>
+        <p>Gaming-riggar, vattenkylning, PC-reparationer & uppgraderingar.</p>
+      </a>
+
+      <a class="card-link card-bg"
+         href="webdesign.html"
+         style="--bg: url('../images/cards/webdesign.webp')">
+        <h3>Webbdesign</h3>
+        <p>Snabba, rena sajter med SEO-grunder.</p>
+      </a>
+
+      <a class="card-link card-bg"
+         href="fjarrarbete.html"
+         style="--bg: url('../images/cards/remote.jpg')">
+        <h3>Fjärrsupport</h3>
+        <p>IT-hjälp, skärmdelning och mer.</p>
+      </a>
+    </div>
+  </section>
+
+  <section class="content about">
+    <h2 class="section-title">En kort lista över vad jag gör</h2>
+
+    <div class="about-list">
+      <p><span class="dot">•</span> Målning av hus, inne och ute. <span class="dot">•</span></p>
+      <p><span class="dot">•</span> Underhåll och felsökning av hemmainstallationer. <span class="dot">•</span></p>
+      <p><span class="dot">•</span> Webbdesign och utveckling av skräddarsydda webbplatser. <span class="dot">•</span></p>
+      <p><span class="dot">•</span> Bygge, felsökning och reparation av PC, arbetsstationer och gaming-riggar. <span class="dot">•</span></p>
+      <p><span class="dot">•</span> Skräddarsydda gaming-datorer med eller utan vattenkylning. <span class="dot">•</span></p>
+      <p><span class="dot">•</span> Skräddarsydda arbetsstationer för hem eller företag. <span class="dot">•</span></p>
+      <p><span class="dot">•</span> Hård- och mjukvarulösningar. <span class="dot">•</span></p>
+      <p><span class="dot">•</span> Säkerhetssystem: installation, underhåll och felsökning. <span class="dot">•</span></p>
+      <p><span class="dot">•</span> Larmövervakning och support. <span class="dot">•</span></p>
+      <p><span class="dot">•</span> Kundservice och kundkommunikation. <span class="dot">•</span></p>
+      <p><span class="dot">•</span> Onlinesupport. <span class="dot">•</span></p>
+      <p><span class="dot">•</span> Och mycket mer — kolla sidorna för att se vad jag kan hjälpa till med. <span class="dot">•</span></p>
+    </div>
+  </section>
+
+  <section id="reviews" class="content testimonials">
+    <h2>Kundomdömen</h2>
+
+    <div class="reviews-grid">
+      <article class="review-card" itemprop="review" itemscope itemtype="https://schema.org/Review">
+        <header class="review-head">
+          <div class="avatar" aria-hidden="true">MB</div>
+          <div>
+            <strong itemprop="author" itemscope itemtype="https://schema.org/Person">
+              <span itemprop="name">Mikael B.</span>
+            </strong>
+            <div class="stars" aria-label="5 av 5 stjärnor" data-stars="5"></div>
+          </div>
+        </header>
+        <blockquote itemprop="reviewBody">
+          Nico fixade ett knepigt nätverksproblem och monterade vår hårdvara riktigt snyggt.
+          Snabbt, trevligt och till ett rättvist pris.
+        </blockquote>
+        <footer class="review-foot">
+          <time itemprop="datePublished" datetime="2025-05-12">12 maj 2025</time>
+          <meta itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating">
+          <meta itemprop="ratingValue" content="5">
+        </footer>
+      </article>
+
+      <article class="review-card" itemprop="review" itemscope itemtype="https://schema.org/Review">
+        <header class="review-head">
+          <img class="avatar" src="../images/avatars/sara.jpg" alt="SK" loading="lazy">
+          <div>
+            <strong itemprop="author" itemscope itemtype="https://schema.org/Person">
+              <span itemprop="name">Sara K.</span>
+            </strong>
+            <div class="stars" aria-label="5 av 5 stjärnor" data-stars="5"></div>
+          </div>
+        </header>
+        <blockquote itemprop="reviewBody">
+          Han byggde min vattenkylda gaming-PC. Kabeldragningen är konst!
+          Temperaturen är toppen och datorn är tyst.
+        </blockquote>
+        <footer class="review-foot">
+          <time itemprop="datePublished" datetime="2025-04-03">3 apr 2025</time>
+          <meta itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating">
+          <meta itemprop="ratingValue" content="5">
+        </footer>
+      </article>
+
+      <article class="review-card" itemprop="review" itemscope itemtype="https://schema.org/Review">
+        <header class="review-head">
+          <div class="avatar" aria-hidden="true">JL</div>
+          <div>
+            <strong itemprop="author" itemscope itemtype="https://schema.org/Person">
+              <span itemprop="name">Johan L.</span>
+            </strong>
+            <div class="stars" aria-label="4 av 5 stjärnor" data-stars="4"></div>
+          </div>
+        </header>
+        <blockquote itemprop="reviewBody">
+          Snabb och prydlig hjälp med renovering i vårt sommarhus.
+          Bra råd och tydlig kommunikation.
+        </blockquote>
+        <footer class="review-foot">
+          <time itemprop="datePublished" datetime="2025-03-18">18 mars 2025</time>
+          <meta itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating">
+          <meta itemprop="ratingValue" content="4">
+        </footer>
+      </article>
+    </div>
+
+    <p class="reviews-cta">
+      Vill du lämna ett omdöme? <a href="mailto:nico_on_point-services@outlook.com?subject=Omd%C3%B6me%20f%C3%B6r%20Nico%20on%20Point">Mejla mig</a>.
+    </p>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-wrap">
+      <div class="footer-card">
+        <p><strong>Nico Buijs</strong> (ägare Nico on Point)</p>
+        <p>682 94 Lesjöfors, Sverige</p>
+        <span class="sep"></span>
+        <p>© <span id="y"></span> Nico on Point Services. Alla rättigheter förbehållna.</p>
+        <p>webbdesign av: Nico on Point Services</p>
+        <p>copyright: Nico on Point Services</p>
+        <p>VAT-nummer: SE6609238354</p>
+      </div>
+    </div>
+    <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+  </footer>
+
+  <!-- (Lightbox-script blijft zoals in EN-pagina indien nodig) -->
+  <script>
+  (function(){
+    const map = {
+      en: {
+        "index.html":        "index.html",
+        "multi-skill-technician.html":  "multikompetent-tekniker.html",
+        "pc-building.html":  "pc-bygg.html",
+        "webdesign.html":    "webdesign.html",
+        "remote-work.html":  "fjarrarbete.html",
+        "contact.html":      "kontakt.html",
+      },
+      sv: {
+        "index.html":        "index.html",
+        "multikompetent-tekniker.html":   "multi-skill-technician.html",
+        "pc-bygg.html":      "pc-building.html",
+        "webdesign.html":    "webdesign.html",
+        "fjarrarbete.html":  "remote-work.html",
+        "kontakt.html":      "contact.html",
+      }
+    };
+
+    const curLang = (document.documentElement.lang || 'sv').slice(0,2);
+    const other   = curLang === 'en' ? 'sv' : 'en';
+
+    const path = location.pathname;
+    const base = path.replace(/\/(en|sv)\/.*$/, '/');
+    let page   = path.split('/').pop();
+    if (!page || !page.includes('.')) page = 'index.html';
+
+    const targetPage = (map[curLang] && map[curLang][page]) ? map[curLang][page] : 'index.html';
+    const targetUrl  = base + other + '/' + targetPage + location.search + location.hash;
+
+    document.querySelectorAll('.lang-switch a[data-lang]').forEach(a => {
+      a.addEventListener('click', (e) => {
+        const to = a.dataset.lang;
+        if (!to) return;
+        e.preventDefault();
+        if (to === other) {
+          location.href = targetUrl;
+        }
+      });
+    });
+  })();
+  </script>
+
+  <script>
+  document.querySelectorAll('.stars').forEach(el=>{
+    const n = Number(el.dataset.stars || 5);
+    el.style.setProperty('--val', Math.max(0, Math.min(5, n)));
+  });
+  </script>
+
+</body>
+</html>
