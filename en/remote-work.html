@@ -1,0 +1,347 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Home — Nico on Point</title>
+  <link rel="stylesheet" href="../assets/style.css" />
+  <!-- Header-achtergrond (pas de afbeelding aan als je wilt) -->
+  <style>
+  :root{
+    /* gebruik de nieuwe headerfoto */
+    --header-bg: url('../images/headers/remote.png'); /* of .jpg/png */
+  }
+  header{
+    background-image: var(--header-bg);
+    background-size: cover;
+    background-position: center 80%; /* iets lager kadreren */
+  }
+  /* sectie: dunne lijn + spacing */
+.pc-builds-section{
+  border-top:1px solid var(--gold);
+  padding-top:2rem;
+  margin-top:3rem;
+}
+
+/* titel in goud met subtiele glow */
+.pc-builds-title{
+  color:var(--gold);
+  font-weight:800;
+  letter-spacing:.6px;
+  text-transform:unset;         /* hou het menselijk */
+  margin-bottom:1.25rem;
+  text-shadow:0 0 12px var(--gold-soft);
+}
+
+/* kaart-stijl voor je figures */
+.cards-gold figure{
+  background:linear-gradient(180deg,#151515,#0f0f10 60%);
+  border:1px solid rgba(214,178,94,.45);
+  border-radius:14px;
+  padding:.6rem .6rem .2rem;
+  box-shadow:0 1px 8px rgba(0,0,0,.45);
+  transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+}
+
+.cards-gold figure:hover{
+  transform:translateY(-2px);
+  border-color:var(--gold);
+  box-shadow:0 0 0 1px var(--gold), 0 8px 26px var(--gold-soft), 0 12px 26px rgba(0,0,0,.5);
+}
+
+/* afbeeldingen: afgeronde hoeken en lichte binnenrand */
+.cards-gold figure img{
+  display:block;
+  width:100%;
+  height:auto;
+  border-radius:10px;
+  outline:1px solid rgba(214,178,94,.25);
+  outline-offset:-1px;
+}
+
+/* captions: leesbaar, subtiel */
+.cards-gold figure figcaption{
+  color:var(--text);
+  font-size:.95rem;
+  line-height:1.2;
+  padding:.55rem .25rem .65rem;
+  opacity:.95;
+}
+
+/* dunne lijn als extra scheiding tussen rijen secties (optioneel) */
+.pc-builds-section + .pc-builds-section,
+.pc-builds-section + .content{
+  border-top:1px solid rgba(214,178,94,.35);
+}
+
+/* toegankelijkheid: verminderde animatie */
+@media (prefers-reduced-motion: reduce){
+  .cards-gold figure{ transition:none; }
+}
+</style>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1LT3BX7VW7"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);} 
+gtag('js', new Date());
+gtag('config', 'G-1LT3BX7VW7');
+</script>
+
+<!-- Favicons -->
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32.png">
+<link rel="icon" type="image/png" sizes="48x48" href="/icons/favicon-48.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+
+<!-- PWA / Android -->
+<link rel="manifest" href="/icons/site.webmanifest">
+<meta name="theme-color" content="#0f0f0f">
+
+
+</head>
+<body>
+
+  <!-- Taal-switch (optioneel) -->
+ <div class="lang-switch">
+  <a href="../en/index.html" aria-label="English" data-lang="en">
+    <img src="../images/flags/en.png" alt="English" class="flag">
+  </a>
+  <a href="../sv/index.html" aria-label="Svenska" data-lang="sv">
+    <img src="../images/flags/sv.png" alt="Svenska" class="flag">
+  </a>
+</div>
+
+  <!-- HEADER met logo links en menu -->
+  <header>
+  <div class="title-center">
+  <img src="../logo.png" alt="Nico on Point logo" class="brand" onerror="this.style.display='none'">
+  <h1>Nico on Point Services</h1>
+</div>
+
+        <strong><p>Reliable remote support and customer service — wherever you are.</p></strong>
+
+        <nav class="contact-icons">
+          <a href="tel:+46707106182">📞 +46 70 710 61 82</a>
+          <a href="mailto:nico_on_point-services@outlook.com">✉️ nico_on_point-services@outlook.com</a>
+        </nav>
+
+        <nav class="contact-icons">
+          <a href="index.html">Home</a>
+          <a href="multi-skill-technician.html">Multi-skill-technician</a>
+          <a href="pc-building.html">PC Building</a>
+          <a href="webdesign.html">Web Design</a>
+          <a href="remote-work.html">Remote Work</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+  
+  <!-- Full-width scrolling ticker -->
+<div class="ticker ticker--full" id="ticker" role="region" aria-label="Service ticker">
+  <div class="ticker__track"></div>
+  </div>
+
+  <!-- Banner-balk -->
+  <div class="text-banner">
+    <div class="text-banner"></div></strong><div class="glow-link bar"><strong><a href="mailto:nico_on_point-services@outlook.com" target="_blank" rel="noopener noreferrer">...* Or mail me direct *...</a></div>
+  </div>
+
+  <!-- Remote IT: services and details -->
+<section class="content about">
+  <h2 class="section-title">Remote Customer Service & Support</h2>
+
+  <div class="about-prose">
+    <p>🖥️ Remote Customer Service
+
+In today’s world, great service doesn’t need to be face to face.
+With remote customer service, I help businesses stay connected to their clients — no matter where they are.
+
+Whether it’s answering support questions, handling follow-ups, or solving small technical issues, I make sure your customers feel heard, helped, and valued. Communication is personal, clear, and always focused on finding a solution that works.
+
+If you need someone reliable who can represent your company online and keep your customers happy from a distance, I’m ready to step in.
+
+Professional support. Human approach. Wherever you are.</p>
+<ul>
+<li>Remote diagnostics & troubleshooting (Windows, macOS, Linux)</li>
+<li>Software installs & configuration (drivers, utilities, tools)</li>
+<li>Email & accounts: Outlook / Microsoft 365 / Gmail setup & fixes</li>
+<li>Backups, data transfer, and basic data recovery</li>
+<li>Security hardening: updates, antivirus, safe settings</li>
+<li>Network help: Wi-Fi optimization, router setup, VPN</li>
+<li>NAS & camera systems: basic setup and troubleshooting</li>
+<li>Website updates and small content changes</li>
+<li>Performance tuning for workstations and gaming PCs</li>
+</ul>
+<p>I use secure, invite-only tools for screen sharing and support, with clear communication at every step. Support available in English, German and Dutch.</p>
+<p>Tell me what you need — if on-site is required, I’m based in Värmland and travel across Sweden. Use the <a href="contact.html">contact form</a> and I’ll get back to you soon.</p>
+
+</section>
+
+<section id="pc-builds" class="content pc-builds-section">
+  <h2 class="section-title">Remote Customer Service & Support</h2>
+
+  <div class="image-grid lightbox-gallery cards-gold">
+
+  <div class="image-grid lightbox-gallery">
+    <figure>
+      <img src="../images/remote/my-work-station.jpg" data-full="../images/remote/my-work-station.jpg" alt="My workstation">
+      <figcaption>My workstation</figcaption>
+    </figure>
+
+    <figure>
+      <img src="../images/remote/remote.webp" data-full="../images/remote/remote.webp" alt="remote customer service">
+      <figcaption>remote customer service</figcaption>
+    </figure>
+
+    <figure>
+      <img src="../images/remote/gazamelijke-opstelling.jpg" data-full="../images/remote/gazamelijke-opstelling.jpg" alt="My old workstation">
+      <figcaption>My old place workstation</figcaption>
+    </figure>
+
+    </div>
+  </div>
+  </section>
+  
+<section class="content about">
+  <h2 class="section-title">Customer remote services</h2>
+
+  <div class="about-prose">
+<ul>
+<li>Channels: phone, email, chat (Teams/Zoom), social DMs</li>
+<li>Ticketing & CRM: Outlook/Microsoft 365, Gmail, Zendesk/Freshdesk/Jira Service Management</li>
+<li>Tasks: intake & triage, troubleshooting, order/status queries, appointment booking, simple billing & returns</li>
+<li>Process: clear notes, follow-up, and knowledge-base updates</li>
+<li>KPIs I care about: first-contact resolution, response times, customer satisfaction</li>
+<li>Languages: English, German, and Dutch</li>
+</ul>
+<p>I use secure, invite-only tools for screen sharing. Short assignments or ongoing support — your choice.</p>
+</section>
+
+<section class="content about">
+  <h2 class="section-title">Trust.</h2>
+
+  <div class="about-prose">
+<p>Good service is about trust.
+
+When you reach out to me, you’ll always get a real person who listens, understands, and delivers.
+
+Simple, honest, and on point — just how service should be.</p>
+<p>So tell me what you need, and let’s make your plan a reality. Fill out the <a href="contact.html">contact</a> form and I’ll get back to you soon.</p>
+
+</section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-wrap">
+      <div class="footer-card">
+        <p><strong>Nico Buijs</strong> (owner Nico on Point)</p>
+        <p>682 94 Lesjöfors, Sverige</p>
+        <span class="sep"></span>
+        <p>© <span id="y"></span> Nico on Point Services. All rights reserved.</p>
+        <p>webdesign by: Nico on Point Services</p>
+        <p>copyright: Nico on Point Services</p>
+        <p>VAT number: SE6609238354</p>
+      </div>
+    </div>
+    <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+  </footer>
+
+  <!-- Lightbox overlay -->
+<div id="lightbox" class="lightbox">
+  <span class="close">&times;</span>
+  <img class="lightbox-img" src="">
+</div>
+
+  <script>
+(function(){
+  // Map van bestandsnamen EN <-> SV
+  const map = {
+    en: {
+      "index.html":        "index.html",
+      "multi-skill-technician.html":  "multikompetent-tekniker.html",
+      "pc-building.html":  "pc-bygg.html",
+      "webdesign.html":    "webdesign.html",
+      "remote-work.html":  "fjarrarbete.html",
+      "contact.html":      "kontakt.html",
+    },
+    sv: {
+      "index.html":        "index.html",
+      "multikompetent-tekniker.html":   "multi-skill-technician.html",
+      "pc-bygg.html":      "pc-building.html",
+      "webdesign.html":    "webdesign.html",
+      "fjarrarbete.html":  "remote-work.html",
+      "kontakt.html":      "contact.html",
+    }
+  };
+
+  const curLang = (document.documentElement.lang || 'en').slice(0,2);
+  const other   = curLang === 'en' ? 'sv' : 'en';
+
+  // Huidige pad + pagina
+  const path = location.pathname;         // bv. /site/en/pc-building.html
+  const base = path.replace(/\/(en|sv)\/.*$/, '/'); // bv. /site/
+  let page   = path.split('/').pop();     // bv. pc-building.html
+  if (!page || !page.includes('.')) page = 'index.html';
+
+  const targetPage = (map[curLang] && map[curLang][page]) ? map[curLang][page] : 'index.html';
+  const targetUrl  = base + other + '/' + targetPage + location.search + location.hash;
+
+  document.querySelectorAll('.lang-switch a[data-lang]').forEach(a => {
+    a.addEventListener('click', (e) => {
+      const to = a.dataset.lang;
+      if (!to) return;
+      e.preventDefault();
+      // Alleen overschrijven als we wisselen naar de andere taal
+      if (to === other) {
+        location.href = targetUrl;
+      } else if (to === curLang) {
+        // klik op huidige taal: doe niets (of: location.reload())
+      }
+    });
+  });
+})();
+</script>
+
+<script>
+(function(){
+  // Openen bij klik op image in .lightbox-gallery
+  document.addEventListener('click', function(e){
+    const img = e.target.closest('.lightbox-gallery img');
+    if(!img) return;
+
+    const full = img.getAttribute('data-full') || img.getAttribute('src');
+    const lb   = document.getElementById('lightbox');
+    const lbImg= lb.querySelector('.lightbox-img');
+
+    lbImg.src = full;
+    lb.classList.add('open');
+    document.body.style.overflow = 'hidden'; // scroll blokkeren
+  });
+
+  // Sluiten bij klik op overlay of kruisje
+  const lb = document.getElementById('lightbox');
+  lb.addEventListener('click', function(e){
+    if(e.target.classList.contains('lightbox') || e.target.classList.contains('close')){
+      lb.classList.remove('open');
+      lb.querySelector('.lightbox-img').src = '';
+      document.body.style.overflow = '';
+    }
+  });
+
+  // Sluiten met ESC
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape' && lb.classList.contains('open')){
+      lb.classList.remove('open');
+      lb.querySelector('.lightbox-img').src = '';
+      document.body.style.overflow = '';
+    }
+  });
+})();
+</script>
+
+</body>
+</html>

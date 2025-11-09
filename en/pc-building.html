@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Home — Nico on Point</title>
+  <link rel="stylesheet" href="../assets/style.css" />
+  <!-- Header-achtergrond (pas de afbeelding aan als je wilt) -->
+  <style>
+  :root{
+    /* gebruik de nieuwe headerfoto */
+    --header-bg: url('../images/headers/pc-builds.png'); /* of .jpg/png */
+  }
+  header{
+    background-image: var(--header-bg);
+    background-size: cover;
+    background-position: center 10%; /* iets lager kadreren */
+  }
+  :root{
+  --gold:#d6b25e;        /* iets warmer dan puur #ffd700 */
+  --gold-soft:#d6b25e33; /* transparant voor glow */
+  --surface:#141416;     /* donker kaartoppervlak */
+  --text:#e9e9ea;
+}
+
+/* sectie: dunne lijn + spacing */
+.pc-builds-section{
+  border-top:1px solid var(--gold);
+  padding-top:2rem;
+  margin-top:3rem;
+}
+
+/* titel in goud met subtiele glow */
+.pc-builds-title{
+  color:var(--gold);
+  font-weight:800;
+  letter-spacing:.6px;
+  text-transform:unset;         /* hou het menselijk */
+  margin-bottom:1.25rem;
+  text-shadow:0 0 12px var(--gold-soft);
+}
+
+/* kaart-stijl voor je figures */
+.cards-gold figure{
+  background:linear-gradient(180deg,#151515,#0f0f10 60%);
+  border:1px solid rgba(214,178,94,.45);
+  border-radius:14px;
+  padding:.6rem .6rem .2rem;
+  box-shadow:0 1px 8px rgba(0,0,0,.45);
+  transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+}
+
+.cards-gold figure:hover{
+  transform:translateY(-2px);
+  border-color:var(--gold);
+  box-shadow:0 0 0 1px var(--gold), 0 8px 26px var(--gold-soft), 0 12px 26px rgba(0,0,0,.5);
+}
+
+/* afbeeldingen: afgeronde hoeken en lichte binnenrand */
+.cards-gold figure img{
+  display:block;
+  width:100%;
+  height:auto;
+  border-radius:10px;
+  outline:1px solid rgba(214,178,94,.25);
+  outline-offset:-1px;
+}
+
+/* captions: leesbaar, subtiel */
+.cards-gold figure figcaption{
+  color:var(--text);
+  font-size:.95rem;
+  line-height:1.2;
+  padding:.55rem .25rem .65rem;
+  opacity:.95;
+}
+
+/* dunne lijn als extra scheiding tussen rijen secties (optioneel) */
+.pc-builds-section + .pc-builds-section,
+.pc-builds-section + .content{
+  border-top:1px solid rgba(214,178,94,.35);
+}
+
+/* toegankelijkheid: verminderde animatie */
+@media (prefers-reduced-motion: reduce){
+  .cards-gold figure{ transition:none; }
+}
+
+</style>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1LT3BX7VW7"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);} 
+gtag('js', new Date());
+gtag('config', 'G-1LT3BX7VW7');
+</script>
+
+<!-- Favicons -->
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32.png">
+<link rel="icon" type="image/png" sizes="48x48" href="/icons/favicon-48.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+
+<!-- PWA / Android -->
+<link rel="manifest" href="/icons/site.webmanifest">
+<meta name="theme-color" content="#0f0f0f">
+
+
+</head>
+<body>
+
+  <!-- Taal-switch (optioneel) -->
+ <div class="lang-switch">
+  <a href="../en/index.html" aria-label="English" data-lang="en">
+    <img src="../images/flags/en.png" alt="English" class="flag">
+  </a>
+  <a href="../sv/index.html" aria-label="Svenska" data-lang="sv">
+    <img src="../images/flags/sv.png" alt="Svenska" class="flag">
+  </a>
+</div>
+
+  <!-- HEADER met logo links en menu -->
+  <header>
+  <div class="title-center">
+  <img src="../logo.png" alt="Nico on Point logo" class="brand" onerror="this.style.display='none'">
+  <h1>Nico on Point Services</h1>
+</div>
+
+        <strong><p>Versatile help with building, troubleshoot and maintnence of workstations, laptops and gaming PC</p></strong>
+
+        <nav class="contact-icons">
+          <a href="tel:+46707106182">📞 +46 70 710 61 82</a>
+          <a href="mailto:nico_on_point-services@outlook.com">✉️ nico_on_point-services@outlook.com</a>
+        </nav>
+
+        <nav class="contact-icons">
+          <a href="index.html">Home</a>
+          <a href="multi-skill-technician.html">Multi-skill-technician</a>
+          <a href="pc-building.html">PC Building</a>
+          <a href="webdesign.html">Web Design</a>
+          <a href="remote-work.html">Remote Work</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- Full-width scrolling ticker -->
+<div class="ticker ticker--full" id="ticker" role="region" aria-label="Service ticker">
+  <div class="ticker__track"></div>
+  </div>
+
+  <section class="content about">
+  <h2 class="section-title">Custom or regular builds — I make them for you.</h2>
+
+  <div class="about-prose">
+
+    <p>I’m truly passionate about custom PC building and repair.</p>
+    <p>From budget-friendly setups to extreme high-end liquid-cooled machines, I build systems that match your needs, style, and performance goals.</p>
+    <p>Whether you want a silent workstation, an RGB-lit showpiece gaming rig, or an overclocked powerhouse.</p>
+    <p>I focus on clean cable management, premium cooling, and long-term reliability.</p>
+    <p>I also offer expert support for Windows, Linux and dual-boot systems, so creators, gamers, and power-users can enjoy the best of both worlds.</p>
+    <p>If you’re looking for a PC that’s fast, future-proof and built to look as incredible as it performs, I will happely create this for you.</p>
+  </div>
+
+  <section id="pc-builds" class="content pc-builds-section">
+  <h2 class="pc-builds-title">Some of my PC builds and examples</h2>
+
+  <div class="image-grid lightbox-gallery cards-gold">
+
+  <div class="image-grid lightbox-gallery">
+    <figure>
+      <img src="../images/pc-builds/gaming-pc.jpg" data-full="../images/pc-builds/gaming-pc.jpg" alt="Custom RGB PC">
+      <figcaption>Custom PC — RGB case</figcaption>
+    </figure>
+
+    <figure>
+      <img src="../images/pc-builds/nice-color.webp" data-full="../images/pc-builds/nice-color.webp" alt="Red theme PC">
+      <figcaption>Showcase build — red theme</figcaption>
+    </figure>
+
+    <figure>
+      <img src="../images/pc-builds/portvat-opstelling.jpg" data-full="../images/pc-builds/portvat-opstelling.jpg" alt="Barrel PC workstation">
+      <figcaption>Barrel workstation setup</figcaption>
+    </figure>
+  
+    <figure>
+      <img src="../images/pc-builds/my-workstation.jpg" data-full="../images/pc-builds/my-workstation.jpg" alt="My watercooled system">
+      <figcaption>My workstation liquid-cooled</figcaption>
+    </figure>
+
+    <figure>
+      <img src="../images/pc-builds/barrel-pc.jpg" data-full="../images/pc-builds/barrel-pc.jpg" alt="Barrel PC external radiator">
+      <figcaption>Barrel PC — external radiator</figcaption>
+    </figure>
+
+    <figure>
+      <img src="../images/pc-builds/close-up.jpg" data-full="../images/pc-builds/close-up.jpg" alt="close-up">
+      <figcaption>Close-up></figcaption>
+    </figure>
+  
+    <figure>
+      <img src="../images/pc-builds/work-station-white.jpg" data-full="../images/pc-builds/work-station-white.jpg" alt="Custom RGB PC set-up">
+      <figcaption>Custom PC setup— RGB case white</figcaption>
+    </figure>
+
+    <figure>
+      <img src="../images/pc-builds/work_from_home_setup.jpg" data-full="../images/pc-builds/work_from_home_setup.jpg" alt="work_from_home_setup">
+      <figcaption>work from home setup</figcaption>
+    </figure>
+
+    <figure>
+      <img src="../images/pc-builds/laptop-fix.jpg" data-full="../images/pc-builds/laptop-fix.jpg" alt="fixing laptop">
+      <figcaption>Fixing laptops</figcaption>
+    </figure>
+    
+  </div>
+  </div>
+  </section>
+
+<!-- Lightbox overlay -->
+<div id="lightbox" class="lightbox">
+  <span class="close">&times;</span>
+  <img class="lightbox-img" src="">
+</div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-wrap">
+      <div class="footer-card">
+        <p><strong>Nico Buijs</strong> (owner Nico on Point)</p>
+        <p>682 94 Lesjöfors, Sverige</p>
+        <span class="sep"></span>
+        <p>© <span id="y"></span> Nico on Point Services. All rights reserved.</p>
+        <p>webdesign by: Nico on Point Services</p>
+        <p>copyright: Nico on Point Services</p>
+        <p>VAT number: SE6609238354</p>
+      </div>
+    </div>
+    <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+  </footer>
+
+  <script>
+const lightbox = document.getElementById("lightbox");
+const lightboxImg = document.querySelector(".lightbox-img");
+const closeBtn = document.querySelector(".lightbox .close");
+
+document.querySelectorAll(".lightbox-gallery img").forEach(img => {
+  img.addEventListener("click", () => {
+    lightboxImg.src = img.dataset.full;
+    lightbox.style.display = "flex";
+  });
+});
+
+closeBtn.addEventListener("click", () => lightbox.style.display = "none");
+lightbox.addEventListener("click", e => {
+  if (e.target === lightbox) lightbox.style.display = "none";
+});
+document.addEventListener("keydown", e => {
+  if (e.key === "Escape") lightbox.style.display = "none";
+});
+</script>
+
+<script>
+(function(){
+  // Map van bestandsnamen EN <-> SV
+  const map = {
+    en: {
+      "index.html":        "index.html",
+      "multi-skill-technician.html":  "multikompetent-tekniker.html",
+      "pc-building.html":  "pc-bygg.html",
+      "webdesign.html":    "webdesign.html",
+      "remote-work.html":  "fjarrarbete.html",
+      "contact.html":      "kontakt.html",
+    },
+    sv: {
+      "index.html":        "index.html",
+      "multikompetent-tekniker.html":   "multi-skill-technician.html",
+      "pc-bygg.html":      "pc-building.html",
+      "webdesign.html":    "webdesign.html",
+      "fjarrarbete.html":  "remote-work.html",
+      "kontakt.html":      "contact.html",
+    }
+  };
+
+  const curLang = (document.documentElement.lang || 'en').slice(0,2);
+  const other   = curLang === 'en' ? 'sv' : 'en';
+
+  // Huidige pad + pagina
+  const path = location.pathname;         // bv. /site/en/pc-building.html
+  const base = path.replace(/\/(en|sv)\/.*$/, '/'); // bv. /site/
+  let page   = path.split('/').pop();     // bv. pc-building.html
+  if (!page || !page.includes('.')) page = 'index.html';
+
+  const targetPage = (map[curLang] && map[curLang][page]) ? map[curLang][page] : 'index.html';
+  const targetUrl  = base + other + '/' + targetPage + location.search + location.hash;
+
+  document.querySelectorAll('.lang-switch a[data-lang]').forEach(a => {
+    a.addEventListener('click', (e) => {
+      const to = a.dataset.lang;
+      if (!to) return;
+      e.preventDefault();
+      // Alleen overschrijven als we wisselen naar de andere taal
+      if (to === other) {
+        location.href = targetUrl;
+      } else if (to === curLang) {
+        // klik op huidige taal: doe niets (of: location.reload())
+      }
+    });
+  });
+})();
+</script>
+
+
+</body>
+</html>

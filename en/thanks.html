@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Thanks — Nico on Point</title>
+  <link rel="stylesheet" href="../assets/style.css" />
+  <style>
+    :root{ --header-bg: url('../images/headers/contact.png'); }
+    header{
+      background-image: var(--header-bg);
+      background-size: cover;
+      background-position: center 80%;
+      min-height: 240px;
+      padding: 24px 16px;
+      position: relative;
+    }
+    .thanks-box{
+      max-width: 760px; margin: 20px auto; text-align: center;
+      background:#111; border:1px solid rgba(255,216,77,.35);
+      border-radius:14px; padding:18px;
+    }
+  </style>
+
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1LT3BX7VW7"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);} 
+gtag('js', new Date());
+gtag('config', 'G-1LT3BX7VW7');
+</script>
+
+<!-- Favicons -->
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32.png">
+<link rel="icon" type="image/png" sizes="48x48" href="/icons/favicon-48.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+
+<!-- PWA / Android -->
+<link rel="manifest" href="/icons/site.webmanifest">
+<meta name="theme-color" content="#0f0f0f">
+
+
+</head>
+<body>
+
+<!-- Language switch -->
+<div class="lang-switch">
+  <a href="../en/thanks.html" aria-label="English" data-lang="en">
+    <img src="../images/flags/en.png" alt="English" class="flag">
+  </a>
+  <a href="../sv/tack.html" aria-label="Svenska" data-lang="sv">
+    <img src="../images/flags/sv.png" alt="Svenska" class="flag">
+  </a>
+</div>
+
+<header>
+  <div class="title-center">
+    <img src="../logo.png" alt="Nico on Point logo" class="brand" onerror="this.style.display='none'">
+    <h1>Nico on Point Services</h1>
+  </div>
+
+  <p>Versatile help with facility work, renovations, installations & PCs</p>
+
+  <nav class="contact-icons">
+    <a href="tel:+46707106182">📞 +46 70 710 61 82</a>
+    <a href="mailto:info@nicoonpoint.se">✉️ info@nicoonpoint.se</a>
+  </nav>
+
+  <nav class="contact-icons">
+    <a href="index.html">Home</a>
+    <a href="multi-skill-technician.html">Multi-skill technician</a>
+    <a href="pc-building.html">PC Building</a>
+    <a href="webdesign.html">Web Design</a>
+    <a href="remote-work.html">Remote Work</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<main class="content">
+  <div class="thanks-box">
+    <h2>Thanks!</h2>
+    <p>Your message was sent. I’ll get back to you soon.</p>
+    <p>You’ll be redirected to the home page in a few seconds.</p>
+    <p><a class="card-link" href="index.html">Back to Home</a></p>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-wrap">
+    <div class="footer-card">
+      © <span id="y"></span> Nico on Point Services. All rights reserved.
+    </div>
+  </div>
+  <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+</footer>
+
+
+<script>
+(function(){
+  // Redirect after 5s
+  setTimeout(function(){ location.href = 'index.html'; }, 5000);
+
+  // Language mapping (EN <-> SV) including thanks/tack
+  const map = {
+    en: {
+      "index.html":        "index.html",
+      "multi-skill-technician.html":  "multikompetent-tekniker.html",
+      "pc-building.html":  "pc-bygg.html",
+      "webdesign.html":    "webdesign.html",
+      "remote-work.html":  "fjarrarbete.html",
+      "contact.html":      "kontakt.html",
+      "thanks.html":       "tack.html"
+    },
+    sv: {
+      "index.html":        "index.html",
+      "multikompetent-tekniker.html":  "multi-skill-technician.html",
+      "pc-bygg.html":      "pc-building.html",
+      "webdesign.html":    "webdesign.html",
+      "fjarrarbete.html":  "remote-work.html",
+      "kontakt.html":      "contact.html",
+      "tack.html":         "thanks.html"
+    }
+  };
+
+  const curLang = (document.documentElement.lang || 'en').slice(0,2);
+  const other   = curLang === 'en' ? 'sv' : 'en';
+  const path = location.pathname;
+  const base = path.replace(/\/(en|sv)\/.*$/, '/');
+  let page   = path.split('/').pop(); if (!page || !page.includes('.')) page = 'thanks.html';
+
+  const targetPage = (map[curLang] && map[curLang][page]) ? map[curLang][page] : (curLang === 'en' ? 'thanks.html' : 'tack.html');
+  const targetUrl  = base + other + '/' + targetPage + location.search + location.hash;
+
+  document.querySelectorAll('.lang-switch a[data-lang]').forEach(a => {
+    a.addEventListener('click', (e) => {
+      const to = a.dataset.lang; if (!to) return;
+      e.preventDefault();
+      if (to === other) location.href = targetUrl;
+    });
+  });
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Home — Nico on Point</title>
+  <link rel="stylesheet" href="../assets/style.css" />
+  <!-- Header-achtergrond (pas de afbeelding aan als je wilt) -->
+  <style>
+  :root{
+    /* gebruik de nieuwe headerfoto */
+    --header-bg: url('../images/headers/renovations.png'); /* of .jpg/png */
+  }
+  header{
+    background-image: var(--header-bg);
+    background-size: cover;
+    background-position: center 10%; /* iets lager kadreren */
+  }
+  /* sectie: dunne lijn + spacing */
+.pc-builds-section{
+  border-top:1px solid var(--gold);
+  padding-top:2rem;
+  margin-top:3rem;
+}
+
+/* titel in goud met subtiele glow */
+.pc-builds-title{
+  color:var(--gold);
+  font-weight:800;
+  letter-spacing:.6px;
+  text-transform:unset;         /* hou het menselijk */
+  margin-bottom:1.25rem;
+  text-shadow:0 0 12px var(--gold-soft);
+}
+
+/* kaart-stijl voor je figures */
+.cards-gold figure{
+  background:linear-gradient(180deg,#151515,#0f0f10 60%);
+  border:1px solid rgba(214,178,94,.45);
+  border-radius:14px;
+  padding:.6rem .6rem .2rem;
+  box-shadow:0 1px 8px rgba(0,0,0,.45);
+  transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+}
+
+.cards-gold figure:hover{
+  transform:translateY(-2px);
+  border-color:var(--gold);
+  box-shadow:0 0 0 1px var(--gold), 0 8px 26px var(--gold-soft), 0 12px 26px rgba(0,0,0,.5);
+}
+
+/* afbeeldingen: afgeronde hoeken en lichte binnenrand */
+.cards-gold figure img{
+  display:block;
+  width:100%;
+  height:auto;
+  border-radius:10px;
+  outline:1px solid rgba(214,178,94,.25);
+  outline-offset:-1px;
+}
+
+/* captions: leesbaar, subtiel */
+.cards-gold figure figcaption{
+  color:var(--text);
+  font-size:.95rem;
+  line-height:1.2;
+  padding:.55rem .25rem .65rem;
+  opacity:.95;
+}
+
+/* dunne lijn als extra scheiding tussen rijen secties (optioneel) */
+.pc-builds-section + .pc-builds-section,
+.pc-builds-section + .content{
+  border-top:1px solid rgba(214,178,94,.35);
+}
+
+/* toegankelijkheid: verminderde animatie */
+@media (prefers-reduced-motion: reduce){
+  .cards-gold figure{ transition:none; }
+}
+</style>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1LT3BX7VW7"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);} 
+gtag('js', new Date());
+gtag('config', 'G-1LT3BX7VW7');
+</script>
+
+<!-- Favicons -->
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32.png">
+<link rel="icon" type="image/png" sizes="48x48" href="/icons/favicon-48.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+
+<!-- PWA / Android -->
+<link rel="manifest" href="/icons/site.webmanifest">
+<meta name="theme-color" content="#0f0f0f">
+
+<meta name="theme-color" content="#0f0f0f">
+
+
+</head>
+<body>
+
+  <div class="lang-switch">
+  <a href="../en/index.html" aria-label="English" data-lang="en">
+    <img src="../images/flags/en.png" alt="English" class="flag">
+  </a>
+  <a href="../sv/index.html" aria-label="Svenska" data-lang="sv">
+    <img src="../images/flags/sv.png" alt="Svenska" class="flag">
+  </a>
+</div>
+
+
+  <!-- HEADER met logo links en menu -->
+  <header>
+  <div class="header-wrap">
+    <div class="title-center">
+  <img src="../logo.png" alt="Nico on Point logo" class="brand" onerror="this.style.display='none'">
+  <h1>Nico on Point Services</h1>
+</div>
+
+        <strong><p>Versatile help with facility work, renovations, installations & PCs</p></strong>
+
+        <nav class="contact-icons">
+          <a href="tel:+46707106182">📞 +46 70 710 61 82</a>
+          <a href="mailto:nico_on_ponit-sevices@outlook.com">✉️ nico_on_ponit-sevices@outlook.com</a>
+        </nav>
+
+        <nav class="contact-icons">
+          <a href="index.html">Home</a>
+          <a href="multi-skill-technician.html">Multi-skill-technician</a>
+          <a href="pc-building.html">PC Building</a>
+          <a href="webdesign.html">Web Design</a>
+          <a href="remote-work.html">Remote Work</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- Full-width scrolling ticker -->
+<div class="ticker ticker--full" id="ticker" role="region" aria-label="Service ticker">
+  <div class="ticker__track"></div>
+  </div>
+
+  <!-- Intro banner -->
+<div class="text-banner">
+  <div class="bar">
+    Available in <strong>Värmland</strong> • Fast response • Fair rates • Reliable service
+  </div>
+</div>
+
+<section id="handyman" class="content">
+  <h2 class="section-title">Multi-Skill Technician / Handyman</h2>
+
+  <div class="about-prose">
+    <p>
+      Practical help, done right — without hassle. As a multi-skill technician and handyman, 
+      I take care of the jobs that keep your home or workspace running smoothly. From small fixes 
+      to installations and furniture assembly, I get things done safely, neatly, and with care.
+    </p>
+
+    <div class="about-list">
+      <p><span class="dot">•</span> Lamp & fixture installation, shelves, wall-mounts</p>
+      <p><span class="dot">•</span> Small repairs, adjustments, troubleshooting</p>
+      <p><span class="dot">•</span> Furniture assembly & workspace improvements</p>
+      <p><span class="dot">•</span> Appliance setup & practical maintenance</p>
+      <p><span class="dot">•</span> Clear communication, fair pricing</p>
+    </div>
+
+    <p>
+      I bring tools, know-how, and a problem-solving mindset — aiming for clean results and 
+      reliable service every time. No stress. No shortcuts. Just solid work you can count on.
+    </p>
+  </div>
+</section>
+
+
+<section id="pc-builds" class="content pc-builds-section">
+  <h2 class="section-title">Project Sörbygden. Renovated the whole trainingcenter</h2>
+
+  <div class="image-grid lightbox-gallery cards-gold">
+
+  <div class="image-grid lightbox-gallery">
+    <figure>
+      <img src="../images/handyman/mounting-tv.png" data-full="../images/handyman/mounting-tv.png" alt="Nice mounted tv">
+      <figcaption>Custom mounted tv/soundbar</figcaption>
+    </figure>
+
+    <figure>
+      <img src="../images/handyman/project-sorbygden.jpg" data-full="../images/handyman/project-sorbygden.jpg" alt="Project training-centre Sörbygden">
+      <figcaption>Training-center Sörbygden</figcaption>
+    </figure>
+
+    <figure>
+      <img src="../images/handyman/painting-job.jpg" data-full="../images/handyman/painting-job.jpg" alt="painting-job">
+      <figcaption>Me up and high</figcaption>
+    </figure>
+  
+    <figure>
+      <img src="../images/handyman/me.jpg" data-full="../images/handyman/me.jpg" alt="Just me">
+      <figcaption>Just me....</figcaption>
+    </figure>
+
+    <figure>
+      <img src="../images/handyman/shower.jpg" data-full="../images/handyman/shower.jpg" alt="handyman/shower.jpg">
+      <figcaption>New shower</figcaption>
+    </figure>
+
+    <figure>
+      <img src="../images/handyman/bathroom.jpg" data-full="../images/handyman/bathroom.jpg" alt="Renovation bathroom">
+      <figcaption>Bath and toilet build</figcaption>
+    </figure>
+    </div>
+  </div>
+  </section>
+
+   <section class="content about">
+  <h2 class="section-title">Practical help, done right — without the hassle.</h2>
+
+  <div class="about-prose">
+
+    <p>As a reliable multi-skill technician and handyman, I take care of the jobs that keep your home or workspace running smoothly. From small repairs and installations to furniture assembly, I make sure every task is done safely, neatly, and with genuine care.</p>
+    <p>Reliable handyman services for homes and workplaces. Safe, neat, and professional help for repairs, installations, and furniture assembly.</p>
+    <p>As a Technician & Handyman | I'll make reliable help made easy</p>
+    <p>Whether it’s fixing, mounting, or setting things up — I handle every task with precision and attention to detail. No unnecessary fuss, just reliable results that make life a little easier. You can count on clear communication, fair pricing, and quality workmanship every time.</p>
+    <p>Need a hand with repairs, setups, or odd jobs? I’ve got you covered. I take pride in doing things properly — no shortcuts, no stress. Just solid, honest work that makes your place look and work better.</p>
+  </div>
+</div>
+</section>
+
+  <section id="pc-builds" class="content pc-builds-section">
+  <h2 class="section-title">Hostel bedroom and a custom pc build in a barrel.</h2>
+
+  <div class="image-grid lightbox-gallery cards-gold">
+
+  <div class="image-grid lightbox-gallery">
+    <figure>
+      <img src="../images/handyman/hostel-room.jpg" data-full="../images/handyman/hostel-room.jpg" alt="Redone hostel room">
+      <figcaption>Redone hostel room</figcaption>
+    </figure>
+
+    <figure>
+      <img src="../images/handyman/portvat.jpg" data-full="../images/handyman/portvat.jpg" alt="portvat-build">
+      <figcaption>Portvat PC build</figcaption>
+    </figure>
+
+    <figure>
+      <img src="../images/pc-builds/portvat-opstelling.jpg" data-full="../images/pc-builds/portvat-opstelling.jpg" alt="Barrel PC workstation">
+      <figcaption>Barrel workstation setup</figcaption>
+    </figure>
+  
+  </div>
+  </div>
+  </section>
+
+<!-- Lightbox overlay -->
+<div id="lightbox" class="lightbox">
+  <span class="close">&times;</span>
+  <img class="lightbox-img" src="">
+</div>
+
+
+<!-- Footer -->
+<footer class="site-footer">
+  <div class="footer-wrap">
+    <div class="footer-card">
+      <p><strong>Nico Buijs</strong> (owner Nico on Point)</p>
+      <p>682 94 Lesjöfors, Sverige</p>
+      <span class="sep"></span>
+      <p>© <span id="y"></span> Nico on Point Services. All rights reserved.</p>
+      <p>webdesign by: Nico on Point Services</p>
+      <p>copyright: Nico on Point Services</p>
+      <p>VAT number: SE6609238354</p>
+    </div>
+  </div>
+  <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+</footer>
+
+<script>
+const lightbox = document.getElementById("lightbox");
+const lightboxImg = document.querySelector(".lightbox-img");
+const closeBtn = document.querySelector(".lightbox .close");
+
+document.querySelectorAll(".lightbox-gallery img").forEach(img => {
+  img.addEventListener("click", () => {
+    lightboxImg.src = img.dataset.full;
+    lightbox.style.display = "flex";
+  });
+});
+
+closeBtn.addEventListener("click", () => lightbox.style.display = "none");
+lightbox.addEventListener("click", e => {
+  if (e.target === lightbox) lightbox.style.display = "none";
+});
+document.addEventListener("keydown", e => {
+  if (e.key === "Escape") lightbox.style.display = "none";
+});
+</script>
+
+
+  <script>
+(function(){
+  // Map van bestandsnamen EN <-> SV
+  const map = {
+    en: {
+      "index.html":        "index.html",
+      "multi-skill-technician.html":  "multikompetent-tekniker.html",
+      "pc-building.html":  "pc-bygg.html",
+      "webdesign.html":    "webdesign.html",
+      "remote-work.html":  "fjarrarbete.html",
+      "contact.html":      "kontakt.html",
+    },
+    sv: {
+      "index.html":        "index.html",
+      "multikompetent-tekniker.html":   "multi-skill-technician.html",
+      "pc-bygg.html":      "pc-building.html",
+      "webdesign.html":    "webdesign.html",
+      "fjarrarbete.html":  "remote-work.html",
+      "kontakt.html":      "contact.html",
+    }
+  };
+
+  const curLang = (document.documentElement.lang || 'en').slice(0,2);
+  const other   = curLang === 'en' ? 'sv' : 'en';
+
+  // Huidige pad + pagina
+  const path = location.pathname;         // bv. /site/en/pc-building.html
+  const base = path.replace(/\/(en|sv)\/.*$/, '/'); // bv. /site/
+  let page   = path.split('/').pop();     // bv. pc-building.html
+  if (!page || !page.includes('.')) page = 'index.html';
+
+  const targetPage = (map[curLang] && map[curLang][page]) ? map[curLang][page] : 'index.html';
+  const targetUrl  = base + other + '/' + targetPage + location.search + location.hash;
+
+  document.querySelectorAll('.lang-switch a[data-lang]').forEach(a => {
+    a.addEventListener('click', (e) => {
+      const to = a.dataset.lang;
+      if (!to) return;
+      e.preventDefault();
+      // Alleen overschrijven als we wisselen naar de andere taal
+      if (to === other) {
+        location.href = targetUrl;
+      } else if (to === curLang) {
+        // klik op huidige taal: doe niets (of: location.reload())
+      }
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
