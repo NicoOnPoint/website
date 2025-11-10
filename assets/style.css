@@ -152,7 +152,7 @@ header .contact-icons a { padding:8px 14px; }
 }
 /* Taal-switch met vlaggen */
 .lang-switch{
-  position:absolute;
+  position:fixed;
   right:12px;
   top:12px;
   display:flex;
