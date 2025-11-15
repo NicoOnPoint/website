@@ -1,8 +1,92 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset 
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- Root (taalselector / redirect) -->
   <url>
-    <loc>https://nico-on-point-services.com/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
+    <loc>https://www.nico-on-point-services.com/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.nico-on-point-services.com/en/index.html"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://www.nico-on-point-services.com/sv/index.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.nico-on-point-services.com/"/>
   </url>
+
+  <!-- Home EN / SV -->
+  <url>
+    <loc>https://www.nico-on-point-services.com/en/index.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.nico-on-point-services.com/en/index.html"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://www.nico-on-point-services.com/sv/index.html"/>
+  </url>
+
+  <url>
+    <loc>https://www.nico-on-point-services.com/sv/index.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.nico-on-point-services.com/en/index.html"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://www.nico-on-point-services.com/sv/index.html"/>
+  </url>
+
+  <!-- Multi-skill technician / multikompetent tekniker -->
+  <url>
+    <loc>https://www.nico-on-point-services.com/en/multi-skill-technician.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.nico-on-point-services.com/en/multi-skill-technician.html"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://www.nico-on-point-services.com/sv/multikompetent-tekniker.html"/>
+  </url>
+
+  <url>
+    <loc>https://www.nico-on-point-services.com/sv/multikompetent-tekniker.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.nico-on-point-services.com/en/multi-skill-technician.html"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://www.nico-on-point-services.com/sv/multikompetent-tekniker.html"/>
+  </url>
+
+  <!-- PC building / PC-bygg -->
+  <url>
+    <loc>https://www.nico-on-point-services.com/en/pc-building.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.nico-on-point-services.com/en/pc-building.html"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://www.nico-on-point-services.com/sv/pc-bygg.html"/>
+  </url>
+
+  <url>
+    <loc>https://www.nico-on-point-services.com/sv/pc-bygg.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.nico-on-point-services.com/en/pc-building.html"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://www.nico-on-point-services.com/sv/pc-bygg.html"/>
+  </url>
+
+  <!-- Webdesign (zelfde slug in beide talen) -->
+  <url>
+    <loc>https://www.nico-on-point-services.com/en/webdesign.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.nico-on-point-services.com/en/webdesign.html"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://www.nico-on-point-services.com/sv/webdesign.html"/>
+  </url>
+
+  <url>
+    <loc>https://www.nico-on-point-services.com/sv/webdesign.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.nico-on-point-services.com/en/webdesign.html"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://www.nico-on-point-services.com/sv/webdesign.html"/>
+  </url>
+
+  <!-- Remote work / Fjärrarbete -->
+  <url>
+    <loc>https://www.nico-on-point-services.com/en/remote-work.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.nico-on-point-services.com/en/remote-work.html"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://www.nico-on-point-services.com/sv/fjarrarbete.html"/>
+  </url>
+
+  <url>
+    <loc>https://www.nico-on-point-services.com/sv/fjarrarbete.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.nico-on-point-services.com/en/remote-work.html"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://www.nico-on-point-services.com/sv/fjarrarbete.html"/>
+  </url>
+
+  <!-- Contact / Kontakt -->
+  <url>
+    <loc>https://www.nico-on-point-services.com/en/contact.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.nico-on-point-services.com/en/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://www.nico-on-point-services.com/sv/kontakt.html"/>
+  </url>
+
+  <url>
+    <loc>https://www.nico-on-point-services.com/sv/kontakt.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.nico-on-point-services.com/en/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://www.nico-on-point-services.com/sv/kontakt.html"/>
+  </url>
+
 </urlset>
