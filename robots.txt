@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://www.nico-on-point-services.com/sitemap.xml
+
