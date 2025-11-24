@@ -731,6 +731,17 @@ header > *{ position:relative; z-index:1;
     font-size: 1.3rem;
   }
 }
+.yellow-link {
+  color: #f8d84a;     /* jouw gele kleur */
+  font-size: 0.75em;  /* klein linkje */
+  margin-left: 6px;
+  text-decoration: none;
+}
+
+.yellow-link:hover {
+  text-decoration: underline;
+}
+
 
 
 
