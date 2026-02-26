@@ -810,24 +810,27 @@ header > *{ position:relative; z-index:1;
   filter:brightness(1.1);
 }
 
-@media (max-width: 600px) {
+@media (max-width: 900px) {
   .lang-switch{
     display:grid !important;
     grid-template-columns:auto auto;
-    gap:6px;
+    gap:4px;
     justify-content:end !important;
   }
   .lang-switch a{
-    min-width:46px;
-    height:34px;
-    padding:0 10px;
-    font-size:.86rem;
-    letter-spacing:.04em;
+    min-width:38px;
+    height:28px;
+    padding:0 7px;
+    font-size:.74rem;
+    letter-spacing:.02em;
     justify-self:end;
   }
   .lang-switch a:nth-child(3){
     grid-column:2;
   }
+}
+
+@media (max-width: 600px) {
   .wp-float {
     right: 0.9rem;
     bottom: 0.9rem;
@@ -846,4 +849,3 @@ header > *{ position:relative; z-index:1;
 .yellow-link:hover {
   text-decoration: underline;
 }
-

@@ -1,9 +1,10 @@
 (function () {
   // Force language switch behavior/layout so it stays consistent across pages.
   document.querySelectorAll('.lang-switch').forEach(function (sw) {
+    var isMobile = window.matchMedia('(max-width: 900px)').matches;
     sw.style.setProperty('position', 'fixed', 'important');
-    sw.style.setProperty('top', '16px', 'important');
-    sw.style.setProperty('right', '16px', 'important');
+    sw.style.setProperty('top', isMobile ? '8px' : '16px', 'important');
+    sw.style.setProperty('right', isMobile ? '8px' : '16px', 'important');
     sw.style.setProperty('bottom', 'auto', 'important');
     sw.style.setProperty('left', 'auto', 'important');
     sw.style.setProperty('width', 'auto', 'important');
