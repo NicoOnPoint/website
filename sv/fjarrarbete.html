@@ -88,11 +88,14 @@
 
 <!-- Språkväxling -->
 <div class="lang-switch">
-  <a href="../en/index.html" aria-label="English" data-lang="en">
+  <a href="../en/remote-work.html" aria-label="English" data-lang="en">
     <img src="../images/flags/en.png" alt="English" class="flag">
   </a>
-  <a href="../sv/index.html" aria-label="Svenska" data-lang="sv">
+  <a href="../sv/fjarrarbete.html" aria-label="Svenska" data-lang="sv">
     <img src="../images/flags/sv.png" alt="Svenska" class="flag">
+  </a>
+  <a href="../nl/remote-work.html" aria-label="Nederlands" data-lang="nl">
+    <img src="../images/flags/nl.svg" alt="Nederlands" class="flag">
   </a>
 </div>
 
@@ -201,11 +204,17 @@
       <li>Fokus: snabb lösning, svarstider och kundnöjdhet</li>
       <li>Språk: engelska, tyska och nederländska</li>
     </ul>
-    <a class="card-link" href="fritidshus-forvaltning-varmland.html" aria-label="Läs mer om förvaltning av fritidshus i Värmland" style="margin-bottom: 14px;">
+    <p>Jag använder säkra, inbjudningsbaserade fjärrverktyg. Kortare uppdrag eller löpande support — du väljer.</p>
+  </div>
+</section>
+
+<section class="content about">
+  <div class="about-prose">
+    <a class="card-link" href="fritidshus-forvaltning-varmland.html" aria-label="Gå till sidan för förvaltning av fritidshus">
       <h3>Skötsel av fritidshus</h3>
       <p>För dig som äger ett hus hjälper jag till att hålla fastigheten i gott skick året runt, särskilt under vintern, med regelbunden tillsyn så att någon alltid har ett öga på ditt hus. Vid uthyrning hjälper jag även till med gästkommunikation före och under vistelser, boknings- och kalenderhantering, planering av in- och utcheckning samt snabb uppföljning när problem uppstår. Du får tydliga uppdateringar, praktisk hjälp och en pålitlig kontaktpunkt.</p>
+      <p class="card-cta">Gå till sidan för skötsel av fritidshus</p>
     </a>
-    <p>Jag använder säkra, inbjudningsbaserade fjärrverktyg. Kortare uppdrag eller löpande support — du väljer.</p>
   </div>
 </section>
 
@@ -291,8 +300,13 @@
     a.addEventListener('click', (e) => {
       const to = a.dataset.lang;
       if (!to) return;
-      e.preventDefault();
-      if (to === other) location.href = targetUrl;
+      if (to === 'nl') {
+        e.preventDefault();
+        location.href = a.getAttribute('href');
+        return;
+      }
+      if (to === other) {
+        e.preventDefault(); location.href = targetUrl;
     });
   });
 })();
@@ -342,6 +356,7 @@
     💬
   </a>
 
+<script src="../assets/global-v2.js"></script>
 </body>
 </html>
 9

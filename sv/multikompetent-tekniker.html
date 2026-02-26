@@ -96,13 +96,16 @@ gtag('config', 'G-1LT3BX7VW7');
 <body>
 
   <div class="lang-switch">
-    <a href="../en/index.html" aria-label="English" data-lang="en">
-      <img src="../images/flags/en.png" alt="English" class="flag">
-    </a>
-    <a href="../sv/index.html" aria-label="Svenska" data-lang="sv">
-      <img src="../images/flags/sv.png" alt="Svenska" class="flag">
-    </a>
-  </div>
+  <a href="../en/multi-skill-technician.html" aria-label="English" data-lang="en">
+    <img src="../images/flags/en.png" alt="English" class="flag">
+  </a>
+  <a href="../sv/multikompetent-tekniker.html" aria-label="Svenska" data-lang="sv">
+    <img src="../images/flags/sv.png" alt="Svenska" class="flag">
+  </a>
+  <a href="../nl/multi-skill-technician.html" aria-label="Nederlands" data-lang="nl">
+    <img src="../images/flags/nl.svg" alt="Nederlands" class="flag">
+  </a>
+</div>
 
   <!-- HEADER med logga och meny -->
   <header>
@@ -351,8 +354,13 @@ gtag('config', 'G-1LT3BX7VW7');
       a.addEventListener('click', (e) => {
         const to = a.dataset.lang;
         if (!to) return;
+      if (to === 'nl') {
         e.preventDefault();
+        location.href = a.getAttribute('href');
+        return;
+      }
         if (to === other) {
+          e.preventDefault();
           location.href = targetUrl;
         }
       });
@@ -371,5 +379,6 @@ gtag('config', 'G-1LT3BX7VW7');
     💬
   </a>
 
+<script src="../assets/global-v2.js"></script>
 </body>
 </html>

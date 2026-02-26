@@ -65,11 +65,14 @@ gtag('config', 'G-1LT3BX7VW7');
 <body>
 
 <div class="lang-switch">
-  <a href="../en/index.html" aria-label="English" data-lang="en">
+  <a href="../en/contact.html" aria-label="English" data-lang="en">
     <img src="../images/flags/en.png" alt="English" class="flag">
   </a>
-  <a href="../sv/index.html" aria-label="Svenska" data-lang="sv">
+  <a href="../sv/kontakt.html" aria-label="Svenska" data-lang="sv">
     <img src="../images/flags/sv.png" alt="Svenska" class="flag">
+  </a>
+  <a href="../nl/contact.html" aria-label="Nederlands" data-lang="nl">
+    <img src="../images/flags/nl.svg" alt="Nederlands" class="flag">
   </a>
 </div>
 
@@ -272,8 +275,13 @@ document.addEventListener('DOMContentLoaded', function () {
     a.addEventListener('click', (e) => {
       const to = a.dataset.lang;
       if (!to) return;
-      e.preventDefault();
+      if (to === 'nl') {
+        e.preventDefault();
+        location.href = a.getAttribute('href');
+        return;
+      }
       if (to === other) {
+        e.preventDefault();
         location.href = targetUrl;
       }
     });
@@ -281,5 +289,6 @@ document.addEventListener('DOMContentLoaded', function () {
 })();
 </script>
 
+<script src="../assets/global-v2.js"></script>
 </body>
 </html>

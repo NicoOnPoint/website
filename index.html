@@ -3,7 +3,9 @@
 <meta charset="utf-8"><meta http-equiv="refresh" content="0;url=en/index.html">
 <script>
 const lang = (navigator.language||'en').toLowerCase();
-location.href = lang.startsWith('sv') ? 'sv/index.html' : 'en/index.html';
+location.href = lang.startsWith('sv')
+  ? 'sv/index.html'
+  : (lang.startsWith('nl') ? 'nl/index.html' : 'en/index.html');
 </script>
 <title>Redirecting…</title>
 </head><body>Redirecting…</body></html>

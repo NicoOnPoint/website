@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="en">
+<html lang="nl">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Thanks — Nico on Point</title>
+  <title>Bedankt — Nico on Point</title>
   <link rel="stylesheet" href="../assets/style.css" />
   <style>
     :root{ --header-bg: url('../images/headers/contact.png'); }
@@ -65,7 +65,7 @@ gtag('config', 'G-1LT3BX7VW7');
     <h1>Nico on Point Services</h1>
   </div>
 
-  <p>Versatile help with facility work, renovations, installations & PCs</p>
+  <p>Veelzijdige hulp bij kluswerk, renovaties, installaties en PC's</p>
 
   <nav class="contact-icons">
     <a href="tel:+46707106182">📞 +46 70 710 61 82</a>
@@ -74,39 +74,39 @@ gtag('config', 'G-1LT3BX7VW7');
 
   <nav class="contact-icons">
     <a href="index.html">Home</a>
-    <a href="multi-skill-technician.html">Multi-skill technician</a>
-    <a href="pc-building.html">PC Building</a>
-    <a href="webdesign.html">Web Design</a>
-    <a href="remote-work.html">Remote Support</a>
-    <a href="varmland-home-check.html">Home Check Värmland</a>
-    <a href="vacation-home-management-varmland.html">Vacation Home Management</a>
+    <a href="multi-skill-technician.html">Allround technicus</a>
+    <a href="pc-building.html">PC bouw</a>
+    <a href="webdesign.html">Webdesign</a>
+    <a href="remote-work.html">Hulp op afstand</a>
+    <a href="woningcheck-varmland.html">Woningcheck Värmland</a>
+    <a href="vakantiehuis-beheer-varmland.html">Vakantiehuisbeheer</a>
         <a href="contact.html">Contact</a>
   </nav>
 </header>
 
 <main class="content">
   <div class="thanks-box">
-    <h2>Thanks!</h2>
-    <p>Your message was sent. I’ll get back to you soon.</p>
-    <p>You’ll be redirected to the home page in a few seconds.</p>
-    <p><a class="card-link" href="index.html">Back to Home</a></p>
+    <h2>Bedankt!</h2>
+    <p>Je bericht is verzonden. Ik neem snel contact met je op.</p>
+    <p>Je wordt over enkele seconden doorgestuurd naar de homepagina.</p>
+    <p><a class="card-link" href="index.html">Terug naar home</a></p>
   </div>
 </main>
 
 <footer class="site-footer">
   <div class="footer-wrap">
     <div class="footer-card">
-      <p><strong>Nico Buijs</strong> (owner Nico on Point)</p>
+      <p><strong>Nico Buijs</strong> (eigenaar Nico on Point)</p>
       <p>682 94 Lesjöfors, Sverige</p>
       <span class="sep"></span>
-      <p>© 2025–<span id="y"></span> Nico on Point Services. All rights reserved.</p>
-      <p>Webdesign by: Nico on Point Services</p>
+      <p>© 2025–<span id="y"></span> Nico on Point Services. Alle rechten voorbehouden.</p>
+      <p>Webdesign door: Nico on Point Services</p>
       <p>Partner:
         <a href="https://b-smart-services.com/">
-          B-Smart Services – freelance project manager &amp; virtual assistant
+          B-Smart Services – freelance projectmanager &amp; virtual assistant
         </a>
       </p>
-      <p>Org number: 660923-8354</p>
+      <p>Organisatienummer: 660923-8354</p>
     </div>
   </div>
   <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
@@ -126,8 +126,8 @@ gtag('config', 'G-1LT3BX7VW7');
       "pc-building.html":  "pc-bygg.html",
       "webdesign.html":    "webdesign.html",
       "remote-work.html":  "fjarrarbete.html",
-      "varmland-home-check.html": "huskontroll-varmland.html",
-      "vacation-home-management-varmland.html": "fritidshus-forvaltning-varmland.html",
+      "woningcheck-varmland.html": "huskontroll-varmland.html",
+      "vakantiehuis-beheer-varmland.html": "fritidshus-forvaltning-varmland.html",
       "contact.html":      "kontakt.html",
       "thanks.html":       "tack.html"
     },
@@ -137,14 +137,15 @@ gtag('config', 'G-1LT3BX7VW7');
       "pc-bygg.html":      "pc-building.html",
       "webdesign.html":    "webdesign.html",
       "fjarrarbete.html":  "remote-work.html",
-      "huskontroll-varmland.html": "varmland-home-check.html",
-      "fritidshus-forvaltning-varmland.html": "vacation-home-management-varmland.html",
+      "huskontroll-varmland.html": "woningcheck-varmland.html",
+      "fritidshus-forvaltning-varmland.html": "vakantiehuis-beheer-varmland.html",
       "kontakt.html":      "contact.html",
       "tack.html":         "thanks.html"
     }
   };
 
   const curLang = (document.documentElement.lang || 'en').slice(0,2);
+  if (curLang === 'nl') return;
   const other   = curLang === 'en' ? 'sv' : 'en';
   const path = location.pathname;
   const base = path.replace(/\/(en|sv)\/.*$/, '/');
@@ -156,13 +157,8 @@ gtag('config', 'G-1LT3BX7VW7');
   document.querySelectorAll('.lang-switch a[data-lang]').forEach(a => {
     a.addEventListener('click', (e) => {
       const to = a.dataset.lang; if (!to) return;
-      if (to === 'nl') {
-        e.preventDefault();
-        location.href = a.getAttribute('href');
-        return;
-      }
-      if (to === other) {
-        e.preventDefault(); location.href = targetUrl;
+      e.preventDefault();
+      if (to === other) location.href = targetUrl;
     });
   });
 })();

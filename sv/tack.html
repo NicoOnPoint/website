@@ -53,6 +53,9 @@ gtag('config', 'G-1LT3BX7VW7');
   <a href="../sv/tack.html" aria-label="Svenska" data-lang="sv">
     <img src="../images/flags/sv.png" alt="Svenska" class="flag">
   </a>
+  <a href="../nl/thanks.html" aria-label="Nederlands" data-lang="nl">
+    <img src="../images/flags/nl.svg" alt="Nederlands" class="flag">
+  </a>
 </div>
 
 <header>
@@ -152,12 +155,18 @@ gtag('config', 'G-1LT3BX7VW7');
   document.querySelectorAll('.lang-switch a[data-lang]').forEach(a => {
     a.addEventListener('click', (e) => {
       const to = a.dataset.lang; if (!to) return;
-      e.preventDefault();
-      if (to === other) location.href = targetUrl;
+      if (to === 'nl') {
+        e.preventDefault();
+        location.href = a.getAttribute('href');
+        return;
+      }
+      if (to === other) {
+        e.preventDefault(); location.href = targetUrl;
     });
   });
 })();
 </script>
 
+<script src="../assets/global-v2.js"></script>
 </body>
 </html>
