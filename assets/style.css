@@ -366,6 +366,35 @@ header .contact-icons a { padding:8px 14px; }
   transform: scale(1.08);             /* subtiele zoom on hover */
   filter: brightness(1.02);
 }
+
+/* Home Check featured card */
+.card-home-check{
+  border-color: rgba(255,216,77,.62);
+  box-shadow: 0 0 0 1px rgba(255,216,77,.28), 0 10px 26px rgba(0,0,0,.35);
+  grid-column: 1 / -1;
+  justify-self: center;
+  max-width: 420px;
+  width: 100%;
+}
+.card-home-check .card-kicker{
+  display: flex;
+  width: fit-content;
+  margin: 16px auto 14px;
+  padding: 4px 9px;
+  border-radius: 999px;
+  font-size: .78rem;
+  font-weight: 700;
+  letter-spacing: .03em;
+  color:#171717;
+  background:#ffd84d;
+}
+.card-home-check h3{ margin-bottom: .35rem; }
+.card-home-check p{ margin-top: .35rem; }
+.card-home-check .card-cta{
+  margin-top: .55rem;
+  font-weight: 700;
+  color:#ffd84d;
+}
 /* Testimonials */
 .testimonials h2{
   text-align:center;
@@ -741,12 +770,6 @@ header > *{ position:relative; z-index:1;
 .yellow-link:hover {
   text-decoration: underline;
 }
-
-
-
-
-
-
 
 
 

@@ -89,4 +89,26 @@
     <xhtml:link rel="alternate" hreflang="sv" href="https://www.nico-on-point-services.com/sv/kontakt.html"/>
   </url>
 
+  <!-- Home check / Huskontroll / Woningcheck -->
+  <url>
+    <loc>https://www.nico-on-point-services.com/woningcheck-varmland.html</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.nico-on-point-services.com/woningcheck-varmland.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.nico-on-point-services.com/en/varmland-home-check.html"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://www.nico-on-point-services.com/sv/huskontroll-varmland.html"/>
+  </url>
+
+  <url>
+    <loc>https://www.nico-on-point-services.com/en/varmland-home-check.html</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.nico-on-point-services.com/woningcheck-varmland.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.nico-on-point-services.com/en/varmland-home-check.html"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://www.nico-on-point-services.com/sv/huskontroll-varmland.html"/>
+  </url>
+
+  <url>
+    <loc>https://www.nico-on-point-services.com/sv/huskontroll-varmland.html</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.nico-on-point-services.com/woningcheck-varmland.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.nico-on-point-services.com/en/varmland-home-check.html"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://www.nico-on-point-services.com/sv/huskontroll-varmland.html"/>
+  </url>
+
 </urlset>
