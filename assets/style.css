@@ -690,6 +690,12 @@ header .contact-icons a { padding:8px 14px; }
   color: #eaeaea;
   font-size: 1.02rem;
 }
+.about-list .about-list-gap-after{
+  margin-bottom: 16px;
+}
+.about-list .about-list-final{
+  margin-bottom: 24px;
+}
 
 .about-list a{
   color:#ffd84d;
