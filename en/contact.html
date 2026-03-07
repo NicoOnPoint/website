@@ -118,9 +118,10 @@ gtag('config', 'G-1LT3BX7VW7');
   </p>
 
   <div class="contact-frame">
-  <form action="https://formspree.io/f/mzzgdqkb" method="POST" accept-charset="UTF-8">
-  <input type="hidden" name="_next" value="/en/thanks.html">
+  <form action="https://formsubmit.co/info@nico-on-point-services.com" method="POST" accept-charset="UTF-8">
+  <input type="hidden" name="_next" value="https://www.nico-on-point-services.com/en/thanks.html">
   <input type="hidden" name="_subject" value="Website contact — Nico on Point (EN)">
+  <input type="hidden" name="_captcha" value="false">
   <input type="hidden" name="language" value="en">
 
   <p class="hidden" aria-hidden="true" style="position:absolute;left:-5000px;">
@@ -212,35 +213,6 @@ gtag('config', 'G-1LT3BX7VW7');
   </div>
   <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
 </footer>
-
-  <!--scrip voor rederect thanjs formulier-->
-
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-  const form = document.querySelector('form[action^="https://formspree.io/"]');
-  if(!form) return;
-
-  form.addEventListener('submit', async function (e) {
-    e.preventDefault();
-    const endpoint = form.action;
-    const data = new FormData(form);
-
-    try {
-      const res = await fetch(endpoint, { method: 'POST', body: data, headers: { 'Accept': 'application/json' } });
-      // Succes? Redirect naar je eigen pagina
-      if (res.ok) {
-        window.location.href = 'thanks.html';   // of '/sv/tack.html' op je Zweedse pagina
-      } else {
-        // fallback: toon een melding of ga alsnog naar je bedankpagina
-        window.location.href = 'thanks.html';
-      }
-    } catch(err) {
-      // netwerkfout -> toon eigen melding of fallback
-      window.location.href = '/en/thanks.html';
-    }
-  });
-});
-</script>
 
 <script>
 (function(){
