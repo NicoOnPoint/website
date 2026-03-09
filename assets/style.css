@@ -1,4 +1,4 @@
-:root{ --header-bg: url('../images/headers/home.jpg'); }
+:root{ --header-bg: url('../images/headers/home.webp'); }
 *{ box-sizing: border-box; }
 body{ margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; color:#eee; background:#0f0f0f; }
 a{ color:#ffd84d; text-decoration:none; }
@@ -248,6 +248,14 @@ header .contact-icons a { padding:8px 14px; }
 
 .ticker:hover .ticker__track{ animation-play-state: paused; }
 
+.ticker--silent{
+  height: var(--height);
+}
+
+.ticker--silent .ticker__track{
+  display:none;
+}
+
 @keyframes ticker-move{
   from { transform: translateX(0); }
   to   { transform: translateX(calc(-1 * var(--distance, 50%))); } /* JS zet --distance */
@@ -442,10 +450,10 @@ header .contact-icons a { padding:8px 14px; }
 
 .reviews-carousel{
   position: relative;
-  border-radius: 28px;
-  padding: 10px 8px;
-  background: linear-gradient(180deg, rgba(255,216,77,.08), rgba(0,0,0,.18));
-  box-shadow: inset 0 0 0 1px rgba(255,216,77,.22);
+  border-radius: 22px;
+  padding: 0;
+  background: transparent;
+  box-shadow: none;
   overflow: hidden;
 }
 
@@ -457,7 +465,7 @@ header .contact-icons a { padding:8px 14px; }
   scroll-padding-inline: 12px;
   scrollbar-width:thin;
   scrollbar-color: rgba(255,216,77,.6) rgba(255,255,255,.12);
-  padding: 12px 12px 10px;
+  padding: 8px 8px 6px;
   mask-image: linear-gradient(to right, transparent 0, #000 18px, #000 calc(100% - 18px), transparent 100%);
 }
 
@@ -521,7 +529,7 @@ header .contact-icons a { padding:8px 14px; }
 .review-card{
   background:#111; color:#eaeaea;
   border:1px solid rgba(255,216,77,.35);
-  border-radius:28px; padding:16px;
+  border-radius:22px; padding:12px;
   box-shadow:0 4px 16px rgba(0,0,0,.25);
   flex: 0 0 calc((100% - 32px) / 3);
   min-width: 0;
@@ -529,6 +537,11 @@ header .contact-icons a { padding:8px 14px; }
   cursor:pointer;
   transform: translateY(0);
   transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+}
+
+/* Structured-data wrapper inside cards should not influence layout spacing */
+.review-card > [itemprop="itemReviewed"]{
+  display:none;
 }
 
 .reviews-track .review-card:hover,
@@ -555,7 +568,7 @@ header .contact-icons a { padding:8px 14px; }
 
   .reviews-track.depth-ready .review-card.is-center{
     opacity:1;
-    transform: scale(1.02) translateY(-4px);
+    transform: scale(1.01) translateY(0);
     border-color: rgba(255,216,77,.62);
     box-shadow:0 12px 26px rgba(0,0,0,.36);
   }
@@ -649,7 +662,7 @@ header .contact-icons a { padding:8px 14px; }
 }
 
 .review-head{
-  display:flex; align-items:center; gap:10px; margin-bottom:8px;
+  display:flex; align-items:center; gap:10px; margin:0 0 6px;
 }
 .avatar{
   width:42px; height:42px; flex:0 0 42px;
@@ -679,6 +692,10 @@ header .contact-icons a { padding:8px 14px; }
 .review-card blockquote{ margin:0 0 .7rem; color:#ddd; }
 .review-foot{ font-size:.9rem; color:#bdbdbd; }
 .reviews-cta{ text-align:center; margin-top:10px; }
+
+#reviews.content{
+  padding-top: 14px;
+}
 .about-list {
   text-align: center;
   max-width: 800px;
@@ -1075,4 +1092,32 @@ header > *{ position:relative; z-index:1;
 
 .yellow-link:hover {
   text-decoration: underline;
+}
+
+/* Logo readability: subtle wood-style plaque behind the logo */
+.title-center > .brand{
+  display:block;
+  width:108px;
+  height:auto;
+  padding:7px 10px;
+  border-radius:12px;
+  border:1px solid rgba(92,56,23,.9);
+  background:
+    linear-gradient(145deg, rgba(120,74,35,.92), rgba(75,45,18,.92)),
+    repeating-linear-gradient(
+      -10deg,
+      rgba(255,255,255,.06) 0 2px,
+      rgba(0,0,0,.06) 2px 5px
+    );
+  box-shadow:
+    0 10px 24px rgba(0,0,0,.35),
+    inset 0 1px 0 rgba(255,255,255,.2),
+    inset 0 -8px 16px rgba(0,0,0,.2);
+}
+
+@media (max-width: 600px){
+  .title-center > .brand{
+    width:92px;
+    padding:6px 8px;
+  }
 }

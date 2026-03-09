@@ -41,43 +41,10 @@
   </url>
 
   <!-- PC building / PC-bygg -->
-  <url>
-    <loc>https://www.nico-on-point-services.com/en/pc-building.html</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.nico-on-point-services.com/en/pc-building.html"/>
-    <xhtml:link rel="alternate" hreflang="sv" href="https://www.nico-on-point-services.com/sv/pc-bygg.html"/>
-  </url>
-
-  <url>
-    <loc>https://www.nico-on-point-services.com/sv/pc-bygg.html</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.nico-on-point-services.com/en/pc-building.html"/>
-    <xhtml:link rel="alternate" hreflang="sv" href="https://www.nico-on-point-services.com/sv/pc-bygg.html"/>
-  </url>
 
   <!-- Webdesign (zelfde slug in beide talen) -->
-  <url>
-    <loc>https://www.nico-on-point-services.com/en/webdesign.html</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.nico-on-point-services.com/en/webdesign.html"/>
-    <xhtml:link rel="alternate" hreflang="sv" href="https://www.nico-on-point-services.com/sv/webdesign.html"/>
-  </url>
-
-  <url>
-    <loc>https://www.nico-on-point-services.com/sv/webdesign.html</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.nico-on-point-services.com/en/webdesign.html"/>
-    <xhtml:link rel="alternate" hreflang="sv" href="https://www.nico-on-point-services.com/sv/webdesign.html"/>
-  </url>
 
   <!-- Remote support / Fjärrarbete -->
-  <url>
-    <loc>https://www.nico-on-point-services.com/en/remote-work.html</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.nico-on-point-services.com/en/remote-work.html"/>
-    <xhtml:link rel="alternate" hreflang="sv" href="https://www.nico-on-point-services.com/sv/fjarrarbete.html"/>
-  </url>
-
-  <url>
-    <loc>https://www.nico-on-point-services.com/sv/fjarrarbete.html</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.nico-on-point-services.com/en/remote-work.html"/>
-    <xhtml:link rel="alternate" hreflang="sv" href="https://www.nico-on-point-services.com/sv/fjarrarbete.html"/>
-  </url>
 
   <!-- Contact / Kontakt -->
   <url>
@@ -150,27 +117,6 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://www.nico-on-point-services.com/en/multi-skill-technician.html"/>
     <xhtml:link rel="alternate" hreflang="sv" href="https://www.nico-on-point-services.com/sv/multikompetent-tekniker.html"/>
     <xhtml:link rel="alternate" hreflang="nl" href="https://www.nico-on-point-services.com/nl/multi-skill-technician.html"/>
-  </url>
-
-  <url>
-    <loc>https://www.nico-on-point-services.com/nl/pc-building.html</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.nico-on-point-services.com/en/pc-building.html"/>
-    <xhtml:link rel="alternate" hreflang="sv" href="https://www.nico-on-point-services.com/sv/pc-bygg.html"/>
-    <xhtml:link rel="alternate" hreflang="nl" href="https://www.nico-on-point-services.com/nl/pc-building.html"/>
-  </url>
-
-  <url>
-    <loc>https://www.nico-on-point-services.com/nl/webdesign.html</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.nico-on-point-services.com/en/webdesign.html"/>
-    <xhtml:link rel="alternate" hreflang="sv" href="https://www.nico-on-point-services.com/sv/webdesign.html"/>
-    <xhtml:link rel="alternate" hreflang="nl" href="https://www.nico-on-point-services.com/nl/webdesign.html"/>
-  </url>
-
-  <url>
-    <loc>https://www.nico-on-point-services.com/nl/remote-work.html</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.nico-on-point-services.com/en/remote-work.html"/>
-    <xhtml:link rel="alternate" hreflang="sv" href="https://www.nico-on-point-services.com/sv/fjarrarbete.html"/>
-    <xhtml:link rel="alternate" hreflang="nl" href="https://www.nico-on-point-services.com/nl/remote-work.html"/>
   </url>
 
   <url>
