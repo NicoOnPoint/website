@@ -12,20 +12,7 @@
   <link rel="stylesheet" href="../assets/style.css">
   <style>
     :root { --header-bg: url('/images/vakantiehuis/header-aurora.webp'); }
-    header { background-position: center 35%; }
-    .header-lines{
-      height: 42px;
-      background: #111;
-      border-top: 1px solid rgba(255,216,77,.35);
-      border-bottom: 1px solid rgba(255,216,77,.35);
-      width: 100vw;
-      position: relative;
-      left: 50%;
-      right: 50%;
-      margin-left: -50vw;
-      margin-right: -50vw;
-    }
-    .lang-pills { margin-top: 12px; }
+    header { background-position: center 35%; }    .lang-pills { margin-top: 12px; }
   </style>
 </head>
 <body>
@@ -51,7 +38,7 @@
 
       <nav class="contact-icons">
         <a href="tel:+46707106182">📞 +46 70 710 61 82</a>
-        <a href="contact.html">✉️ info@nico-on-point-services.com</a>
+        <a href="contact.html">info@nico-on-point-services.com</a>
       </nav>
 
       <nav class="contact-icons" aria-label="Site navigation">
@@ -63,7 +50,8 @@
       </nav>
     </div>
   </header>
-  <div class="header-lines" aria-hidden="true"></div>
+
+<div class="ticker ticker--full ticker--silent" id="ticker" aria-hidden="true"></div>
 
   <section class="content about">
     <h2 class="section-title">What I can do for you</h2>

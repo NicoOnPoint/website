@@ -21,20 +21,7 @@
         rgba(0,0,0,.38)
       );
     }
-    header::after{ background: transparent; }
-    .header-lines{
-      height: 42px;
-      background: #111;
-      border-top: 1px solid rgba(255,216,77,.35);
-      border-bottom: 1px solid rgba(255,216,77,.35);
-      width: 100vw;
-      position: relative;
-      left: 50%;
-      right: 50%;
-      margin-left: -50vw;
-      margin-right: -50vw;
-    }
-    .lang-pills { margin-top: 12px; }
+    header::after{ background: transparent; }    .lang-pills { margin-top: 12px; }
     .placeholder-note { font-size: .95rem; color: #cfcfcf; text-align: center; }
     .warning-visual { max-width: 720px; margin: 0 auto; }
     .warning-visual img {
@@ -72,7 +59,7 @@
 
       <nav class="contact-icons">
         <a href="tel:+46707106182">📞 +46 70 710 61 82</a>
-        <a href="contact.html">✉️ info@nico-on-point-services.com</a>
+        <a href="contact.html">info@nico-on-point-services.com</a>
       </nav>
 
       <nav class="contact-icons" aria-label="Site navigation">
@@ -84,7 +71,8 @@
       </nav>
     </div>
   </header>
-  <div class="header-lines" aria-hidden="true"></div>
+
+<div class="ticker ticker--full ticker--silent" id="ticker" aria-hidden="true"></div>
 
   <section class="content">
     <h2 class="section-title">Do not let your purchase and dream home fall into the water</h2>
