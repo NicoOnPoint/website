@@ -605,6 +605,11 @@ header .contact-icons a { padding:8px 14px; }
   background:linear-gradient(90deg, rgba(231,207,120,0), #e7cf78, rgba(231,207,120,0));
   border-radius:3px; opacity:.9;
 }
+.reviews-intro{
+  text-align:center;
+  margin:0 auto 12px;
+  max-width:760px;
+}
 
 .reviews-grid{
   margin-top:12px;
