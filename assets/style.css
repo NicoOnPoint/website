@@ -222,9 +222,15 @@ header .contact-icons a { padding:8px 14px; }
 .brand{
   width:96px;
   height:auto;
-  filter: drop-shadow(0 2px 6px rgba(0,0,0,.35));
+  filter: brightness(1.28) contrast(1.12) drop-shadow(0 2px 6px rgba(0,0,0,.35));
   border-radius:12px;
   transform: translate(0px, -6px); /* 20px rechts, 30px omlaag – pas aan naar smaak */
+}
+
+.brand-link{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
 }
 
 .header-text{ text-align:center; }
@@ -980,9 +986,10 @@ header > *{ position:relative; z-index:1;
 /* Center logo + title */
 .title-center{
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  gap: 8px;
+  justify-content: center;
+  gap: 14px;
   margin-top: 24px;
   margin-bottom: 12px;
 }
@@ -1260,30 +1267,29 @@ header > *{ position:relative; z-index:1;
   text-decoration: underline;
 }
 
-/* Logo readability: subtle wood-style plaque behind the logo */
-.title-center > .brand{
+.title-center > .brand-link,
+.thanks-brand > .brand-link{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:0;
+}
+
+.title-center > .brand-link .brand,
+.thanks-brand > .brand-link .brand{
   display:block;
   width:108px;
   height:auto;
-  padding:7px 10px;
-  border-radius:12px;
-  border:1px solid rgba(92,56,23,.9);
-  background:
-    linear-gradient(145deg, rgba(120,74,35,.92), rgba(75,45,18,.92)),
-    repeating-linear-gradient(
-      -10deg,
-      rgba(255,255,255,.06) 0 2px,
-      rgba(0,0,0,.06) 2px 5px
-    );
-  box-shadow:
-    0 10px 24px rgba(0,0,0,.35),
-    inset 0 1px 0 rgba(255,255,255,.2),
-    inset 0 -8px 16px rgba(0,0,0,.2);
 }
 
 @media (max-width: 600px){
-  .title-center > .brand{
+  .title-center{
+    flex-direction: column;
+    gap:10px;
+  }
+
+  .title-center > .brand-link .brand,
+  .thanks-brand > .brand-link .brand{
     width:92px;
-    padding:6px 8px;
   }
 }

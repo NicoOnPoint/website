@@ -90,4 +90,21 @@
       }
     });
   });
+
+  document.querySelectorAll('img.brand').forEach(function (logo) {
+    if (logo.closest('a')) return;
+
+    var lang = (document.documentElement.lang || 'en').slice(0, 2);
+    var href = 'index.html';
+    if (lang === 'sv') href = 'index.html';
+    if (lang === 'en') href = 'index.html';
+    if (lang === 'nl') href = 'index.html';
+
+    var link = document.createElement('a');
+    link.href = href;
+    link.setAttribute('aria-label', 'Home');
+    link.className = 'brand-link';
+    logo.parentNode.insertBefore(link, logo);
+    link.appendChild(logo);
+  });
 })();
