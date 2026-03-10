@@ -136,9 +136,66 @@ section#pc-builds .image-grid figcaption{
 /* Meer verticale ruimte en prettiger spacing in de header */
 header .contact-icons { gap:14px; }
 header .contact-icons + .contact-icons { margin-top:14px; }
+header .header-wrap > .contact-icons,
+header > .contact-icons { margin-top:44px; }
 header h1 { margin-bottom:8px; }
 header p  { margin:6px 0 14px; }
 header .contact-icons a { padding:8px 14px; }
+
+.menu-toggle{
+  display:none;
+  margin:44px auto 0;
+  width:52px;
+  height:52px;
+  border-radius:16px;
+  border:1px solid rgba(255,216,77,.55);
+  background:rgba(17,17,17,.92);
+  box-shadow:0 10px 24px rgba(0,0,0,.28);
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  color:#ffd84d;
+}
+
+.menu-toggle__icon,
+.menu-toggle__icon::before,
+.menu-toggle__icon::after{
+  display:block;
+  width:22px;
+  height:2px;
+  border-radius:999px;
+  background:currentColor;
+  transition:transform .2s ease, opacity .2s ease;
+  content:"";
+}
+
+.menu-toggle__icon{
+  position:relative;
+}
+
+.menu-toggle__icon::before{
+  position:absolute;
+  top:-7px;
+  left:0;
+}
+
+.menu-toggle__icon::after{
+  position:absolute;
+  top:7px;
+  left:0;
+}
+
+.menu-toggle[aria-expanded="true"] .menu-toggle__icon{
+  background:transparent;
+}
+
+.menu-toggle[aria-expanded="true"] .menu-toggle__icon::before{
+  transform:translateY(7px) rotate(45deg);
+}
+
+.menu-toggle[aria-expanded="true"] .menu-toggle__icon::after{
+  transform:translateY(-7px) rotate(-45deg);
+}
 
 /* Header: logo links, tekst en knoppen rechts */
 .header-flex{
@@ -167,6 +224,35 @@ header .contact-icons a { padding:8px 14px; }
 @media (max-width: 720px){
   .header-flex{ flex-direction:column; gap:14px; }
   .brand{ width:78px; transform:none; } /* reset op mobiel voor nette stapeling */
+}
+
+@media (max-width: 720px){
+  header .contact-icons.site-nav{
+    display:none;
+    flex-direction:column;
+    align-items:stretch;
+    gap:10px;
+    width:min(100%, 320px);
+    margin:14px auto 0;
+    padding:14px;
+    border:1px solid rgba(255,216,77,.32);
+    border-radius:18px;
+    background:rgba(11,11,11,.9);
+    box-shadow:0 16px 34px rgba(0,0,0,.35);
+    backdrop-filter:blur(8px);
+  }
+
+  header .contact-icons.site-nav.is-open{
+    display:flex;
+  }
+
+  header .contact-icons.site-nav a{
+    width:100%;
+  }
+
+  .menu-toggle{
+    display:flex;
+  }
 }
 /* Taal-switch met vlaggen achter de taalknop */
 .lang-switch a{
@@ -377,6 +463,45 @@ header .contact-icons a { padding:8px 14px; }
     border-width: 2px;
     width: 160px;
   }
+
+  .content.about.full-bleed{
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  .content.about.full-bleed .about-prose p:last-child{
+    margin-bottom: 0;
+  }
+
+  .content.about.full-bleed + .content{
+    margin-top: 4px;
+  }
+
+  .content.about.full-bleed + .content{
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  .content.about .about-list .about-list-final{
+    margin-bottom: 0;
+  }
+
+  .content.about{
+    padding-bottom: 0;
+  }
+
+  .content.about + .content{
+    margin-top: 0;
+  }
+
+  .pricing-section{
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  .pricing-section + .content{
+    margin-top: 4px;
+  }
 }
 /* Kaarten met achtergrondafbeelding */
 .card-bg{
@@ -413,6 +538,14 @@ header .contact-icons a { padding:8px 14px; }
 .card-bg:hover::before{
   transform: scale(1.08);             /* subtiele zoom on hover */
   filter: brightness(1.02);
+}
+
+.card-bg-rotate-right::before{
+  transform: scale(1.3) rotate(45deg);
+}
+
+.card-bg-rotate-right:hover::before{
+  transform: scale(1.34) rotate(45deg);
 }
 
 /* Home Check featured card */
@@ -838,6 +971,7 @@ header > *{ position:relative; z-index:1;
   flex-direction: column;
   align-items: center;
   gap: 8px;
+  margin-top: 24px;
   margin-bottom: 12px;
 }
 

@@ -36,4 +36,58 @@
 
   window.addEventListener('scroll', toggleBtn, { passive: true });
   toggleBtn();
+
+  var labels = {
+    nl: 'Menu openen',
+    en: 'Open menu',
+    sv: 'Oppna meny'
+  };
+
+  function closeMobileMenu(button, nav) {
+    button.setAttribute('aria-expanded', 'false');
+    nav.classList.remove('is-open');
+  }
+
+  document.querySelectorAll('header nav.contact-icons').forEach(function (nav, index) {
+    if (nav.dataset.mobileMenuReady === 'true') return;
+
+    nav.dataset.mobileMenuReady = 'true';
+    nav.classList.add('site-nav');
+
+    var lang = (document.documentElement.lang || 'en').slice(0, 2);
+    var button = document.createElement('button');
+    var navId = nav.id || ('site-nav-' + index);
+    nav.id = navId;
+    button.type = 'button';
+    button.className = 'menu-toggle';
+    button.setAttribute('aria-expanded', 'false');
+    button.setAttribute('aria-controls', navId);
+    button.setAttribute('aria-label', labels[lang] || labels.en);
+    button.innerHTML = '<span class="menu-toggle__icon" aria-hidden="true"></span>';
+    nav.parentNode.insertBefore(button, nav);
+
+    button.addEventListener('click', function () {
+      var isOpen = button.getAttribute('aria-expanded') === 'true';
+      button.setAttribute('aria-expanded', String(!isOpen));
+      nav.classList.toggle('is-open', !isOpen);
+    });
+
+    nav.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', function () {
+        closeMobileMenu(button, nav);
+      });
+    });
+
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape') {
+        closeMobileMenu(button, nav);
+      }
+    });
+
+    window.addEventListener('resize', function () {
+      if (!window.matchMedia('(max-width: 720px)').matches) {
+        closeMobileMenu(button, nav);
+      }
+    });
+  });
 })();
