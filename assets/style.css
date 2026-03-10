@@ -1,6 +1,6 @@
 :root{ --header-bg: url('../images/headers/home.webp'); }
 *{ box-sizing: border-box; }
-body{ margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; color:#eee; background:#0f0f0f; }
+body{ margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; color:#fbfbfb; background:#313131; }
 a{ color:#ffd84d; text-decoration:none; }
 /* Header – enkelvoudige, schone versie */
 header{
@@ -40,7 +40,7 @@ header > *{ position: relative; z-index: 1; }
 
 
 h1{ text-align:center; margin:0 0 6px; }
-header p{ text-align:center; margin:0 0 10px; color:#d9d9d9; }
+header p{ text-align:center; margin:0 0 10px; color:#f7f7f7; }
 .contact-icons{ display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
 .contact-icons a{
   background:#1a1a1a;
@@ -70,17 +70,17 @@ header p{ text-align:center; margin:0 0 10px; color:#d9d9d9; }
   border:1px solid rgba(255,216,77,.35);
   border-radius:12px;
   padding:8px 12px;
-  color:#cfcfcf;
+  color:#f2f2f2;
   text-align: center; /* ✅ tekst centreren */
 }
 footer.site-footer{ background:transparent; border:0; padding: 40px 16px; }
 .footer-wrap{ max-width:1100px; margin:0 auto; }
-.footer-card{ background:#111; border:1px solid rgba(255,216,77,.55); color:#eaeaea; border-radius:18px; padding:20px; text-align:center; box-shadow: 0 12px 28px rgba(0,0,0,.35), inset 0 0 0 1px rgba(255,216,77,.15); }
+.footer-card{ background:#111; border:1px solid rgba(255,216,77,.55); color:#fafafa; border-radius:18px; padding:20px; text-align:center; box-shadow: 0 12px 28px rgba(0,0,0,.35), inset 0 0 0 1px rgba(255,216,77,.15); }
 .footer-card .sep{ display:block; height:1px; margin:.9rem auto; max-width:520px; background:linear-gradient(90deg, rgba(255,216,77,0), rgba(255,216,77,.35), rgba(255,216,77,0)); opacity:.7; }
 .grid-home{ display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap:16px; margin-top:12px; }
 .card-link{ display:block; background:#111; border:1px solid rgba(255,216,77,.35); border-radius:14px; padding:16px; box-shadow:0 4px 16px rgba(0,0,0,.25); color:inherit; }
 .card-link h3{ margin:0 0 .25rem; }
-.card-link p{ margin:.25rem 0 0; color:#cfcfcf; }
+.card-link p{ margin:.25rem 0 0; color:#f2f2f2; }
 .text-banner + .content, header + .content{ margin-top: 16px; }
 
 /* PC Builds gallery */
@@ -106,7 +106,7 @@ section#pc-builds .image-grid img{
 }
 section#pc-builds .image-grid figcaption{
   margin-top:8px;
-  color:#cfcfcf;
+  color:#f2f2f2;
   font-size:.95rem;
 }
 
@@ -117,7 +117,7 @@ section#pc-builds .image-grid figcaption{
 }
 .contact-frame input, .contact-frame select, .contact-frame textarea{
   background:#0f0f0f; border:1px solid rgba(255,216,77,.35);
-  color:#eaeaea; border-radius:8px; padding:10px;
+  color:#fcfcfc; border-radius:8px; padding:10px;
 }
 .contact-frame button{
   background:#1a1a1a; border:1px solid rgba(255,216,77,.55);
@@ -911,7 +911,7 @@ section.content + section.content::before {
 /*PAGINA BREEDE AFBEELDING*/
 /* 1) Site-brede achtergrondafbeelding */
 :root{
-  --site-bg: url('../images/backgrounds/home.webp'); /* pas pad/naam aan */
+  --site-bg: url('../images/home-check/rood-zweeds-huis.webp');
 }
 
 html, body{
@@ -919,8 +919,10 @@ html, body{
 }
 
 body{
-  /* afbeelding over de hele site */
-  background: var(--site-bg) center / cover no-repeat fixed #0f0f0f;
+  /* pagina-achtergrond, los van de header-afbeeldingen */
+  background:
+    linear-gradient(180deg, rgba(34,34,34,.12), rgba(26,26,26,.2)),
+    var(--site-bg) center / cover no-repeat fixed #313131;
   /* 'fixed' geeft een subtiel parallax-gevoel; wil je dat niet, haal 'fixed' weg */
   position: relative;
 }
