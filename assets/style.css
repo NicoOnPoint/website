@@ -135,6 +135,20 @@ section#pc-builds .image-grid figcaption{
   color:#e7cf78;
   white-space: nowrap;
 }
+.contact-map{
+  max-width:720px;
+  margin:18px auto 0;
+}
+.contact-map iframe{
+  width:100%;
+  aspect-ratio:16 / 9;
+  min-height:260px;
+  border:1px solid rgba(231,207,120,.45);
+  border-radius:12px;
+  box-shadow:0 8px 24px rgba(0,0,0,.35);
+  display:block;
+  background:#0f0f0f;
+}
 .contact-intro {
   text-align: center;
 }
