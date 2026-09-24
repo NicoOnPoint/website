@@ -1359,7 +1359,7 @@ header > *{ position:relative; z-index:1;
   }
 }
 
-/* Shared rate announcement above the service prices. */
+/* VAT information above the service prices. */
 .rate-notice{
   margin:20px 0;
   padding:16px 20px;
