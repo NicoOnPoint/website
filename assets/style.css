@@ -1358,3 +1358,18 @@ header > *{ position:relative; z-index:1;
     width:92px;
   }
 }
+
+/* Shared rate announcement above the service prices. */
+.rate-notice{
+  margin:20px 0;
+  padding:16px 20px;
+  background:#1a1a1a;
+  border:1px solid rgba(231,207,120,.45);
+  border-left:4px solid #e7cf78;
+  border-radius:12px;
+  color:#fbfbfb;
+  line-height:1.6;
+}
+.rate-notice p{ margin:0; }
+.rate-notice p + p{ margin-top:6px; }
+.rate-notice p:first-child{ color:#e7cf78; }
