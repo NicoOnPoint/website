@@ -26,3 +26,5 @@
 @media(max-width:720px){.about-values-grid{grid-template-columns:minmax(0,1fr)}.about-values-grid>*{min-width:0}.autumn-dining .guest-autumn-menu::before{left:24px}.autumn-dining .guest-autumn-menu::after,.autumn-dining .guest-autumn-process::after{right:24px}}
 
 @media(max-width:720px){main .privacy-page h2{font-size:clamp(1rem,5.5vw,1.4rem)!important}.technician-project-grid figcaption strong{font-size:clamp(.9rem,4vw,1rem)}}
+
+@media(max-width:720px){html[lang="nl"] .vacation-home-hero .button.primary{font-size:clamp(12px,3.5vw,14px);padding-inline:12px;white-space:nowrap;overflow-wrap:normal;hyphens:none}}
