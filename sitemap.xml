@@ -1,136 +1,195 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset 
-  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-  xmlns:xhtml="http://www.w3.org/1999/xhtml">
-
-  <!-- Root (taalselector / redirect) -->
+<?xml version='1.0' encoding='utf-8'?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://www.nico-on-point-services.com/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.nico-on-point-services.com/en/index.html"/>
-    <xhtml:link rel="alternate" hreflang="sv" href="https://www.nico-on-point-services.com/sv/index.html"/>
-    <xhtml:link rel="alternate" hreflang="nl" href="https://www.nico-on-point-services.com/nl/index.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.nico-on-point-services.com/"/>
+    <loc>https://nico-on-point-services.com/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nico-on-point-services.com/" />
+    <xhtml:link rel="alternate" hreflang="sv" href="https://nico-on-point-services.com/sv/index.html" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://nico-on-point-services.com/nl/index.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nico-on-point-services.com/" />
   </url>
-
-  <!-- Home EN / SV -->
   <url>
-    <loc>https://www.nico-on-point-services.com/en/index.html</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.nico-on-point-services.com/en/index.html"/>
-    <xhtml:link rel="alternate" hreflang="sv" href="https://www.nico-on-point-services.com/sv/index.html"/>
-    <xhtml:link rel="alternate" hreflang="nl" href="https://www.nico-on-point-services.com/nl/index.html"/>
+    <loc>https://nico-on-point-services.com/sv/index.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nico-on-point-services.com/" />
+    <xhtml:link rel="alternate" hreflang="sv" href="https://nico-on-point-services.com/sv/index.html" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://nico-on-point-services.com/nl/index.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nico-on-point-services.com/" />
   </url>
-
   <url>
-    <loc>https://www.nico-on-point-services.com/sv/index.html</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.nico-on-point-services.com/en/index.html"/>
-    <xhtml:link rel="alternate" hreflang="sv" href="https://www.nico-on-point-services.com/sv/index.html"/>
-    <xhtml:link rel="alternate" hreflang="nl" href="https://www.nico-on-point-services.com/nl/index.html"/>
+    <loc>https://nico-on-point-services.com/nl/index.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nico-on-point-services.com/" />
+    <xhtml:link rel="alternate" hreflang="sv" href="https://nico-on-point-services.com/sv/index.html" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://nico-on-point-services.com/nl/index.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nico-on-point-services.com/" />
   </url>
-
-  <!-- Multi-skill technician / multikompetent tekniker -->
   <url>
-    <loc>https://www.nico-on-point-services.com/en/multi-skill-technician.html</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.nico-on-point-services.com/en/multi-skill-technician.html"/>
-    <xhtml:link rel="alternate" hreflang="sv" href="https://www.nico-on-point-services.com/sv/multikompetent-tekniker.html"/>
+    <loc>https://nico-on-point-services.com/en/multi-skill-technician.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nico-on-point-services.com/en/multi-skill-technician.html" />
+    <xhtml:link rel="alternate" hreflang="sv" href="https://nico-on-point-services.com/sv/multikompetent-tekniker.html" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://nico-on-point-services.com/nl/multi-skill-technician.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nico-on-point-services.com/en/multi-skill-technician.html" />
   </url>
-
   <url>
-    <loc>https://www.nico-on-point-services.com/sv/multikompetent-tekniker.html</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.nico-on-point-services.com/en/multi-skill-technician.html"/>
-    <xhtml:link rel="alternate" hreflang="sv" href="https://www.nico-on-point-services.com/sv/multikompetent-tekniker.html"/>
+    <loc>https://nico-on-point-services.com/sv/multikompetent-tekniker.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nico-on-point-services.com/en/multi-skill-technician.html" />
+    <xhtml:link rel="alternate" hreflang="sv" href="https://nico-on-point-services.com/sv/multikompetent-tekniker.html" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://nico-on-point-services.com/nl/multi-skill-technician.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nico-on-point-services.com/en/multi-skill-technician.html" />
   </url>
-
-  <!-- PC building / PC-bygg -->
-
-  <!-- Webdesign (zelfde slug in beide talen) -->
-
-  <!-- Remote support / Fjärrarbete -->
-
-  <!-- Contact / Kontakt -->
   <url>
-    <loc>https://www.nico-on-point-services.com/en/contact.html</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.nico-on-point-services.com/en/contact.html"/>
-    <xhtml:link rel="alternate" hreflang="sv" href="https://www.nico-on-point-services.com/sv/kontakt.html"/>
+    <loc>https://nico-on-point-services.com/nl/multi-skill-technician.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nico-on-point-services.com/en/multi-skill-technician.html" />
+    <xhtml:link rel="alternate" hreflang="sv" href="https://nico-on-point-services.com/sv/multikompetent-tekniker.html" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://nico-on-point-services.com/nl/multi-skill-technician.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nico-on-point-services.com/en/multi-skill-technician.html" />
   </url>
-
   <url>
-    <loc>https://www.nico-on-point-services.com/sv/kontakt.html</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.nico-on-point-services.com/en/contact.html"/>
-    <xhtml:link rel="alternate" hreflang="sv" href="https://www.nico-on-point-services.com/sv/kontakt.html"/>
+    <loc>https://nico-on-point-services.com/en/varmland-home-check.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nico-on-point-services.com/en/varmland-home-check.html" />
+    <xhtml:link rel="alternate" hreflang="sv" href="https://nico-on-point-services.com/sv/huskontroll-varmland.html" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://nico-on-point-services.com/nl/woningcheck-varmland.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nico-on-point-services.com/en/varmland-home-check.html" />
   </url>
-
-  <!-- Home check / Huskontroll / Woningcheck -->
   <url>
-    <loc>https://www.nico-on-point-services.com/nl/woningcheck-varmland.html</loc>
-    <xhtml:link rel="alternate" hreflang="nl" href="https://www.nico-on-point-services.com/nl/woningcheck-varmland.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.nico-on-point-services.com/en/varmland-home-check.html"/>
-    <xhtml:link rel="alternate" hreflang="sv" href="https://www.nico-on-point-services.com/sv/huskontroll-varmland.html"/>
+    <loc>https://nico-on-point-services.com/sv/huskontroll-varmland.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nico-on-point-services.com/en/varmland-home-check.html" />
+    <xhtml:link rel="alternate" hreflang="sv" href="https://nico-on-point-services.com/sv/huskontroll-varmland.html" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://nico-on-point-services.com/nl/woningcheck-varmland.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nico-on-point-services.com/en/varmland-home-check.html" />
   </url>
-
   <url>
-    <loc>https://www.nico-on-point-services.com/en/varmland-home-check.html</loc>
-    <xhtml:link rel="alternate" hreflang="nl" href="https://www.nico-on-point-services.com/nl/woningcheck-varmland.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.nico-on-point-services.com/en/varmland-home-check.html"/>
-    <xhtml:link rel="alternate" hreflang="sv" href="https://www.nico-on-point-services.com/sv/huskontroll-varmland.html"/>
+    <loc>https://nico-on-point-services.com/nl/woningcheck-varmland.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nico-on-point-services.com/en/varmland-home-check.html" />
+    <xhtml:link rel="alternate" hreflang="sv" href="https://nico-on-point-services.com/sv/huskontroll-varmland.html" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://nico-on-point-services.com/nl/woningcheck-varmland.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nico-on-point-services.com/en/varmland-home-check.html" />
   </url>
-
   <url>
-    <loc>https://www.nico-on-point-services.com/sv/huskontroll-varmland.html</loc>
-    <xhtml:link rel="alternate" hreflang="nl" href="https://www.nico-on-point-services.com/nl/woningcheck-varmland.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.nico-on-point-services.com/en/varmland-home-check.html"/>
-    <xhtml:link rel="alternate" hreflang="sv" href="https://www.nico-on-point-services.com/sv/huskontroll-varmland.html"/>
+    <loc>https://nico-on-point-services.com/en/vacation-home-management-varmland.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nico-on-point-services.com/en/vacation-home-management-varmland.html" />
+    <xhtml:link rel="alternate" hreflang="sv" href="https://nico-on-point-services.com/sv/fritidshus-forvaltning-varmland.html" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://nico-on-point-services.com/nl/vakantiehuis-beheer-varmland.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nico-on-point-services.com/en/vacation-home-management-varmland.html" />
   </url>
-
-  <!-- Vacation home management / Fritidshus förvaltning / Vakantiehuis beheer -->
   <url>
-    <loc>https://www.nico-on-point-services.com/nl/vakantiehuis-beheer-varmland.html</loc>
-    <xhtml:link rel="alternate" hreflang="nl" href="https://www.nico-on-point-services.com/nl/vakantiehuis-beheer-varmland.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.nico-on-point-services.com/en/vacation-home-management-varmland.html"/>
-    <xhtml:link rel="alternate" hreflang="sv" href="https://www.nico-on-point-services.com/sv/fritidshus-forvaltning-varmland.html"/>
+    <loc>https://nico-on-point-services.com/sv/fritidshus-forvaltning-varmland.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nico-on-point-services.com/en/vacation-home-management-varmland.html" />
+    <xhtml:link rel="alternate" hreflang="sv" href="https://nico-on-point-services.com/sv/fritidshus-forvaltning-varmland.html" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://nico-on-point-services.com/nl/vakantiehuis-beheer-varmland.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nico-on-point-services.com/en/vacation-home-management-varmland.html" />
   </url>
-
   <url>
-    <loc>https://www.nico-on-point-services.com/en/vacation-home-management-varmland.html</loc>
-    <xhtml:link rel="alternate" hreflang="nl" href="https://www.nico-on-point-services.com/nl/vakantiehuis-beheer-varmland.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.nico-on-point-services.com/en/vacation-home-management-varmland.html"/>
-    <xhtml:link rel="alternate" hreflang="sv" href="https://www.nico-on-point-services.com/sv/fritidshus-forvaltning-varmland.html"/>
+    <loc>https://nico-on-point-services.com/nl/vakantiehuis-beheer-varmland.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nico-on-point-services.com/en/vacation-home-management-varmland.html" />
+    <xhtml:link rel="alternate" hreflang="sv" href="https://nico-on-point-services.com/sv/fritidshus-forvaltning-varmland.html" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://nico-on-point-services.com/nl/vakantiehuis-beheer-varmland.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nico-on-point-services.com/en/vacation-home-management-varmland.html" />
   </url>
-
   <url>
-    <loc>https://www.nico-on-point-services.com/sv/fritidshus-forvaltning-varmland.html</loc>
-    <xhtml:link rel="alternate" hreflang="nl" href="https://www.nico-on-point-services.com/nl/vakantiehuis-beheer-varmland.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.nico-on-point-services.com/en/vacation-home-management-varmland.html"/>
-    <xhtml:link rel="alternate" hreflang="sv" href="https://www.nico-on-point-services.com/sv/fritidshus-forvaltning-varmland.html"/>
+    <loc>https://nico-on-point-services.com/en/private-dining.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nico-on-point-services.com/en/private-dining.html" />
+    <xhtml:link rel="alternate" hreflang="sv" href="https://nico-on-point-services.com/sv/privat-middag.html" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://nico-on-point-services.com/nl/private-dining.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nico-on-point-services.com/en/private-dining.html" />
   </url>
-
-
-  <!-- Nederlandse pagina's -->
   <url>
-    <loc>https://www.nico-on-point-services.com/nl/index.html</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.nico-on-point-services.com/en/index.html"/>
-    <xhtml:link rel="alternate" hreflang="sv" href="https://www.nico-on-point-services.com/sv/index.html"/>
-    <xhtml:link rel="alternate" hreflang="nl" href="https://www.nico-on-point-services.com/nl/index.html"/>
+    <loc>https://nico-on-point-services.com/sv/privat-middag.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nico-on-point-services.com/en/private-dining.html" />
+    <xhtml:link rel="alternate" hreflang="sv" href="https://nico-on-point-services.com/sv/privat-middag.html" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://nico-on-point-services.com/nl/private-dining.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nico-on-point-services.com/en/private-dining.html" />
   </url>
-
   <url>
-    <loc>https://www.nico-on-point-services.com/nl/multi-skill-technician.html</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.nico-on-point-services.com/en/multi-skill-technician.html"/>
-    <xhtml:link rel="alternate" hreflang="sv" href="https://www.nico-on-point-services.com/sv/multikompetent-tekniker.html"/>
-    <xhtml:link rel="alternate" hreflang="nl" href="https://www.nico-on-point-services.com/nl/multi-skill-technician.html"/>
+    <loc>https://nico-on-point-services.com/nl/private-dining.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nico-on-point-services.com/en/private-dining.html" />
+    <xhtml:link rel="alternate" hreflang="sv" href="https://nico-on-point-services.com/sv/privat-middag.html" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://nico-on-point-services.com/nl/private-dining.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nico-on-point-services.com/en/private-dining.html" />
   </url>
-
   <url>
-    <loc>https://www.nico-on-point-services.com/nl/contact.html</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.nico-on-point-services.com/en/contact.html"/>
-    <xhtml:link rel="alternate" hreflang="sv" href="https://www.nico-on-point-services.com/sv/kontakt.html"/>
-    <xhtml:link rel="alternate" hreflang="nl" href="https://www.nico-on-point-services.com/nl/contact.html"/>
+    <loc>https://nico-on-point-services.com/en/about.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nico-on-point-services.com/en/about.html" />
+    <xhtml:link rel="alternate" hreflang="sv" href="https://nico-on-point-services.com/sv/om-oss.html" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://nico-on-point-services.com/nl/over-ons.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nico-on-point-services.com/en/about.html" />
   </url>
-
   <url>
-    <loc>https://www.nico-on-point-services.com/nl/thanks.html</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.nico-on-point-services.com/en/thanks.html"/>
-    <xhtml:link rel="alternate" hreflang="sv" href="https://www.nico-on-point-services.com/sv/tack.html"/>
-    <xhtml:link rel="alternate" hreflang="nl" href="https://www.nico-on-point-services.com/nl/thanks.html"/>
+    <loc>https://nico-on-point-services.com/sv/om-oss.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nico-on-point-services.com/en/about.html" />
+    <xhtml:link rel="alternate" hreflang="sv" href="https://nico-on-point-services.com/sv/om-oss.html" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://nico-on-point-services.com/nl/over-ons.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nico-on-point-services.com/en/about.html" />
   </url>
-
+  <url>
+    <loc>https://nico-on-point-services.com/nl/over-ons.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nico-on-point-services.com/en/about.html" />
+    <xhtml:link rel="alternate" hreflang="sv" href="https://nico-on-point-services.com/sv/om-oss.html" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://nico-on-point-services.com/nl/over-ons.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nico-on-point-services.com/en/about.html" />
+  </url>
+  <url>
+    <loc>https://nico-on-point-services.com/en/contact.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nico-on-point-services.com/en/contact.html" />
+    <xhtml:link rel="alternate" hreflang="sv" href="https://nico-on-point-services.com/sv/kontakt.html" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://nico-on-point-services.com/nl/contact.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nico-on-point-services.com/en/contact.html" />
+  </url>
+  <url>
+    <loc>https://nico-on-point-services.com/sv/kontakt.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nico-on-point-services.com/en/contact.html" />
+    <xhtml:link rel="alternate" hreflang="sv" href="https://nico-on-point-services.com/sv/kontakt.html" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://nico-on-point-services.com/nl/contact.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nico-on-point-services.com/en/contact.html" />
+  </url>
+  <url>
+    <loc>https://nico-on-point-services.com/nl/contact.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nico-on-point-services.com/en/contact.html" />
+    <xhtml:link rel="alternate" hreflang="sv" href="https://nico-on-point-services.com/sv/kontakt.html" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://nico-on-point-services.com/nl/contact.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nico-on-point-services.com/en/contact.html" />
+  </url>
+  <url>
+    <loc>https://nico-on-point-services.com/en/webdesign.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nico-on-point-services.com/en/webdesign.html" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://nico-on-point-services.com/nl/webdesign.html" />
+    <xhtml:link rel="alternate" hreflang="sv" href="https://nico-on-point-services.com/sv/webdesign.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nico-on-point-services.com/en/webdesign.html" />
+  </url>
+  <url>
+    <loc>https://nico-on-point-services.com/nl/webdesign.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nico-on-point-services.com/en/webdesign.html" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://nico-on-point-services.com/nl/webdesign.html" />
+    <xhtml:link rel="alternate" hreflang="sv" href="https://nico-on-point-services.com/sv/webdesign.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nico-on-point-services.com/en/webdesign.html" />
+  </url>
+  <url>
+    <loc>https://nico-on-point-services.com/sv/webdesign.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nico-on-point-services.com/en/webdesign.html" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://nico-on-point-services.com/nl/webdesign.html" />
+    <xhtml:link rel="alternate" hreflang="sv" href="https://nico-on-point-services.com/sv/webdesign.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nico-on-point-services.com/en/webdesign.html" />
+  </url>
+  <url>
+    <loc>https://nico-on-point-services.com/en/pc-building.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nico-on-point-services.com/en/pc-building.html" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://nico-on-point-services.com/nl/pc-building.html" />
+    <xhtml:link rel="alternate" hreflang="sv" href="https://nico-on-point-services.com/sv/pc-bygg.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nico-on-point-services.com/en/pc-building.html" />
+  </url>
+  <url>
+    <loc>https://nico-on-point-services.com/nl/pc-building.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nico-on-point-services.com/en/pc-building.html" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://nico-on-point-services.com/nl/pc-building.html" />
+    <xhtml:link rel="alternate" hreflang="sv" href="https://nico-on-point-services.com/sv/pc-bygg.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nico-on-point-services.com/en/pc-building.html" />
+  </url>
+  <url>
+    <loc>https://nico-on-point-services.com/sv/pc-bygg.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nico-on-point-services.com/en/pc-building.html" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://nico-on-point-services.com/nl/pc-building.html" />
+    <xhtml:link rel="alternate" hreflang="sv" href="https://nico-on-point-services.com/sv/pc-bygg.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nico-on-point-services.com/en/pc-building.html" />
+  </url>
+<url><loc>https://nico-on-point-services.com/nl/privacy.html</loc><xhtml:link rel="alternate" hreflang="nl" href="https://nico-on-point-services.com/nl/privacy.html" /><xhtml:link rel="alternate" hreflang="en" href="https://nico-on-point-services.com/en/privacy.html" /><xhtml:link rel="alternate" hreflang="sv" href="https://nico-on-point-services.com/sv/integritet.html" /><xhtml:link rel="alternate" hreflang="x-default" href="https://nico-on-point-services.com/en/privacy.html" /></url>
+<url><loc>https://nico-on-point-services.com/en/privacy.html</loc><xhtml:link rel="alternate" hreflang="nl" href="https://nico-on-point-services.com/nl/privacy.html" /><xhtml:link rel="alternate" hreflang="en" href="https://nico-on-point-services.com/en/privacy.html" /><xhtml:link rel="alternate" hreflang="sv" href="https://nico-on-point-services.com/sv/integritet.html" /><xhtml:link rel="alternate" hreflang="x-default" href="https://nico-on-point-services.com/en/privacy.html" /></url>
+<url><loc>https://nico-on-point-services.com/sv/integritet.html</loc><xhtml:link rel="alternate" hreflang="nl" href="https://nico-on-point-services.com/nl/privacy.html" /><xhtml:link rel="alternate" hreflang="en" href="https://nico-on-point-services.com/en/privacy.html" /><xhtml:link rel="alternate" hreflang="sv" href="https://nico-on-point-services.com/sv/integritet.html" /><xhtml:link rel="alternate" hreflang="x-default" href="https://nico-on-point-services.com/en/privacy.html" /></url>
 </urlset>
