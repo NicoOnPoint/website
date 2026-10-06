@@ -96,8 +96,9 @@
 </div>
 </div>
 <div class="form-field">
-<label for="property_link">Länk till bostad eller annons <small>(valfritt)</small></label>
-<input id="property_link" name="property_link" placeholder="https://..." type="url"/>
+<label for="property_link">Länk till bostad eller annons <small>(obligatoriskt för Private Dining)</small> <span data-property-link-required hidden aria-hidden="true">*</span></label>
+<input aria-describedby="property-link-help" id="property_link" name="property_link" placeholder="https://..." type="url"/>
+<small id="property-link-help">Ange länken till ditt semesterboende på bokningssidan så att vi vet vilket boende din förfrågan kommer från.</small>
 </div>
 <div class="form-field">
 <label for="message">Meddelande <span>*</span></label>

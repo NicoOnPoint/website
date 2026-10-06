@@ -96,8 +96,9 @@
 </div>
 </div>
 <div class="form-field">
-<label for="property_link">Link naar woning of advertentie <small>(optioneel)</small></label>
-<input id="property_link" name="property_link" placeholder="https://..." type="url"/>
+<label for="property_link">Link naar woning of advertentie <small>(verplicht voor Private Dining)</small> <span data-property-link-required hidden aria-hidden="true">*</span></label>
+<input aria-describedby="property-link-help" id="property_link" name="property_link" placeholder="https://..." type="url"/>
+<small id="property-link-help">Vermeld de link naar uw vakantiehuis op de boekingssite, zodat wij weten via welke accommodatie uw aanvraag binnenkomt.</small>
 </div>
 <div class="form-field">
 <label for="message">Bericht <span>*</span></label>

@@ -96,8 +96,9 @@
 </div>
 </div>
 <div class="form-field">
-<label for="property_link">Property or listing link <small>(optional)</small></label>
-<input id="property_link" name="property_link" placeholder="https://..." type="url"/>
+<label for="property_link">Property or listing link <small>(required for Private Dining)</small> <span data-property-link-required hidden aria-hidden="true">*</span></label>
+<input aria-describedby="property-link-help" id="property_link" name="property_link" placeholder="https://..." type="url"/>
+<small id="property-link-help">Enter the link to your holiday home on the booking site so we know which accommodation your enquiry comes from.</small>
 </div>
 <div class="form-field">
 <label for="message">Message <span>*</span></label>

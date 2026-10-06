@@ -12,6 +12,17 @@
   const form=document.getElementById('contact-form');
   if(form){
     const service=form.querySelector('select[name="service"]');
+    const propertyLink=form.querySelector('input[name="property_link"]');
+    const propertyLinkRequired=form.querySelector('[data-property-link-required]');
+    const syncPropertyLink=()=>{
+      const required=service?.selectedOptions[0]?.dataset.service==='private-dining';
+      if(propertyLink)propertyLink.required=required;
+      if(propertyLinkRequired)propertyLinkRequired.hidden=!required;
+    };
+    service?.addEventListener('change',syncPropertyLink);
+    form.addEventListener('reset',()=>setTimeout(syncPropertyLink,0));
+    window.addEventListener('pageshow',syncPropertyLink);
+    syncPropertyLink();
     const selectService=(key)=>{
       const option=service&&Array.from(service.options).find(item=>item.dataset.service===key);
       if(!option)return false;
@@ -34,6 +45,8 @@
     const status=document.getElementById('form-status');
     form.addEventListener('submit',async(e)=>{
       e.preventDefault();
+      syncPropertyLink();
+      if(!form.reportValidity())return;
       const original=submit?.textContent||'';
       if(submit){submit.disabled=true;submit.textContent=document.documentElement.lang==='sv'?'Skickar…':document.documentElement.lang==='nl'?'Verzenden…':'Sending…'}
       if(status)status.textContent=document.documentElement.lang==='sv'?'Ditt meddelande skickas…':document.documentElement.lang==='nl'?'Uw bericht wordt verzonden…':'Sending your message…';
