@@ -3,3 +3,5 @@
 @media(max-width:720px){body{overflow-wrap:anywhere}.section-heading h2{font-size:clamp(1.75rem,8.5vw,3.25rem)}h1,h2,h3{hyphens:auto}.service-grid>*,.about-band-grid>*,.contact-card,.section-heading{min-width:0}}
 
 @media(max-width:720px){html[lang="en"] .hero h1 span,html[lang="nl"] .hero h1 span{overflow-wrap:normal;word-break:normal;hyphens:none}}
+
+@media(max-width:720px){html[lang="en"] .rating-panel h2{hyphens:none;overflow-wrap:normal;word-break:normal}}
