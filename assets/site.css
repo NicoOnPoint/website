@@ -1691,3 +1691,5 @@ body:has(.project-viewer[open]){overflow:hidden}
 @media(min-width:1251px) and (max-width:1399px){.site-menu{gap:14px}.topbar{gap:20px}}
 
 @media(max-width:720px){.rental-support-button{font-size:clamp(11px,3.2vw,14px);padding-inline:10px;white-space:nowrap;overflow-wrap:normal;hyphens:none}}
+
+@media(max-width:720px){.production-footer .footer-social{justify-content:center}}
