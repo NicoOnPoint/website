@@ -36,3 +36,5 @@
 @media(max-width:720px){.production-footer .footer-social{justify-content:center}}
 
 @media(max-width:720px){.dining-price-table{font-size:.875rem}.dining-price-table caption,.dining-price-table th,.dining-price-table td{overflow-wrap:normal;word-break:normal;hyphens:none}.dining-price-table th,.dining-price-table td{padding:10px 8px}.dining-price-table tbody th{white-space:nowrap}}
+
+.guest-dining-topbar{display:grid;grid-template-columns:auto minmax(0,1fr) auto}.guest-dining-topbar>.text-link{justify-self:center;text-align:center;min-width:0}@media(max-width:720px){.guest-dining-topbar{gap:10px}.guest-dining-topbar>.text-link{font-size:.78rem;line-height:1.3}}
