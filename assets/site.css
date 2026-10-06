@@ -1659,7 +1659,7 @@ body:has(.project-viewer[open]){overflow:hidden}
 .service-card-actions{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px 26px;align-items:center;margin-top:auto;padding-top:4px}
 .service-card-actions a:last-child{margin-left:auto;text-align:right}
 
-@media(max-width:720px){body{overflow-wrap:anywhere}.section-heading h2{font-size:clamp(1.75rem,8.5vw,3.25rem)}h1,h2,h3{hyphens:auto}.service-grid>*,.about-band-grid>*,.contact-card,.section-heading{min-width:0}}
+@media(max-width:720px){body{overflow-wrap:anywhere}.section-heading h2{font-size:clamp(1.75rem,8.5vw,3.25rem)}h1,h2,h3{hyphens:none}.service-grid>*,.about-band-grid>*,.contact-card,.section-heading{min-width:0}}
 
 @media(max-width:720px){html[lang="en"] .hero h1 span,html[lang="nl"] .hero h1 span{overflow-wrap:normal;word-break:normal;hyphens:none}}
 
@@ -1670,3 +1670,18 @@ body:has(.project-viewer[open]){overflow:hidden}
 @media(max-width:720px){.allround-hero h1{font-size:clamp(1.6rem,8.5vw,3.2rem);line-height:1.08;text-wrap:balance;hyphens:none;overflow-wrap:normal;word-break:normal}.allround-hero h1 span{white-space:nowrap}.allround-hero .eyebrow{line-height:1.6;text-wrap:balance}}
 
 @media(max-width:720px){.technician-intro{grid-template-columns:minmax(0,1fr);gap:24px}.technician-intro>*{min-width:0}.technician-intro .page-heading{font-size:clamp(1.65rem,7.5vw,2.3rem);line-height:1.15;text-wrap:balance;hyphens:none;overflow-wrap:normal;word-break:normal}}
+
+/* Consistent mobile typography: wrap headings between complete words. */
+@media(max-width:720px){
+ main h1{font-size:clamp(1.3rem,7.5vw,3.2rem)!important}
+ main h2{font-size:clamp(1.25rem,6.5vw,2.3rem)!important}
+ main h3{font-size:clamp(1.05rem,5vw,1.55rem)!important}
+ main :is(h1,h2,h3,h4),figcaption strong{hyphens:none;overflow-wrap:normal;word-break:normal;text-wrap:balance!important;line-height:1.16!important}
+ main :is(h1,h2,h3,h4) span{hyphens:none;overflow-wrap:normal;word-break:normal}
+ .site-menu a{white-space:normal}
+ .intro-grid>*,.price-layout>*,.craft-feature>*,.detail-grid>*,.portfolio-grid>*,.dining-package-grid>*,.contact-form-layout>*{min-width:0}
+}
+
+@media(max-width:720px){.about-values-grid{grid-template-columns:minmax(0,1fr)}.about-values-grid>*{min-width:0}.autumn-dining .guest-autumn-menu::before{left:24px}.autumn-dining .guest-autumn-menu::after,.autumn-dining .guest-autumn-process::after{right:24px}}
+
+@media(max-width:720px){main .privacy-page h2{font-size:clamp(1rem,5.5vw,1.4rem)!important}.technician-project-grid figcaption strong{font-size:clamp(.9rem,4vw,1rem)}}
