@@ -275,29 +275,5 @@
       sections.forEach(section => section.classList.remove('section-awaiting'));
     }
   });
-  const topContact = document.querySelector('.hero-actions a[href*="contact"], .hero-actions a[href*="kontakt"]');
-  if (!topContact) return;
-  const shortcut = document.createElement('a');
-  shortcut.className = 'button primary floating-contact';
-  shortcut.href = topContact.href;
-  shortcut.textContent = copy.contact;
-  shortcut.hidden = true;
-  document.body.appendChild(shortcut);
-  let pending = false;
-  const update = () => {
-    pending = false;
-    const nearContact = [...document.querySelectorAll('.contact-card, .production-footer')].some(element => {
-      const rect = element.getBoundingClientRect();
-      return rect.top < window.innerHeight && rect.bottom > 0;
-    });
-    shortcut.hidden = topContact.getBoundingClientRect().bottom >= 0 || nearContact;
-  };
-  const schedule = () => {
-    if (pending) return;
-    pending = true;
-    requestAnimationFrame(update);
-  };
-  window.addEventListener('scroll', schedule, {passive: true});
-  window.addEventListener('resize', schedule, {passive: true});
-  update();
+
 })();
