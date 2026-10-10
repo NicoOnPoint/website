@@ -1,4 +1,32 @@
 (() => {
+  // Public accommodation referrals, not verified booking identities.
+  const hostCode=new URLSearchParams(location.search).get('host');
+  const hosts={
+    'charming-family-friendly-villa':{name:'Charming Family-Friendly Villa',address:'De Geersgatan 41, 682 60 Lesjöfors, Sweden'},
+    'lilla-alva':{name:'Lilla Älva',address:'Svartå 10, Filipstad, Värmland, Sweden'}
+  };
+  const diningHost=Object.prototype.hasOwnProperty.call(hosts,hostCode)?hosts[hostCode]:null;
+  const diningPage=!!document.querySelector('.guest-dining-topbar');
+  const hostCopy={
+    nl:{stay:'Private dining tijdens uw verblijf bij',known:'Uw accommodatie is al ingevuld. Een advertentielink is niet nodig.',optional:'(optioneel)',guests:'Aantal gasten'},
+    en:{stay:'Private dining during your stay at',known:'Your accommodation is already filled in. A listing link is not needed.',optional:'(optional)',guests:'Number of guests'},
+    sv:{stay:'Privat middag under din vistelse på',known:'Ditt boende är redan ifyllt. Ingen annonslänk behövs.',optional:'(valfritt)',guests:'Antal gäster'}
+  }[document.documentElement.lang];
+  if(diningPage&&diningHost&&hostCopy){
+    document.querySelectorAll('.languages a, a[href*="private-dining-request.html"], a[data-dining-link]').forEach(link=>{
+      const target=new URL(link.getAttribute('href'),location.href);
+      if(target.origin!==location.origin)return;
+      target.searchParams.set('host',hostCode);
+      link.href=target.href;
+    });
+    const intro=document.querySelector('.subhero-content');
+    if(intro){
+      const note=document.createElement('p');
+      note.textContent=`${hostCopy.stay} ${diningHost.name}${diningHost.address?` · ${diningHost.address}`:''}`;
+      intro.append(note);
+    }
+  }
+
   const btn=document.querySelector('.menu-button');
   const menu=document.querySelector('#site-menu');
   if(btn&&menu){
@@ -9,7 +37,7 @@
   }
 
   // Web3Forms: stay on our own confirmation page rather than their default success screen.
-  const form=document.getElementById('contact-form');
+  const form=document.getElementById('contact-form')||document.getElementById('dining-form');
   if(form){
     const service=form.querySelector('select[name="service"]');
     const propertyLink=form.querySelector('input[name="property_link"]');
@@ -31,6 +59,25 @@
       return true;
     };
     selectService(new URLSearchParams(location.search).get('service'));
+    if(form.id==='dining-form'){
+      const date=form.querySelector('[name="preferred_date"]');
+      const earliest=new Date();
+      earliest.setDate(earliest.getDate()+5);
+      date.min=`${earliest.getFullYear()}-${String(earliest.getMonth()+1).padStart(2,'0')}-${String(earliest.getDate()).padStart(2,'0')}`;
+      if(diningHost){
+        const accommodation=form.querySelector('[name="accommodation"]');
+        const address=form.querySelector('[name="location"]');
+        accommodation.value=accommodation.defaultValue=diningHost.name;accommodation.readOnly=true;
+        address.value=address.defaultValue=diningHost.address;address.readOnly=!!diningHost.address;
+        const code=form.querySelector('[name="accommodation_code"]');
+        code.value=code.defaultValue=hostCode;
+        const subject=form.querySelector('[name="subject"]');
+        subject.value=subject.defaultValue=`Private Dining request - ${diningHost.name} (${document.documentElement.lang.toUpperCase()})`;
+      }else if(hostCode){
+        form.querySelector('[data-dining-host-status]').hidden=false;
+      }
+    }
+
     document.querySelectorAll('[data-contact-service]').forEach(link=>{
       link.addEventListener('click',event=>{
         if(event.button!==0||event.ctrlKey||event.metaKey||event.shiftKey||event.altKey)return;
@@ -53,7 +100,11 @@
       try{
         const response=await fetch('https://api.web3forms.com/submit',{method:'POST',body:new FormData(form)});
         const result=await response.json();
-        if(response.ok&&result.success){location.href=form.dataset.thanks||'thanks.html';return}
+        if(response.ok&&result.success){
+          const thanks=new URL(form.dataset.thanks||'thanks.html',location.href);
+          if(form.id==='dining-form'&&diningHost)thanks.searchParams.set('host',hostCode);
+          location.href=thanks.href;return;
+        }
         throw new Error(result.message||'submit failed');
       }catch(err){
         console.error(err);
