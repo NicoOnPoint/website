@@ -241,7 +241,7 @@
 })();
 
 
-// Project viewer, one-time section reveals and a contextual contact shortcut.
+// Project viewer and one-time content reveals.
 (() => {
   const lang = (document.documentElement.lang || 'en').slice(0, 2);
   const copy = {
@@ -300,31 +300,63 @@
       });
     });
   }
-  if (!('IntersectionObserver' in window)) return;
+  if (!('IntersectionObserver' in window) || !window.matchMedia) return;
   const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
-  const sections = [...document.querySelectorAll('main > .section, main > .about-band')];
+  const targets = new Set();
+  // Reveal text groups and individual cards rather than hiding whole long sections.
+  const collect = (element, depth = 0) => {
+    if (element.matches('script, style, form, [hidden], .form-honeypot')) return;
+    const children = [...element.children].filter(child => !child.matches('script, style, [hidden]'));
+    const style = getComputedStyle(element);
+    const layout = style.display;
+    const split = depth < 3 && children.length && !['auto', 'scroll'].includes(style.overflowX) && (
+      element.matches('.shell, .contact-form-column, .contact-side-column') ||
+      ((layout === 'grid' || layout === 'flex') && !element.matches('article, figure, .section-heading, .barbara-host-card, .thanks-card, .map-wrap, .contact-side-card'))
+    );
+    if (split) children.forEach(child => collect(child, depth + 1));
+    else targets.add(element);
+  };
+  document.querySelectorAll('main > section, main > .about-band').forEach(section => {
+    if (section.matches('.hero, .subhero, .about-hero, .contact-page-hero, .trust-strip')) return;
+    [...section.children].forEach(child => collect(child));
+  });
+  const show = element => {
+    element.classList.remove('section-awaiting');
+    reveal.unobserve(element);
+  };
   const reveal = new IntersectionObserver(records => {
     records.forEach(record => {
-      if (record.isIntersecting) {
-        record.target.classList.remove('section-awaiting');
-        reveal.unobserve(record.target);
-      }
+      if (record.isIntersecting) show(record.target);
     });
   }, {rootMargin: '0px 0px -24px 0px', threshold: 0});
-  if (!motion.matches) sections.forEach(section => {
-    if (section.getBoundingClientRect().top < window.innerHeight) return;
-    section.classList.add('section-reveal', 'section-awaiting');
-    reveal.observe(section);
+  if (!motion.matches) targets.forEach(element => {
+    const rect = element.getBoundingClientRect();
+    if (!rect.width || !rect.height || rect.top < window.innerHeight || element.contains(document.activeElement)) return;
+    element.classList.add('section-reveal', 'section-awaiting');
+    reveal.observe(element);
   });
-  sections.forEach(section => section.addEventListener("focusin", () => {
-    section.classList.remove("section-awaiting");
-    reveal.unobserve(section);
-  }));
+  targets.forEach(element => element.addEventListener('focusin', () => show(element)));
+  // Anchor navigation and keyboard focus must always expose their destination.
+  const showAnchor = () => {
+    if (!location.hash) return;
+    let id;
+    try { id = decodeURIComponent(location.hash.slice(1)); } catch { return; }
+    const destination = document.getElementById(id);
+    if (destination) targets.forEach(element => {
+      if (element.contains(destination) || destination.contains(element)) show(element);
+    });
+  };
+  window.addEventListener('hashchange', showAnchor);
+  window.addEventListener('pageshow', () => {
+    targets.forEach(element => {
+      if (element.getBoundingClientRect().top < window.innerHeight) show(element);
+    });
+  });
+  showAnchor();
   motion.addEventListener('change', () => {
     if (motion.matches) {
       reveal.disconnect();
-      sections.forEach(section => section.classList.remove('section-awaiting'));
+      targets.forEach(element => element.classList.remove('section-awaiting'));
     }
   });
-
 })();
