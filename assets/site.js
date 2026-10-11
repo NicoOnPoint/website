@@ -3,7 +3,8 @@
   const hostCode=new URLSearchParams(location.search).get('host');
   const hosts={
     'charming-family-friendly-villa':{name:'Charming Family-Friendly Villa',address:'De Geersgatan 41, 682 60 Lesjöfors, Sweden'},
-    'lilla-alva':{name:'Lilla Älva',address:'Svartå 10, Filipstad, Värmland, Sweden'}
+    'lilla-alva':{name:'Lilla Älva',address:'Svartå 10, Filipstad, Värmland, Sweden'},
+    'stuga-fyra-sasonger':{name:'Stuga Fyra Säsonger - Fishing - Skiing - Hottub',address:'Kalhyttevägen Appartement 25 - Kalhyttan Sportsbyn, 682 91 Filipstad, Sweden'}
   };
   const diningHost=Object.prototype.hasOwnProperty.call(hosts,hostCode)?hosts[hostCode]:null;
   const diningPage=!!document.querySelector('.guest-dining-topbar');
