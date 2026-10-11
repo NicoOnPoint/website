@@ -62,9 +62,72 @@
     selectService(new URLSearchParams(location.search).get('service'));
     if(form.id==='dining-form'){
       const date=form.querySelector('[name="preferred_date"]');
+      const unavailableDateMessage={
+        nl:'Deze datum is niet beschikbaar. Kies een andere datum.',
+        en:'This date is unavailable. Please choose another date.',
+        sv:'Detta datum är inte tillgängligt. Välj ett annat datum.'
+      }[document.documentElement.lang]||'This date is unavailable.';
+      const validateDiningDate=()=>{
+        const value=date.value;
+        const blocked=(value>='2026-10-15'&&value<='2026-11-04')||['2026-12-11','2026-12-25'].includes(value);
+        date.setCustomValidity(blocked?unavailableDateMessage:'');
+        return !blocked;
+      };
+      date.addEventListener('input',validateDiningDate);
+      date.addEventListener('change',()=>{if(!validateDiningDate())date.reportValidity()});
+      form.addEventListener('reset',()=>setTimeout(validateDiningDate,0));
+      window.addEventListener('pageshow',validateDiningDate);
+      validateDiningDate();
       const earliest=new Date();
       earliest.setDate(earliest.getDate()+5);
       date.min=`${earliest.getFullYear()}-${String(earliest.getMonth()+1).padStart(2,'0')}-${String(earliest.getDate()).padStart(2,'0')}`;
+      // Inline calendar: unavailable dates cannot be selected or typed.
+      const calendarLocale={nl:'nl-NL',en:'en-GB',sv:'sv-SE'}[document.documentElement.lang]||'en-GB';
+      const calendarCopy={nl:{previous:'Vorige maand',next:'Volgende maand',choose:'Kies hieronder een datum',label:'Kies uw dinerdatum'},en:{previous:'Previous month',next:'Next month',choose:'Choose a date below',label:'Choose your dinner date'},sv:{previous:'Föregående månad',next:'Nästa månad',choose:'Välj ett datum nedan',label:'Välj datum för middagen'}}[document.documentElement.lang];
+      const dateKey=d=>`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+      const unavailable=value=>value<date.min||(value>='2026-10-15'&&value<='2026-11-04')||['2026-12-11','2026-12-25'].includes(value);
+      date.type='text';date.placeholder=calendarCopy.choose;date.inputMode='none';
+      date.setAttribute('autocomplete','off');
+      date.addEventListener('beforeinput',event=>event.preventDefault());
+      ['paste','drop'].forEach(type=>date.addEventListener(type,event=>event.preventDefault()));
+      date.addEventListener('keydown',event=>{if(event.key!=='Tab')event.preventDefault()});
+      const calendar=document.createElement('div');calendar.className='dining-calendar';
+      calendar.setAttribute('role','group');calendar.setAttribute('aria-label',calendarCopy.label);
+      date.after(calendar);
+      let month=new Date(earliest.getFullYear(),earliest.getMonth(),1);
+      const renderCalendar=()=>{
+        calendar.replaceChildren();
+        const header=document.createElement('div');header.className='dining-calendar-header';
+        const title=document.createElement('strong');title.setAttribute('aria-live','polite');
+        title.textContent=new Intl.DateTimeFormat(calendarLocale,{month:'long',year:'numeric'}).format(month);
+        const previous=document.createElement('button');previous.type='button';previous.textContent='‹';previous.setAttribute('aria-label',calendarCopy.previous);
+        previous.disabled=month.getFullYear()===earliest.getFullYear()&&month.getMonth()===earliest.getMonth();
+        const next=document.createElement('button');next.type='button';next.textContent='›';next.setAttribute('aria-label',calendarCopy.next);
+        previous.addEventListener('click',()=>{month=new Date(month.getFullYear(),month.getMonth()-1,1);renderCalendar();calendar.querySelector('button').focus()});
+        next.addEventListener('click',()=>{month=new Date(month.getFullYear(),month.getMonth()+1,1);renderCalendar();calendar.querySelector('.dining-calendar-header button:last-child').focus()});
+        header.append(previous,title,next);calendar.append(header);
+        const grid=document.createElement('div');grid.className='dining-calendar-grid';
+        for(let i=0;i<7;i++){
+          const weekday=document.createElement('span');weekday.className='dining-calendar-weekday';
+          weekday.textContent=new Intl.DateTimeFormat(calendarLocale,{weekday:'short'}).format(new Date(2026,0,5+i));grid.append(weekday);
+        }
+        const offset=(month.getDay()+6)%7;
+        for(let i=0;i<offset;i++)grid.append(document.createElement('span'));
+        const count=new Date(month.getFullYear(),month.getMonth()+1,0).getDate();
+        for(let day=1;day<=count;day++){
+          const current=new Date(month.getFullYear(),month.getMonth(),day);const key=dateKey(current);
+          const button=document.createElement('button');button.type='button';button.textContent=day;
+          button.disabled=unavailable(key);button.setAttribute('aria-label',new Intl.DateTimeFormat(calendarLocale,{dateStyle:'full'}).format(current));
+          button.setAttribute('aria-pressed',String(date.value===key));
+          button.addEventListener('click',()=>{
+            date.value=key;date.dispatchEvent(new Event('input',{bubbles:true}));date.dispatchEvent(new Event('change',{bubbles:true}));
+            grid.querySelectorAll('button').forEach(item=>item.setAttribute('aria-pressed',String(item===button)));
+          });grid.append(button);
+        }
+        calendar.append(grid);
+      };
+      form.addEventListener('reset',()=>setTimeout(renderCalendar,0));
+      renderCalendar();
       if(diningHost){
         const accommodation=form.querySelector('[name="accommodation"]');
         const address=form.querySelector('[name="location"]');
