@@ -41,10 +41,18 @@
   const form=document.getElementById('contact-form')||document.getElementById('dining-form');
   if(form){
     const service=form.querySelector('select[name="service"]');
+    const accessKey=form.querySelector('[name="access_key"]');
+    const subject=form.querySelector('[name="subject"]');
+    const defaultAccessKey=accessKey?.value;
+    const defaultSubject=subject?.value;
     const propertyLink=form.querySelector('input[name="property_link"]');
     const propertyLinkRequired=form.querySelector('[data-property-link-required]');
     const syncPropertyLink=()=>{
       const required=service?.selectedOptions[0]?.dataset.service==='private-dining';
+      if(service){
+        if(accessKey)accessKey.value=required?'3e4240b0-d44e-408a-838d-79a0d4d4aae0':defaultAccessKey;
+        if(subject)subject.value=required?`Private Dining request (${document.documentElement.lang.toUpperCase()})`:defaultSubject;
+      }
       if(propertyLink)propertyLink.required=required;
       if(propertyLinkRequired)propertyLinkRequired.hidden=!required;
     };
