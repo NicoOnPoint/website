@@ -1713,3 +1713,10 @@ body:has(.project-viewer[open]){overflow:hidden}
 
 /* Local service information and FAQs; shared by EN, NL and SV. */
 .local-service-panel{padding:clamp(22px,3vw,36px);border:1px solid var(--line);border-radius:var(--radius);background:rgba(10,39,65,.35)}.local-service-panel h2{margin:0 0 18px;line-height:1.2}.local-service-panel p{max-width:900px;line-height:1.75}.local-service-links{display:flex;flex-wrap:wrap;gap:12px 24px;margin-top:20px}.local-service-links a{text-decoration:underline;text-underline-offset:4px}.service-faq-list{max-width:900px;display:grid;gap:12px}.service-faq-list details{padding:18px 20px;border:1px solid var(--line);border-radius:12px;background:rgba(10,39,65,.35)}.service-faq-list summary{font-weight:700;line-height:1.5;cursor:pointer}.service-faq-list summary:focus-visible{outline:2px solid var(--gold-light);outline-offset:5px}.service-faq-list details p{margin:14px 0 0;color:var(--muted);line-height:1.75}.service-related{margin-top:32px;max-width:900px}.service-related h3{margin:0 0 12px}.service-related p{line-height:1.75}@media(max-width:640px){.service-faq-list details{padding:16px}.local-service-links{flex-direction:column;align-items:flex-start}}
+
+/* Travel time: separate rate row with a full-width explanation. */
+.price-card>div.travel-time-rate{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 20px;align-items:baseline}.price-card .travel-time-rate>strong{white-space:nowrap}.price-card .travel-time-rate>p{grid-column:1/-1;margin:0;color:#91a3b0;font-size:.875rem;line-height:1.5}
+
+.price-card>div.travel-time-rate{width:100%;grid-template-columns:minmax(0,1fr) max-content}.price-card .travel-time-rate>strong{justify-self:end;text-align:right}.price-card .travel-time-rate>p{justify-self:start;text-align:left}
+
+@media(max-width:640px){.price-card>div.travel-time-rate{display:block}.price-card .travel-time-rate>strong{text-align:left;margin-top:4px;white-space:normal}.price-card .travel-time-rate>p{margin-top:6px}}
