@@ -222,4 +222,28 @@
     <xhtml:link rel="alternate" hreflang="sv" href="https://nico-on-point-services.com/sv/integritet.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://nico-on-point-services.com/en/privacy.html" />
   </url>
+  <url>
+    <loc>https://nico-on-point-services.com/nl/tarieven.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nico-on-point-services.com/en/rates.html" />
+    <xhtml:link rel="alternate" hreflang="sv" href="https://nico-on-point-services.com/sv/priser.html" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://nico-on-point-services.com/nl/tarieven.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nico-on-point-services.com/en/rates.html" />
+  </url>
+  <url>
+    <loc>https://nico-on-point-services.com/en/rates.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nico-on-point-services.com/en/rates.html" />
+    <xhtml:link rel="alternate" hreflang="sv" href="https://nico-on-point-services.com/sv/priser.html" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://nico-on-point-services.com/nl/tarieven.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nico-on-point-services.com/en/rates.html" />
+  </url>
+  <url>
+    <loc>https://nico-on-point-services.com/sv/priser.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nico-on-point-services.com/en/rates.html" />
+    <xhtml:link rel="alternate" hreflang="sv" href="https://nico-on-point-services.com/sv/priser.html" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://nico-on-point-services.com/nl/tarieven.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nico-on-point-services.com/en/rates.html" />
+  </url>
 </urlset>
